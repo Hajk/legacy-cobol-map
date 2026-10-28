@@ -958,7 +958,7 @@
 "poradi": 64
 },
 {
-"nazev": "ETIQUETA-KELLO",
+"nazev": "ETIQUETA-LEGACY",
 "preklad": "",
 "prekladMuj": false,
 "druh": "sekce",
@@ -1935,9 +1935,9 @@
 {
 "z": "IMPRIME-MALA",
 "zRadek": 2352,
-"do": "ETIQUETA-KELLO",
+"do": "ETIQUETA-LEGACY",
 "varianta": "prosty",
-"text": "WHEN 2 PERFORM ETIQUETA-KELLO"
+"text": "WHEN 2 PERFORM ETIQUETA-LEGACY"
 },
 {
 "z": "IMPRIME-MALA",
@@ -2054,9 +2054,9 @@
 {
 "z": "CODIGO-MTD019",
 "zRadek": 2591,
-"do": "ETIQUETA-KELLO",
+"do": "ETIQUETA-LEGACY",
 "varianta": "prosty",
-"text": "WHEN 2 PERFORM ETIQUETA-KELLO"
+"text": "WHEN 2 PERFORM ETIQUETA-LEGACY"
 },
 {
 "z": "CODIGO-MTD019",
@@ -2082,9 +2082,9 @@
 {
 "z": "CODIGO-CGD010",
 "zRadek": 2638,
-"do": "ETIQUETA-KELLO",
+"do": "ETIQUETA-LEGACY",
 "varianta": "prosty",
-"text": "WHEN 2 PERFORM ETIQUETA-KELLO"
+"text": "WHEN 2 PERFORM ETIQUETA-LEGACY"
 },
 {
 "z": "CODIGO-CGD010",
@@ -2166,9 +2166,9 @@
 {
 "z": "NOME-MTD019",
 "zRadek": 2863,
-"do": "ETIQUETA-KELLO",
+"do": "ETIQUETA-LEGACY",
 "varianta": "prosty",
-"text": "WHEN 2 PERFORM ETIQUETA-KELLO"
+"text": "WHEN 2 PERFORM ETIQUETA-LEGACY"
 },
 {
 "z": "NOME-MTD019",
@@ -2194,9 +2194,9 @@
 {
 "z": "NOME-CGD010",
 "zRadek": 2910,
-"do": "ETIQUETA-KELLO",
+"do": "ETIQUETA-LEGACY",
 "varianta": "prosty",
-"text": "WHEN 2 PERFORM ETIQUETA-KELLO"
+"text": "WHEN 2 PERFORM ETIQUETA-LEGACY"
 },
 {
 "z": "NOME-CGD010",
