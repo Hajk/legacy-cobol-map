@@ -1,0 +1,121 @@
+{
+"verze": 1,
+"program": "PEGAIP",
+"cesta": "pegaip.CBL",
+"radku": 96,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 6
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 7,
+"do": 10
+},
+{
+"nazev": "INPUT-OUTPUT SECTION",
+"od": 11,
+"do": 18
+},
+{
+"nazev": "DATA DIVISION",
+"od": 19,
+"do": 19
+},
+{
+"nazev": "FILE SECTION",
+"od": 20,
+"do": 24
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 25,
+"do": 39
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 40,
+"do": 45
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 46,
+"do": 96
+}
+],
+"procedureOd": 46,
+"sekce": [
+{
+"nazev": "MAIN-PROCESS",
+"preklad": "Main process",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "rizeni",
+"od": 47,
+"do": 90,
+"radku": 44,
+"radkuKodu": 38,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+},
+{
+"nazev": "140-EXIBIR-MENSAGEM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "obrazovka",
+"od": 91,
+"do": 96,
+"radku": 6,
+"radkuKodu": 5,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 1
+}
+],
+"skoky": [],
+"vnejsi": [
+{
+"cil": "?",
+"n": 1,
+"radky": [
+51
+],
+"zSekci": [
+"MAIN-PROCESS"
+],
+"co": ""
+},
+{
+"cil": "MENSAGEM",
+"n": 1,
+"radky": [
+93
+],
+"zSekci": [
+"140-EXIBIR-MENSAGEM"
+],
+"co": "user messages"
+}
+],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 2,
+"odstavcu": 0,
+"skoku": 0,
+"volaniVen": 2,
+"radkuDat": 45,
+"radkuKodu": 43
+}
+}

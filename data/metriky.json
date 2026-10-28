@@ -1,0 +1,144 @@
+{
+ "verze": 2,
+ "mereno": {
+  "krokySekundy": [
+   {
+    "klic": "inventura",
+    "popis": "finding the canonical source tree and copybook directories",
+    "s": 3.18
+   },
+   {
+    "klic": "normalizace",
+    "popis": "normalising a mixed-encoding delivery into one UTF-8/LF working copy",
+    "s": 6.79
+   },
+   {
+    "klic": "analyza",
+    "popis": "reading every program and resolving the call graph",
+    "s": 3.87
+   },
+   {
+    "klic": "mapa",
+    "popis": "aggregating the graph into subsystem- and program-level map data",
+    "s": 0.21
+   },
+   {
+    "klic": "programy",
+    "popis": "writing one detail view per program",
+    "s": 4.31
+   },
+   {
+    "klic": "korpus",
+    "popis": "measuring the corpus (files, lines, copybooks, screensets)",
+    "s": 0.58
+   },
+   {
+    "klic": "sablona",
+    "popis": "placing the reusable map template next to the data",
+    "s": 0.0
+   }
+  ],
+  "celkemS": 18.94,
+  "radkuZaSekundu": 25546,
+  "opakovani": 3,
+  "rozptyl": {
+   "minS": 18.86,
+   "medianS": 18.93,
+   "maxS": 18.94
+  }
+ },
+ "inventura": {
+  "kanonickyStrom": "src/Legacy COBOL system",
+  "stromSkupin": "src",
+  "copybookAdresaru": 1,
+  "kopiiProgramu": 3.0,
+  "duvod": "src/Legacy COBOL system holds 711 distinct program names directly; next best is tests/BUILD with 707"
+ },
+ "stroj": {
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "jader": 4,
+  "pametGB": 15.6,
+  "node": "v22.22.1",
+  "python": "3.14.4"
+ },
+ "rozsah": {
+  "zahrnuto": [
+   "detecting the encoding of every source file and normalising the delivery to one UTF-8/LF working copy, because the census found more than one encoding",
+   "finding the canonical source tree and copybook directories",
+   "reading every program and resolving the call graph",
+   "aggregating the graph into subsystem- and program-level map data",
+   "writing one detail view per program",
+   "measuring the corpus (files, lines, copybooks, screensets)",
+   "placing the reusable map template next to the data"
+  ],
+  "nezahrnuto": [
+   "downloading and unpacking the 1.3 GB delivery (one-off)",
+   "writing the domain dictionary that names subsystems in business terms (human work, hours)",
+   "building the analyser itself (1 500 lines of TypeScript, 142 regression tests)",
+   "compiling or running any COBOL — nothing here is executed, only read"
+  ]
+ },
+ "kodovani": {
+  "souboru": 5825,
+  "podleKodovani": [
+   {
+    "jmeno": "ascii",
+    "souboru": 3597,
+    "jiste": true
+   },
+   {
+    "jmeno": "latin-1",
+    "souboru": 2200,
+    "jiste": false
+   },
+   {
+    "jmeno": "cp1252",
+    "souboru": 20,
+    "jiste": false
+   },
+   {
+    "jmeno": "utf-8",
+    "souboru": 8,
+    "jiste": true
+   }
+  ],
+  "binarnich": 15,
+  "sNulZpracovano": 15,
+  "neprecteno": 0,
+  "neprectene": [],
+  "normalizovano": true
+ },
+ "korpus": {
+  "souboruVRepu": 12527,
+  "bajtuVRepu": 1403499985,
+  "souboruCbl": 711,
+  "souboruCblVRepu": 2130,
+  "radkuKodu": 483846,
+  "radkuVsechKopii": 1451522,
+  "copybooku": 1053,
+  "radkuCopybooku": 60640,
+  "screensetu": 496,
+  "programu": 681,
+  "fragmentu": 25
+ },
+ "graf": {
+  "uzlu": 15381,
+  "hran": 32711,
+  "nevyresenych": 171,
+  "datovychUzlu": 535,
+  "uspesnostProcent": 99.48
+ },
+ "mapa": {
+  "podsystemu": 29,
+  "vazebProgramu": 1459,
+  "sdilenychDvojic": 1574,
+  "vnejsichCilu": 43,
+  "podkladKB": 342,
+  "podkladProgramuMB": 18.7
+ },
+ "guiZavislost": {
+  "programuSGui": 489,
+  "volaniDsrun": 490
+ },
+ "osirele": 596
+}

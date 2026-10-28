@@ -1,0 +1,74 @@
+{
+"verze": 1,
+"program": "GRWEEK1",
+"cesta": "GRWEEK1.CBL",
+"radku": 75,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 9
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 10,
+"do": 10
+},
+{
+"nazev": "DATA DIVISION",
+"od": 11,
+"do": 12
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 13,
+"do": 42
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 43,
+"do": 51
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 52,
+"do": 75
+}
+],
+"procedureOd": 52,
+"sekce": [
+{
+"nazev": "000-PROCESSAMENTO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 54,
+"do": 75,
+"radku": 22,
+"radkuKodu": 19,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+}
+],
+"skoky": [],
+"vnejsi": [],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 1,
+"skoku": 0,
+"volaniVen": 0,
+"radkuDat": 51,
+"radkuKodu": 19
+}
+}

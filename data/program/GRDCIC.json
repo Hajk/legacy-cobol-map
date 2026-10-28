@@ -1,0 +1,79 @@
+{
+"verze": 1,
+"program": "GRDCIC",
+"cesta": "GRDCIC.CBL",
+"radku": 106,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 9
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 10,
+"do": 10
+},
+{
+"nazev": "CONFIGURATION SECTION",
+"od": 11,
+"do": 11
+},
+{
+"nazev": "DATA DIVISION",
+"od": 12,
+"do": 13
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 14,
+"do": 20
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 21,
+"do": 52
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 53,
+"do": 106
+}
+],
+"procedureOd": 53,
+"sekce": [
+{
+"nazev": "010-PROCESSAMENTO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 55,
+"do": 106,
+"radku": 52,
+"radkuKodu": 44,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+}
+],
+"skoky": [],
+"vnejsi": [],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 1,
+"skoku": 0,
+"volaniVen": 0,
+"radkuDat": 52,
+"radkuKodu": 44
+}
+}

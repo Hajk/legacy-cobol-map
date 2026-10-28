@@ -1,0 +1,22 @@
+{
+ "verze": 1,
+ "podsystem": "BANKS",
+ "original": {
+  "souboru": 12,
+  "radku": 17818,
+  "prevedenoSouboru": 2,
+  "prevedenoRadku": 2692,
+  "prevedene": [
+   "caixa.cbl",
+   "rcaixa.cbl"
+  ]
+ },
+ "vysledek": {
+  "radkuObchodniVrstvy": 1741,
+  "radkuAplikace": 2064,
+  "radkuTestu": 1405,
+  "testu": 95,
+  "testyProsly": true,
+  "zavislosti": 0
+ }
+}

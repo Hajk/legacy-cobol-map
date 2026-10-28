@@ -1,0 +1,93 @@
+{
+"verze": 1,
+"program": "GALHO30",
+"cesta": "galho30.cbl",
+"radku": 181,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 6
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 7,
+"do": 11
+},
+{
+"nazev": "INPUT-OUTPUT SECTION",
+"od": 12,
+"do": 23
+},
+{
+"nazev": "DATA DIVISION",
+"od": 24,
+"do": 24
+},
+{
+"nazev": "FILE SECTION",
+"od": 25,
+"do": 38
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 39,
+"do": 92
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 93,
+"do": 181
+}
+],
+"procedureOd": 93,
+"sekce": [
+{
+"nazev": "MAIN-PROCESS",
+"preklad": "Main process",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "rizeni",
+"od": 94,
+"do": 181,
+"radku": 88,
+"radkuKodu": 80,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+},
+{
+"nazev": "READ-RELAT",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 103,
+"do": 181,
+"radku": 79,
+"radkuKodu": 75,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 1
+}
+],
+"skoky": [],
+"vnejsi": [],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 1,
+"odstavcu": 1,
+"skoku": 0,
+"volaniVen": 0,
+"radkuDat": 92,
+"radkuKodu": 155
+}
+}

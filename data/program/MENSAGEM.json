@@ -1,0 +1,189 @@
+{
+"verze": 1,
+"program": "MENSAGEM",
+"cesta": "mensagem.cbl",
+"radku": 71,
+"divize": [
+{
+"nazev": "DATA DIVISION",
+"od": 2,
+"do": 3
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 4,
+"do": 13
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 14,
+"do": 18
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 19,
+"do": 71
+}
+],
+"procedureOd": 19,
+"sekce": [
+{
+"nazev": "MAIN-PROCESS",
+"preklad": "Main process",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "rizeni",
+"od": 23,
+"do": 29,
+"radku": 7,
+"radkuKodu": 4,
+"volanoZ": 0,
+"volaDo": 3,
+"poradi": 0
+},
+{
+"nazev": "PROGRAM-INITIALIZE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 30,
+"do": 45,
+"radku": 16,
+"radkuKodu": 11,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 1
+},
+{
+"nazev": "PROGRAM-BODY",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 46,
+"do": 52,
+"radku": 7,
+"radkuKodu": 3,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 2
+},
+{
+"nazev": "PROGRAM-TERMINATE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 53,
+"do": 60,
+"radku": 8,
+"radkuKodu": 5,
+"volanoZ": 2,
+"volaDo": 1,
+"poradi": 3
+},
+{
+"nazev": "CALL-DIALOG-SYSTEM",
+"preklad": "Call Dialog System",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "obrazovka",
+"od": 61,
+"do": 71,
+"radku": 11,
+"radkuKodu": 10,
+"volanoZ": 2,
+"volaDo": 1,
+"poradi": 4
+},
+{
+"nazev": "END-IF",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 71,
+"do": 71,
+"radku": 1,
+"radkuKodu": 1,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 5
+}
+],
+"skoky": [
+{
+"z": "MAIN-PROCESS",
+"zRadek": 24,
+"do": "PROGRAM-INITIALIZE",
+"varianta": "prosty",
+"text": "PERFORM Program-Initialize"
+},
+{
+"z": "MAIN-PROCESS",
+"zRadek": 25,
+"do": "PROGRAM-BODY",
+"varianta": "until",
+"text": "PERFORM Program-Body UNTIL EXIT-FLAG-TRUE"
+},
+{
+"z": "MAIN-PROCESS",
+"zRadek": 26,
+"do": "PROGRAM-TERMINATE",
+"varianta": "prosty",
+"text": "PERFORM Program-Terminate."
+},
+{
+"z": "PROGRAM-BODY",
+"zRadek": 48,
+"do": "CALL-DIALOG-SYSTEM",
+"varianta": "prosty",
+"text": "PERFORM Call-Dialog-System."
+},
+{
+"z": "PROGRAM-TERMINATE",
+"zRadek": 55,
+"do": "CALL-DIALOG-SYSTEM",
+"varianta": "prosty",
+"text": "PERFORM Call-Dialog-System"
+},
+{
+"z": "CALL-DIALOG-SYSTEM",
+"zRadek": 70,
+"do": "PROGRAM-TERMINATE",
+"varianta": "prosty",
+"text": "PERFORM Program-Terminate"
+}
+],
+"vnejsi": [
+{
+"cil": "DSGRUN",
+"n": 1,
+"radky": [
+63
+],
+"zSekci": [
+"CALL-DIALOG-SYSTEM"
+],
+"co": ""
+}
+],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 5,
+"odstavcu": 1,
+"skoku": 6,
+"volaniVen": 1,
+"radkuDat": 18,
+"radkuKodu": 34
+}
+}

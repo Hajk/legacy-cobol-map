@@ -1,0 +1,204 @@
+{
+"verze": 1,
+"program": "GRWIND",
+"cesta": "GRWIND.CBL",
+"radku": 291,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 9
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 10,
+"do": 10
+},
+{
+"nazev": "CONFIGURATION SECTION",
+"od": 11,
+"do": 12
+},
+{
+"nazev": "INPUT-OUTPUT SECTION",
+"od": 13,
+"do": 21
+},
+{
+"nazev": "DATA DIVISION",
+"od": 22,
+"do": 22
+},
+{
+"nazev": "FILE SECTION",
+"od": 23,
+"do": 32
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 33,
+"do": 85
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 86,
+"do": 101
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 102,
+"do": 291
+}
+],
+"procedureOd": 102,
+"sekce": [
+{
+"nazev": "INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 104,
+"do": 148,
+"radku": 45,
+"radkuKodu": 37,
+"volanoZ": 0,
+"volaDo": 2,
+"poradi": 0
+},
+{
+"nazev": "OPEN-WINDOW",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 149,
+"do": 269,
+"radku": 121,
+"radkuKodu": 96,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 1
+},
+{
+"nazev": "CLOSE-WINDOW",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 270,
+"do": 291,
+"radku": 22,
+"radkuKodu": 18,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 2
+}
+],
+"skoky": [
+{
+"z": "INICIO",
+"zRadek": 134,
+"do": "CLOSE-WINDOW",
+"varianta": "prosty",
+"text": "PERFORM CLOSE-WINDOW"
+},
+{
+"z": "INICIO",
+"zRadek": 137,
+"do": "OPEN-WINDOW",
+"varianta": "prosty",
+"text": "PERFORM OPEN-WINDOW"
+}
+],
+"vnejsi": [
+{
+"cil": "GREMSG",
+"n": 3,
+"radky": [
+119,
+131,
+139
+],
+"zSekci": [
+"INICIO"
+],
+"co": ""
+},
+{
+"cil": "GRFINA",
+"n": 2,
+"radky": [
+108,
+123
+],
+"zSekci": [
+"INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_WRITE_SCR_CHATTRS",
+"n": 2,
+"radky": [
+252,
+279
+],
+"zSekci": [
+"OPEN-WINDOW",
+"CLOSE-WINDOW"
+],
+"co": ""
+},
+{
+"cil": "GRHORA",
+"n": 1,
+"radky": [
+144
+],
+"zSekci": [
+"INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_READ_SCR_CHATTRS",
+"n": 1,
+"radky": [
+178
+],
+"zSekci": [
+"OPEN-WINDOW"
+],
+"co": ""
+},
+{
+"cil": "GRMATA",
+"n": 1,
+"radky": [
+289
+],
+"zSekci": [
+"CLOSE-WINDOW"
+],
+"co": ""
+}
+],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 3,
+"skoku": 2,
+"volaniVen": 10,
+"radkuDat": 101,
+"radkuKodu": 151
+}
+}

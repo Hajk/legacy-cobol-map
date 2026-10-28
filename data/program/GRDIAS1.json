@@ -1,0 +1,111 @@
+{
+"verze": 1,
+"program": "GRDIAS1",
+"cesta": "GRDIAS1.CBL",
+"radku": 121,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 19
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 20,
+"do": 20
+},
+{
+"nazev": "DATA DIVISION",
+"od": 21,
+"do": 22
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 23,
+"do": 36
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 37,
+"do": 51
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 52,
+"do": 121
+}
+],
+"procedureOd": 52,
+"sekce": [
+{
+"nazev": "000-INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 54,
+"do": 121,
+"radku": 68,
+"radkuKodu": 52,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+}
+],
+"skoky": [],
+"vnejsi": [
+{
+"cil": "GRIDAT1",
+"n": 2,
+"radky": [
+56,
+57
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": "date handling"
+},
+{
+"cil": "GRVDAT1",
+"n": 2,
+"radky": [
+58,
+59
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "GRIDAT2",
+"n": 2,
+"radky": [
+60,
+61
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": "date handling"
+}
+],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 1,
+"skoku": 0,
+"volaniVen": 6,
+"radkuDat": 51,
+"radkuKodu": 52
+}
+}

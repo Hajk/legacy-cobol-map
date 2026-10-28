@@ -1,0 +1,124 @@
+{
+"verze": 1,
+"program": "GRHORA",
+"cesta": "GRHORA.CBL",
+"radku": 90,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 10
+},
+{
+"nazev": "DATA DIVISION",
+"od": 11,
+"do": 11
+},
+{
+"nazev": "FILE SECTION",
+"od": 12,
+"do": 13
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 14,
+"do": 48
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 49,
+"do": 90
+}
+],
+"procedureOd": 49,
+"sekce": [
+{
+"nazev": "000-INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 51,
+"do": 81,
+"radku": 31,
+"radkuKodu": 26,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+},
+{
+"nazev": "010-SEMANA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 82,
+"do": 90,
+"radku": 9,
+"radkuKodu": 6,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 1
+}
+],
+"skoky": [],
+"vnejsi": [
+{
+"cil": "CBL_SET_CSR_POS",
+"n": 2,
+"radky": [
+74,
+78
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_GET_CSR_POS",
+"n": 1,
+"radky": [
+70
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "GRWEEK",
+"n": 1,
+"radky": [
+85
+],
+"zSekci": [
+"010-SEMANA"
+],
+"co": ""
+}
+],
+"copybooky": [
+{
+"nazev": "CPWEEK",
+"radek": 47,
+"sdiliS": []
+}
+],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 2,
+"skoku": 0,
+"volaniVen": 4,
+"radkuDat": 48,
+"radkuKodu": 32
+}
+}

@@ -1,0 +1,662 @@
+{
+"verze": 1,
+"program": "OUTILITARIO",
+"cesta": "OUtilitario.cbl",
+"radku": 990,
+"divize": [
+{
+"nazev": "CONFIGURATION SECTION",
+"od": 23,
+"do": 28
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 29,
+"do": 34
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 35,
+"do": 45
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 46,
+"do": 65
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 66,
+"do": 102
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 103,
+"do": 125
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 126,
+"do": 147
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 148,
+"do": 170
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 171,
+"do": 236
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 237,
+"do": 303
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 304,
+"do": 394
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 395,
+"do": 424
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 425,
+"do": 443
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 444,
+"do": 473
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 474,
+"do": 505
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 506,
+"do": 536
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 537,
+"do": 656
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 657,
+"do": 755
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 756,
+"do": 821
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 822,
+"do": 931
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 932,
+"do": 968
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 969,
+"do": 990
+}
+],
+"procedureOd": 46,
+"sekce": [
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 55,
+"do": 74,
+"radku": 20,
+"radkuKodu": 16,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 75,
+"do": 118,
+"radku": 44,
+"radkuKodu": 34,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 119,
+"do": 121,
+"radku": 3,
+"radkuKodu": 3,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 122,
+"do": 142,
+"radku": 21,
+"radkuKodu": 14,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 143,
+"do": 144,
+"radku": 2,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 145,
+"do": 162,
+"radku": 18,
+"radkuKodu": 12,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 163,
+"do": 167,
+"radku": 5,
+"radkuKodu": 5,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 168,
+"do": 228,
+"radku": 61,
+"radkuKodu": 47,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 229,
+"do": 233,
+"radku": 5,
+"radkuKodu": 5,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 234,
+"do": 279,
+"radku": 46,
+"radkuKodu": 33,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 280,
+"do": 298,
+"radku": 19,
+"radkuKodu": 19,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 299,
+"do": 384,
+"radku": 86,
+"radkuKodu": 61,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 385,
+"do": 390,
+"radku": 6,
+"radkuKodu": 6,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 391,
+"do": 419,
+"radku": 29,
+"radkuKodu": 19,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 420,
+"do": 422,
+"radku": 3,
+"radkuKodu": 3,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 423,
+"do": 436,
+"radku": 14,
+"radkuKodu": 9,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 437,
+"do": 441,
+"radku": 5,
+"radkuKodu": 5,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 442,
+"do": 465,
+"radku": 24,
+"radkuKodu": 16,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 466,
+"do": 470,
+"radku": 5,
+"radkuKodu": 5,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 471,
+"do": 497,
+"radku": 27,
+"radkuKodu": 18,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 498,
+"do": 502,
+"radku": 5,
+"radkuKodu": 5,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 503,
+"do": 528,
+"radku": 26,
+"radkuKodu": 17,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 529,
+"do": 533,
+"radku": 5,
+"radkuKodu": 5,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 534,
+"do": 597,
+"radku": 64,
+"radkuKodu": 47,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 598,
+"do": 650,
+"radku": 53,
+"radkuKodu": 46,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 651,
+"do": 752,
+"radku": 102,
+"radkuKodu": 77,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 753,
+"do": 792,
+"radku": 40,
+"radkuKodu": 35,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 793,
+"do": 817,
+"radku": 25,
+"radkuKodu": 23,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 818,
+"do": 920,
+"radku": 103,
+"radkuKodu": 76,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 921,
+"do": 928,
+"radku": 8,
+"radkuKodu": 6,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 929,
+"do": 953,
+"radku": 25,
+"radkuKodu": 20,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+},
+{
+"nazev": "LOCAL-STORAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 954,
+"do": 963,
+"radku": 10,
+"radkuKodu": 8,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "LINKAGE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 964,
+"do": 990,
+"radku": 27,
+"radkuKodu": 23,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 32
+}
+],
+"skoky": [],
+"vnejsi": [
+{
+"cil": "?",
+"n": 5,
+"radky": [
+373,
+399,
+864,
+877,
+941
+],
+"zSekci": [
+"LINKAGE"
+],
+"co": ""
+},
+{
+"cil": "DIFDIAS",
+"n": 1,
+"radky": [
+108
+],
+"zSekci": [
+"LINKAGE"
+],
+"co": ""
+},
+{
+"cil": "CBL_CREATE_DIR",
+"n": 1,
+"radky": [
+664
+],
+"zSekci": [
+"LINKAGE"
+],
+"co": ""
+},
+{
+"cil": "SHELL32",
+"n": 1,
+"radky": [
+933
+],
+"zSekci": [
+"LINKAGE"
+],
+"co": ""
+},
+{
+"cil": "CBL_EXEC_RUN_UNIT",
+"n": 1,
+"radky": [
+976
+],
+"zSekci": [
+"LINKAGE"
+],
+"co": "Micro Focus library — run a program"
+}
+],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 33,
+"odstavcu": 0,
+"skoku": 0,
+"volaniVen": 9,
+"radkuDat": 45,
+"radkuKodu": 720
+}
+}

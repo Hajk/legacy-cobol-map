@@ -1,0 +1,307 @@
+{
+"verze": 1,
+"program": "ALTLB105",
+"cesta": "altlb105.CBL",
+"radku": 193,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 6
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 7,
+"do": 10
+},
+{
+"nazev": "INPUT-OUTPUT SECTION",
+"od": 11,
+"do": 41
+},
+{
+"nazev": "DATA DIVISION",
+"od": 42,
+"do": 42
+},
+{
+"nazev": "FILE SECTION",
+"od": 43,
+"do": 80
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 81,
+"do": 105
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 106,
+"do": 106
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 107,
+"do": 193
+}
+],
+"procedureOd": 107,
+"sekce": [
+{
+"nazev": "MAIN-PROCESS",
+"preklad": "Main process",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "rizeni",
+"od": 109,
+"do": 113,
+"radku": 5,
+"radkuKodu": 4,
+"volanoZ": 0,
+"volaDo": 2,
+"poradi": 0
+},
+{
+"nazev": "INICIALIZA-PROGRAMA",
+"preklad": "Program initialisation",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "rizeni",
+"od": 114,
+"do": 130,
+"radku": 17,
+"radkuKodu": 16,
+"volanoZ": 1,
+"volaDo": 2,
+"poradi": 1
+},
+{
+"nazev": "CORPO-PROGRAMA",
+"preklad": "Program body (main loop)",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "rizeni",
+"od": 131,
+"do": 137,
+"radku": 7,
+"radkuKodu": 7,
+"volanoZ": 1,
+"volaDo": 3,
+"poradi": 2
+},
+{
+"nazev": "ALTERA-LAYOUT",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 138,
+"do": 165,
+"radku": 28,
+"radkuKodu": 27,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 3
+},
+{
+"nazev": "CARREGA-MENSAGEM-ERRO",
+"preklad": "Load error message",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "kontrola",
+"od": 166,
+"do": 170,
+"radku": 5,
+"radkuKodu": 5,
+"volanoZ": 1,
+"volaDo": 2,
+"poradi": 4
+},
+{
+"nazev": "CLEAR-FLAGS",
+"preklad": "Clear flags",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "rizeni",
+"od": 171,
+"do": 173,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 5
+},
+{
+"nazev": "SET-UP-FOR-REFRESH-SCREEN",
+"preklad": "Prepare screen refresh",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "obrazovka",
+"od": 174,
+"do": 176,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 6
+},
+{
+"nazev": "LOAD-SCREENSET",
+"preklad": "Load screenset",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "obrazovka",
+"od": 177,
+"do": 181,
+"radku": 5,
+"radkuKodu": 4,
+"volanoZ": 2,
+"volaDo": 1,
+"poradi": 7
+},
+{
+"nazev": "CALL-DIALOG-SYSTEM",
+"preklad": "Call Dialog System",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "obrazovka",
+"od": 182,
+"do": 188,
+"radku": 7,
+"radkuKodu": 7,
+"volanoZ": 5,
+"volaDo": 0,
+"poradi": 8
+},
+{
+"nazev": "FINALIZAR-PROGRAMA",
+"preklad": "Program shutdown",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "rizeni",
+"od": 189,
+"do": 193,
+"radku": 5,
+"radkuKodu": 5,
+"volanoZ": 0,
+"volaDo": 1,
+"poradi": 9
+}
+],
+"skoky": [
+{
+"z": "MAIN-PROCESS",
+"zRadek": 110,
+"do": "INICIALIZA-PROGRAMA",
+"varianta": "prosty",
+"text": "PERFORM INICIALIZA-PROGRAMA."
+},
+{
+"z": "MAIN-PROCESS",
+"zRadek": 111,
+"do": "CORPO-PROGRAMA",
+"varianta": "until",
+"text": "PERFORM CORPO-PROGRAMA UNTIL GS-EXIT-FLG-TRUE."
+},
+{
+"z": "INICIALIZA-PROGRAMA",
+"zRadek": 127,
+"do": "CARREGA-MENSAGEM-ERRO",
+"varianta": "prosty",
+"text": "PERFORM CARREGA-MENSAGEM-ERRO."
+},
+{
+"z": "INICIALIZA-PROGRAMA",
+"zRadek": 129,
+"do": "LOAD-SCREENSET",
+"varianta": "prosty",
+"text": "PERFORM LOAD-SCREENSET."
+},
+{
+"z": "CORPO-PROGRAMA",
+"zRadek": 134,
+"do": "ALTERA-LAYOUT",
+"varianta": "prosty",
+"text": "PERFORM ALTERA-LAYOUT"
+},
+{
+"z": "CORPO-PROGRAMA",
+"zRadek": 136,
+"do": "CLEAR-FLAGS",
+"varianta": "prosty",
+"text": "PERFORM CLEAR-FLAGS"
+},
+{
+"z": "CORPO-PROGRAMA",
+"zRadek": 137,
+"do": "CALL-DIALOG-SYSTEM",
+"varianta": "prosty",
+"text": "PERFORM CALL-DIALOG-SYSTEM."
+},
+{
+"z": "ALTERA-LAYOUT",
+"zRadek": 147,
+"do": "CALL-DIALOG-SYSTEM",
+"varianta": "prosty",
+"text": "PERFORM CALL-DIALOG-SYSTEM"
+},
+{
+"z": "CARREGA-MENSAGEM-ERRO",
+"zRadek": 167,
+"do": "LOAD-SCREENSET",
+"varianta": "prosty",
+"text": "PERFORM LOAD-SCREENSET."
+},
+{
+"z": "CARREGA-MENSAGEM-ERRO",
+"zRadek": 169,
+"do": "CALL-DIALOG-SYSTEM",
+"varianta": "prosty",
+"text": "PERFORM CALL-DIALOG-SYSTEM."
+},
+{
+"z": "LOAD-SCREENSET",
+"zRadek": 180,
+"do": "CALL-DIALOG-SYSTEM",
+"varianta": "prosty",
+"text": "PERFORM CALL-DIALOG-SYSTEM."
+},
+{
+"z": "FINALIZAR-PROGRAMA",
+"zRadek": 192,
+"do": "CALL-DIALOG-SYSTEM",
+"varianta": "prosty",
+"text": "perform call-dialog-system."
+}
+],
+"vnejsi": [
+{
+"cil": "DSRUN",
+"n": 1,
+"radky": [
+183
+],
+"zSekci": [
+"CALL-DIALOG-SYSTEM"
+],
+"co": "Micro Focus Dialog System runtime — the whole GUI"
+}
+],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 10,
+"odstavcu": 0,
+"skoku": 12,
+"volaniVen": 1,
+"radkuDat": 106,
+"radkuKodu": 79
+}
+}

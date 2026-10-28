@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>
+  /* Odvození základu adresy. Stránka běží i za reverzní proxy na podcestě
+     (…/Legacy COBOL system/) a tam se otevře i BEZ koncového lomítka — pak by prohlížeč
+     hledal styl.css v kořeni a stránka přijde bez stylů a bez odkazů.
+     Base se proto počítá z vlastní adresy: končí-li poslední část tečkou
+     v názvu, je to soubor; jinak je to složka a lomítko se doplní. */
+  (function () {
+    var p = location.pathname, i = p.lastIndexOf('/'), posl = p.slice(i + 1)
+    var base = posl.indexOf('.') >= 0 ? p.slice(0, i + 1) : (p.endsWith('/') ? p : p + '/')
+    var b = document.createElement('base'); b.href = base; document.head.appendChild(b)
+  })()
+</script>
+<title>Code map</title><link rel="stylesheet" href="styl.css"></head>
+<body>
+<!-- Žádný název systému natvrdo: nadpis, podtitul i poznámka pod čarou
+     se berou z data/mapa.json (blok `meta`). Tahle stránka je šablona,
+     ne stránka o Kellu. -->
+<nav class="zalozky" id="zalozky">
+  <button data-tab="dash" class="aktivni">Dashboard</button><button data-tab="mapa">Code map</button>
+</nav>
+
+<header>
+  <div class="titulek">
+    <div>
+      <h1 id="nadpis"></h1>
+      <p class="podtitul" id="podtitul"></p>
+    </div>
+    <button id="nastaveni" class="ikona" title="Map appearance" aria-label="Map appearance">⚙</button>
+  </div>
+  <div class="ovladace">
+    <button id="zpet">← back</button>
+    <button id="celek" title="Zoom the whole map back into view">Fit</button>
+    <span id="stav"></span>
+  </div>
+  <div class="filtry" id="filtry">
+    <span class="skupina">Links</span>
+    <label><input type="checkbox" id="f-call" checked>
+      <i class="vzorek call"></i> calls <b id="n-call">0</b></label>
+    <label><input type="checkbox" id="f-data">
+      <i class="vzorek data"></i> shared data <b id="n-data">0</b></label>
+    <label class="prah" title="Hides weak links: a line is drawn only when there are at least this many calls between the two. The strongest dependencies stay.">hide links under
+      <select id="f-prah">
+        <option value="1">1 call</option>
+        <option value="2">2 calls</option>
+        <option value="5">5 calls</option>
+        <option value="10">10 calls</option>
+      </select>
+    </label>
+    <label id="l-osirele"><input type="checkbox" id="f-osirele">
+      hide programs nobody calls</label>
+    <span class="skupina odsazeno">Card</span>
+    <span class="legenda-gui" title="The strip along the top edge of a card shows what share of its programs call DSRUN, the Dialog System runtime. That code cannot be rewritten without rewriting the screens with it.">
+      <i class="vzorek gui"></i> GUI share (Dialog System)</span>
+  </div>
+</header>
+
+<section class="dlazdice" id="dlazdice"></section>
+
+<main>
+  <svg id="platno"></svg>
+  <aside id="panel"></aside>
+</main>
+
+<section id="dash" class="dash" hidden></section>
+
+<div id="panel-nastaveni" class="nastaveni" hidden>
+  <h3>Map appearance</h3>
+  <label>Theme
+    <span class="prepinac-rezim">
+      <button data-rezim="light">light</button><button data-rezim="dark">dark</button>
+    </span>
+  </label>
+  <label>Accent colour
+    <span class="vzorky" id="n-barvy"></span>
+  </label>
+  <label>Link strength
+    <input type="range" id="n-hrany" min="10" max="90" step="5"></label>
+  <label>Card size
+    <input type="range" id="n-karty" min="70" max="160" step="5"></label>
+  <label><input type="checkbox" id="n-prstence"> Ring guides</label>
+  <label><input type="checkbox" id="n-popisky"> Always show numbers</label>
+  <p class="pozn">Saved in this browser. <button id="n-reset" class="maly">Reset</button></p>
+</div>
+
+<footer class="patka"><p id="patka-text"></p></footer>
+<div id="bublina" class="bublina" hidden></div>
+<script src="mapa.js"></script>
+</body></html>

@@ -1,0 +1,129 @@
+{
+"verze": 1,
+"program": "GRSEND",
+"cesta": "GRSEND.CBL",
+"radku": 125,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 10
+},
+{
+"nazev": "DATA DIVISION",
+"od": 11,
+"do": 12
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 13,
+"do": 26
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 27,
+"do": 37
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 38,
+"do": 125
+}
+],
+"procedureOd": 38,
+"sekce": [
+{
+"nazev": "000-INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 40,
+"do": 125,
+"radku": 86,
+"radkuKodu": 81,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+}
+],
+"skoky": [],
+"vnejsi": [
+{
+"cil": "GRWIND",
+"n": 3,
+"radky": [
+69,
+110,
+119
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "GRHORA",
+"n": 1,
+"radky": [
+43
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "?",
+"n": 1,
+"radky": [
+71
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "GRLINE",
+"n": 1,
+"radky": [
+115
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+}
+],
+"copybooky": [
+{
+"nazev": "CPWIND",
+"radek": 24,
+"sdiliS": [
+"GRBOXF"
+]
+},
+{
+"nazev": "CPLINE",
+"radek": 25,
+"sdiliS": []
+}
+],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 1,
+"skoku": 0,
+"volaniVen": 6,
+"radkuDat": 37,
+"radkuKodu": 81
+}
+}

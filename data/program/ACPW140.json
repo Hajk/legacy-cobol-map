@@ -1,0 +1,28 @@
+{
+"verze": 1,
+"program": "ACPW140",
+"cesta": "acpw140.cbl",
+"radku": 31,
+"divize": [],
+"procedureOd": 1,
+"sekce": [],
+"skoky": [],
+"vnejsi": [],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 0,
+"skoku": 0,
+"volaniVen": 0,
+"radkuDat": 0,
+"radkuKodu": 0
+}
+}

@@ -1,0 +1,102 @@
+{
+"verze": 1,
+"program": "GRADAY1",
+"cesta": "GRADAY1.CBL",
+"radku": 78,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 19
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 20,
+"do": 20
+},
+{
+"nazev": "DATA DIVISION",
+"od": 21,
+"do": 22
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 23,
+"do": 35
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 36,
+"do": 44
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 45,
+"do": 78
+}
+],
+"procedureOd": 45,
+"sekce": [
+{
+"nazev": "000-INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 47,
+"do": 50,
+"radku": 4,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+},
+{
+"nazev": "000-01-CHECK-ANO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 51,
+"do": 61,
+"radku": 11,
+"radkuKodu": 8,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 1
+},
+{
+"nazev": "000-02-MAIS-DIA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 62,
+"do": 78,
+"radku": 17,
+"radkuKodu": 14,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 2
+}
+],
+"skoky": [],
+"vnejsi": [],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 3,
+"skoku": 0,
+"volaniVen": 0,
+"radkuDat": 44,
+"radkuKodu": 24
+}
+}

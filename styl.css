@@ -1,0 +1,352 @@
+/* Legacy COBOL system — kódová mapa.
+   Světlý i tmavý režim. Tmavé kroky NEJSOU automatické ztmavení světlých:
+   akcentní barvy jsou v tmavém režimu vlastní (validované na odstup proti
+   tmavé ploše), jinak by hrany na černém podkladu zmizely. Stejná mechanika
+   jako v program.css — přepínač přebije systémové nastavení v obou směrech. */
+
+:root{
+  color-scheme: light;
+  --papir:#fbfbfc; --platno:#fff; --ink:#14171a; --sed:#6e6878; --car:#d8d4de;
+  --radek:#eeecf1;                     /* linka mezi položkami v panelu */
+  --akc:#B0532C;                       /* hrany a podsystémy */
+  --akc2:#4770B4;                      /* programy */
+  --uzel:#fff; --uzel-podsystem:#f3eeea; --uzel-program:#eef2fa;
+  --uzel-soused:#f6f6f8; --uzel-vybrany:#fff6f1;
+  --halo:#fff;                         /* obrys textu, aby šel číst přes hrany */
+  --tlacitko:#fff;
+  --hrana-op:.26;
+  --akc3:#1baf7a;        /* sdílená data — jiný JEV než volání, proto jiná barva */
+  --sed2:#8e8c82;        /* ještě tlumenější text než --sed */
+  /* Role částí programu (L2). Validovaná kategorická paleta, 6 slotů,
+     vlastní krok pro světlý i tmavý podklad — ne automatické ztmavení. */
+  --rizeni:#2a78d6; --obrazovka:#eb6834; --data:#1baf7a;
+  --zpracovani:#4a3aa7; --kontrola:#e87ba4; --tisk:#008300; --other:#6e6878;
+  --neutral:#c9c7c0;     /* datová část souboru — nic se v ní neprovádí */
+}
+@media (prefers-color-scheme: dark){
+  :root:where(:not([data-theme="light"])){
+    color-scheme: dark;
+    --papir:#232321; --platno:#1a1a19; --ink:#fff; --sed:#c3c2b7; --car:#36352f;
+    --radek:#2e2e2a;
+    --akc:#d95926; --akc2:#3987e5;
+    --uzel:#2a2a27; --uzel-podsystem:#352b25; --uzel-program:#22303f;
+    --uzel-soused:#262623; --uzel-vybrany:#3d2c22;
+    --halo:#1a1a19;
+    --tlacitko:#2e2e2a;
+    --hrana-op:.38;   /* na tmavé ploše slabá čára zmizí */
+    --akc3:#199e70;
+    --sed2:#8e8c82;
+    --rizeni:#3987e5; --obrazovka:#d95926; --data:#199e70;
+    --zpracovani:#9085e9; --kontrola:#d55181; --tisk:#008300; --other:#8e8c82;
+    --neutral:#403f39;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --papir:#232321; --platno:#1a1a19; --ink:#fff; --sed:#c3c2b7; --car:#36352f;
+  --radek:#2e2e2a;
+  --akc:#d95926; --akc2:#3987e5;
+  --uzel:#2a2a27; --uzel-podsystem:#352b25; --uzel-program:#22303f;
+  --uzel-soused:#262623; --uzel-vybrany:#3d2c22;
+  --halo:#1a1a19;
+  --tlacitko:#2e2e2a;
+  --hrana-op:.38;     /* na tmavé ploše slabá čára zmizí */
+  --akc3:#199e70;
+  --sed2:#8e8c82;
+  --rizeni:#3987e5; --obrazovka:#d95926; --data:#199e70;
+  --zpracovani:#9085e9; --kontrola:#d55181; --tisk:#008300; --other:#8e8c82;
+  --neutral:#403f39;
+}
+
+*{box-sizing:border-box}
+/* Stránka je sloupec na výšku okna: hlavička + mapa. Výška mapy se NEPOČÍTÁ
+   odečítáním pevného čísla od 100vh — hlavička se na užším okně zalomí a mapa
+   pak přeteče, takže se objeví druhý posuvník u celé stránky. */
+html,body{height:100%}
+body{margin:0;font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);background:var(--papir);
+  display:flex;flex-direction:column;overflow:hidden}
+
+header{padding:14px 20px 10px;border-bottom:1px solid var(--car);flex:none;position:relative}
+h1{margin:0;font-size:20px;letter-spacing:.2px}
+h1 span{font-weight:400;color:var(--sed)}
+.podtitul{margin:2px 0 10px;color:var(--sed);font-size:13px}
+.titulek{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.ovladace{display:flex;gap:10px;align-items:center;margin-top:8px}
+.prepinac-rezim{display:flex}
+.prepinac-rezim button{border-radius:0;padding:3px 10px;font-size:12px}
+.prepinac-rezim button:first-child{border-radius:6px 0 0 6px}
+.prepinac-rezim button:last-child{border-radius:0 6px 6px 0;border-left:0}
+.prepinac-rezim button[aria-pressed=true]{background:var(--akc);color:#fff;border-color:var(--akc)}
+button{font:inherit;font-size:13px;padding:5px 11px;border:1px solid var(--car);background:var(--tlacitko);color:var(--ink);border-radius:6px;cursor:pointer}
+button:hover{border-color:var(--sed)}
+#zpet{display:none}
+#stav{color:var(--sed);font-size:13px;margin-left:auto}
+main{display:grid;grid-template-columns:1fr 340px;flex:1;min-height:0}
+.filtry{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:9px;font-size:13px}
+.filtry .skupina{color:var(--sed);font-size:11px;text-transform:uppercase;letter-spacing:.7px}
+.filtry label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.filtry input[type=checkbox]{margin:0}
+.filtry b{color:var(--sed);font-weight:400;font-variant-numeric:tabular-nums}
+.filtry select{font:inherit;font-size:13px;padding:2px 5px;border:1px solid var(--car);
+  background:var(--tlacitko);color:var(--ink);border-radius:5px}
+.filtry label.vyp{opacity:.4;cursor:default}
+.filtry.vyp{opacity:.35}
+.vzorek{display:inline-block;width:18px;height:0;border-top:2px solid var(--akc)}
+.vzorek.data{border-top:2px dashed var(--akc3)}
+.vzorek.gui{border-top:4px solid var(--gui,var(--obrazovka));border-radius:2px;width:16px}
+.legenda-gui b{color:var(--ink)}
+.legenda-gui{display:flex;align-items:center;gap:6px;color:var(--sed);cursor:help}
+.skupina.odsazeno{margin-left:6px;padding-left:16px;border-left:1px solid var(--car)}
+#l-osirele[hidden]{display:none}
+.ikona{font-size:15px;line-height:1;padding:4px 9px}
+
+/* ---- nastavení vzhledu ---------------------------------------------------- */
+.nastaveni{position:absolute;right:16px;top:60px;z-index:12;width:252px;
+  background:var(--papir);border:1px solid var(--car);border-radius:10px;
+  padding:12px 14px 10px;box-shadow:0 12px 34px rgba(0,0,0,.26)}
+.nastaveni h3{margin:0 0 8px;font-size:11.5px;text-transform:uppercase;
+  letter-spacing:.8px;color:var(--sed)}
+.nastaveni label{display:flex;align-items:center;justify-content:space-between;
+  gap:10px;font-size:13px;padding:5px 0}
+.nastaveni input[type=range]{width:108px}
+.nastaveni .pozn{margin-top:8px;padding-top:8px;border-top:1px solid var(--car)}
+.vzorky{display:flex;gap:6px}
+.vzorky button{width:18px;height:18px;padding:0;border-radius:50%;
+  border:1px solid var(--car);cursor:pointer}
+.vzorky button[aria-pressed=true]{outline:2px solid var(--ink);outline-offset:2px}
+button.maly{font-size:12px;padding:2px 8px}
+.vyklad{margin-top:16px;border-top:1px solid var(--car);padding-top:10px}
+.vyklad summary{cursor:pointer;font-size:12px;text-transform:uppercase;
+  letter-spacing:.6px;color:var(--sed)}
+.vyklad .pozn{margin-top:8px}
+.duraz-gui{border-left:3px solid var(--gui,var(--obrazovka));padding-left:9px;margin:10px 0}
+button.otevri{margin-top:14px;width:100%;padding:8px 12px;font-weight:600;
+  border-color:var(--akc);color:var(--akc)}
+button.otevri:hover{background:var(--uzel-vybrany)}
+#platno{width:100%;height:100%;background:var(--platno);cursor:grab;touch-action:none}
+#platno:active{cursor:grabbing}
+aside{border-left:1px solid var(--car);padding:16px 18px;overflow:auto;background:var(--papir)}
+aside h2{margin:0 0 6px;font-size:17px}
+aside h3{margin:16px 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--sed)}
+aside ul{margin:0;padding:0;list-style:none;font-size:13px}
+aside li{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px solid var(--radek)}
+aside li span{color:var(--sed);font-variant-numeric:tabular-nums}
+aside li.nic{color:var(--sed);font-style:italic;border:0}
+.cis{margin:0;color:var(--sed);font-size:13px}
+.cis b{color:var(--ink);font-variant-numeric:tabular-nums}
+.cesta{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;color:var(--sed);margin:4px 0 0;word-break:break-all}
+.pozn,.tip{font-size:12px;color:var(--sed);margin:6px 0 0}
+.tip{margin-top:14px;padding-top:10px;border-top:1px solid var(--car)}
+/* Vodicí kružnice prstenců — musí být vidět jen koutkem oka. */
+.bez-prstencu .prstence{display:none}
+.prstence circle{fill:none;stroke:var(--car);stroke-opacity:.55;stroke-width:1;
+  stroke-dasharray:2 6;vector-effect:non-scaling-stroke}
+.hrana{fill:none;stroke:var(--akc);stroke-opacity:var(--hrana-op);vector-effect:non-scaling-stroke}
+.hrana.zvyrazneno{stroke-opacity:.95;stroke:var(--akc)}
+.hrana.ztlumeno{stroke-opacity:.06}
+.hrana.data{stroke:var(--akc3);stroke-dasharray:5 4}
+/* Uzel je KARTA, ne kruh: kruh nesl jen velikost a půlka plochy byla prázdná. */
+.uzel{cursor:pointer}
+.uzel rect{fill:var(--uzel);stroke:var(--sed);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.uzel.podsystem rect{fill:var(--uzel-podsystem);stroke:var(--akc);stroke-width:1.6}
+.uzel.program rect{fill:var(--uzel-program);stroke:var(--akc2)}
+.uzel.soused rect{fill:var(--uzel-soused);stroke:var(--car);stroke-dasharray:4 3}
+.uzel.vybrany rect{stroke-width:3}
+/* Soubor bez PROCEDURE DIVISION — popis dat s příponou .cbl. Není to mrtvý
+   kód ani program; kreslí se potlačeně, ale otevřít ho jde. */
+.uzel.fragment rect{stroke-dasharray:3 3;opacity:.75}
+.uzel.fragment .jmeno{font-weight:400;fill:var(--sed)}
+/* Tachometr na kartě: dráha, naplněná část, ručička. */
+.tacho{pointer-events:none}
+.tacho .draha{fill:none;stroke:var(--car);stroke-width:3.2;stroke-linecap:round}
+.tacho .naplneno{fill:none;stroke:var(--gui,var(--obrazovka));stroke-width:3.2;stroke-linecap:round}
+.tacho .rucicka{stroke:var(--ink);stroke-width:1.4;stroke-linecap:round}
+.tacho .cep{fill:var(--ink)}
+.tacho-popis{font-size:8.5px;fill:var(--sed2);font-variant-numeric:tabular-nums;
+  paint-order:stroke;stroke:var(--halo);stroke-width:2px}
+.uzel text{text-anchor:middle;pointer-events:none;paint-order:stroke;
+  stroke:var(--halo);stroke-width:2.5px}
+.uzel .jmeno{font-size:12px;font-weight:600;fill:var(--ink)}
+.uzel .cis1{font-size:10.5px;fill:var(--sed);font-variant-numeric:tabular-nums}
+.uzel .cis2{font-size:9.5px;fill:var(--sed2);font-variant-numeric:tabular-nums}
+.uzel.soused .jmeno{fill:var(--sed);font-weight:400}
+.odkaz{font-size:13px;color:var(--akc);text-decoration:none;
+  border-bottom:1px solid transparent;padding:5px 0}
+.odkaz:hover{border-bottom-color:var(--akc)}
+
+/* ---- L2: vnitřek jednoho programu ----------------------------------------
+   Stejná stránka, jiná úroveň. Plátno tu není na výšku okna, ale na výšku
+   zdrojáku (~1 px na řádek), takže se stránka roluje. */
+/* L2 je teď na ŠÍŘKU a vejde se do okna — žádné rolování stránky. */
+body.L2 #platno{cursor:default}
+.dlazdice{display:none}
+body.L2 .dlazdice{display:flex;gap:1px;background:var(--car);
+  border-bottom:1px solid var(--car)}
+.dl{flex:1;background:var(--papir);padding:11px 16px 12px}
+.dl b{display:block;font-size:23px;line-height:1.1;letter-spacing:-.4px;
+  font-variant-numeric:tabular-nums;font-weight:650}
+.dl span{display:block;font-size:11px;color:var(--sed);
+  text-transform:uppercase;letter-spacing:.6px;margin-top:3px}
+.dl i{display:block;font-style:normal;font-size:11px;color:var(--sed2);margin-top:2px}
+
+.oblouk{fill:none;stroke-linecap:round;pointer-events:stroke;cursor:pointer}
+.pas{cursor:pointer}
+.pas rect{stroke:var(--platno);stroke-width:1.6}
+.popisek{font-size:12px;fill:var(--ink);pointer-events:none}
+.popisek .cz{fill:var(--sed);font-size:11px}
+.popisek.sikmy text{text-anchor:end}
+.zlom{fill:none;stroke:var(--sed2);stroke-width:1.4;stroke-opacity:.9}
+.popisek .radky{fill:var(--sed2);font-size:10px;font-variant-numeric:tabular-nums}
+.vodic{stroke:var(--car);fill:none}
+.osa{font-size:10.5px;fill:var(--sed2);font-variant-numeric:tabular-nums}
+.ztlumeno{opacity:.12}
+.nadpisek{font-size:11px;fill:var(--sed2);text-transform:uppercase;letter-spacing:.9px}
+.vnejsi-uzel text{font-size:11px;fill:var(--sed)}
+.vnejsi-uzel.duraz text{fill:var(--obrazovka);font-weight:600}
+
+.legenda{list-style:none;margin:0;padding:0}
+.legenda li{display:flex;align-items:baseline;gap:9px;padding:4px 0;font-size:13px;border:0}
+.legenda .tecka{width:11px;height:11px;border-radius:3px;flex:none}
+.legenda .pocet{margin-left:auto;color:var(--sed2);font-variant-numeric:tabular-nums;font-size:12px}
+.seznam{list-style:none;margin:0;padding:0;font-size:13px}
+.seznam li{display:block;padding:5px 0;border-bottom:1px solid var(--radek)}
+.seznam .cil{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px}
+.seznam .kolik{float:right;color:var(--sed2);font-variant-numeric:tabular-nums}
+.seznam .co{display:block;color:var(--sed);font-size:12px;margin-top:1px}
+.seznam li.duraz .cil{color:var(--obrazovka);font-weight:600}
+.uvod{margin:0 0 10px;font-size:13px;color:var(--sed)}
+.uvod b{color:var(--ink)}
+#detail dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0 0 14px;font-size:13px}
+#detail dt{color:var(--sed)}
+#detail dd{margin:0;font-variant-numeric:tabular-nums}
+#detail code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:var(--sed)}
+
+.bublina{position:fixed;z-index:9;max-width:330px;pointer-events:none;
+  background:var(--papir);color:var(--ink);border:1px solid var(--car);
+  border-radius:9px;padding:9px 12px;box-shadow:0 8px 26px rgba(0,0,0,.22);
+  font-size:12.5px;line-height:1.45}
+.bublina b{display:block;margin-bottom:2px}
+.bublina code{display:block;margin-top:5px;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:11px;color:var(--sed);word-break:break-word}
+
+.patka{display:none}
+body.L2 .patka{display:block;border-top:1px solid var(--car);padding:14px 20px 22px;
+  color:var(--sed2);font-size:12.5px}
+.patka p{margin:0;max-width:980px}
+
+/* ---- záložky a dashboard ---------------------------------------------------
+   Dashboard je domovská stránka: co analýza zvládla a za jak dlouho. Čísla
+   čte z data/metriky.json, který vzniká MĚŘENÍM (nastroje/metriky.py) — do
+   stránky se žádné číslo nepíše rukou. Co je odhad, je tak i označené. */
+.zalozky{display:flex;gap:2px;padding:10px 20px 0;flex:none;background:var(--papir)}
+.zalozky button{border-radius:8px 8px 0 0;border-bottom-color:transparent;
+  padding:7px 16px;font-weight:600;color:var(--sed);background:transparent;border-color:transparent}
+.zalozky button:hover{color:var(--ink)}
+.zalozky button.aktivni{background:var(--platno);border-color:var(--car);
+  border-bottom-color:var(--platno);color:var(--ink);margin-bottom:-1px}
+body.dash-aktivni header,body.dash-aktivni main,body.dash-aktivni .dlazdice,
+body.dash-aktivni .patka{display:none}
+body.dash-aktivni{overflow:auto}
+
+.dash{flex:1;min-height:0;overflow:auto;background:var(--platno);
+  border-top:1px solid var(--car);padding:26px 28px 40px}
+.dash h2{margin:0 0 4px;font-size:24px;letter-spacing:-.3px}
+.dash .lead{margin:0 0 22px;color:var(--sed);font-size:14px;max-width:72ch}
+.dash h3{margin:28px 0 10px;font-size:12px;text-transform:uppercase;
+  letter-spacing:.9px;color:var(--sed)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:1px;
+  background:var(--car);border:1px solid var(--car);border-radius:10px;overflow:hidden}
+.kpi .k{background:var(--platno);padding:15px 17px 16px}
+.kpi .k > b{display:block;font-size:30px;line-height:1.05;letter-spacing:-.8px;
+  font-variant-numeric:tabular-nums;font-weight:650}
+.kpi .k > b small{font-size:15px;font-weight:500;color:var(--sed);letter-spacing:0}
+.kpi .k span{display:block;font-size:11.5px;color:var(--sed);text-transform:uppercase;
+  letter-spacing:.7px;margin-top:5px}
+.kpi .k i{display:block;font-style:normal;font-size:12px;color:var(--sed2);margin-top:4px}
+.kpi .k i b{font-size:12px;font-weight:600;color:var(--sed)}
+.kpi .k.duraz b{color:var(--gui,var(--akc))}
+.dash .dvojice{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+@media (max-width:1000px){.dash .dvojice{grid-template-columns:1fr}}
+.pruhy{list-style:none;margin:0;padding:0}
+.pruhy li{display:grid;grid-template-columns:92px 1fr 92px;align-items:center;gap:10px;
+  padding:3px 0;font-size:12.5px}
+.pruhy li > span:nth-child(2){display:block;background:var(--radek);border-radius:4px}
+.pruhy .jm{font-weight:600}
+.pruhy .bar{display:block;height:14px;border-radius:4px;background:var(--akc);opacity:.85}
+.pruhy .bar.gui{background:var(--gui,var(--obrazovka))}
+.pruhy .cis{text-align:right;color:var(--sed);font-variant-numeric:tabular-nums}
+.dash .pozn{font-size:12.5px;color:var(--sed2);margin-top:10px;max-width:80ch}
+.dash table{border-collapse:collapse;font-size:13px;width:100%;max-width:640px}
+.dash td{padding:5px 0;border-bottom:1px solid var(--radek)}
+.dash td:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--sed)}
+.odhad{border-left:3px solid var(--car);padding:2px 0 2px 12px;margin:12px 0}
+.dash h4{margin:0 0 6px;font-size:12px;letter-spacing:.4px;color:var(--sed)}
+
+/* ---- rozpad průchodu na kroky ---------------------------------------------
+   Proužek u každého kroku je tam proto, že samotná čísla neukážou, kde se čas
+   doopravdy tráví. Dokud se měřila jen analýza, nebylo to poznat. */
+.dash table.kroky{max-width:860px}
+.dash table.kroky td:first-child{color:var(--ink);text-align:left}
+.dash table.kroky td:first-child b{font-variant-numeric:tabular-nums;font-weight:650}
+.dash table.kroky td:nth-child(2){text-align:right;white-space:nowrap;padding-right:14px;
+  font-variant-numeric:tabular-nums;color:var(--sed)}
+.dash table.kroky td.podil{width:160px;padding:5px 0}
+.dash table.kroky td.podil span{display:block;height:10px;border-radius:3px;
+  background:var(--akc);opacity:.75}
+.dash table.kroky tr.soucet td{border-bottom:none;padding-top:9px;font-weight:650;color:var(--ink)}
+.dash table.kroky tr.soucet td:nth-child(2){color:var(--ink)}
+
+/* ---- rozsah měřeného času --------------------------------------------------
+   Dva seznamy vedle sebe: co v těch sekundách je a co ne. Je to tu proto, že
+   samotné číslo slibuje víc, než co se měří. */
+.rozsah{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:16px 0 4px;
+  max-width:980px;align-items:start}
+@media (max-width:1000px){.rozsah{grid-template-columns:1fr}}
+.rozsah ul{list-style:none;margin:0;padding:0;font-size:12.5px;color:var(--sed2)}
+.rozsah li{padding:3px 0 3px 20px;position:relative;line-height:1.45}
+.rozsah li::before{position:absolute;left:0;top:3px;font-weight:700}
+.rozsah .ano li::before{content:"+";color:var(--akc3)}
+.rozsah .ne li::before{content:"−";color:var(--sed2)}
+
+/* ---- srovnání s člověkem — JEDINÁ nemětřená část stránky -------------------
+   Musí být na první pohled jiné než dlaždice měřených hodnot, protože jinak
+   si čtenář odnese náš odhad jako náš výsledek. Odlišují to čtyři věci
+   naráz: šrafovaný podklad, přerušovaný rámec, štítek ESTIMATE a čísla v
+   tlumené barvě se znakem ≈. ZÁMĚRNĚ to NEPOUŽÍVÁ --akc: akcentní barva je
+   nastavitelná a nese v mapě význam „data", tohle data nejsou. */
+.srov-h3{margin-bottom:0 !important}
+.srovnani{position:relative;margin:10px 0 4px;max-width:980px;
+  border:2px dashed var(--car);border-radius:12px;padding:22px 20px 18px;
+  background:
+    repeating-linear-gradient(135deg,
+      color-mix(in srgb, var(--sed2) 7%, transparent) 0 6px,
+      transparent 6px 14px),
+    var(--platno)}
+.srovnani .stitek{position:absolute;top:-10px;left:16px;background:var(--platno);
+  border:1px solid var(--car);border-radius:999px;padding:2px 11px;
+  font-size:10.5px;text-transform:uppercase;letter-spacing:1px;color:var(--sed2);
+  font-weight:600}
+.srovnani .stitek b{color:var(--ink);font-weight:700}
+.srovnani .uvod{margin:0 0 18px;font-size:13px;color:var(--sed);max-width:78ch}
+
+.odh-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:18px}
+.odh-kpi .k > b{display:block;font-size:26px;line-height:1.05;letter-spacing:-.6px;
+  font-variant-numeric:tabular-nums;font-weight:600;color:var(--sed)}
+.odh-kpi .k > b small{font-size:14px;font-weight:500;letter-spacing:0}
+/* Pozor na přímého potomka: uvnitř <b> jsou spany s dosazovanými čísly
+   a bez `>` by je tohle pravidlo zalomilo na vlastní řádek. */
+.odh-kpi .k > span{display:block;font-size:11.5px;color:var(--sed);text-transform:uppercase;
+  letter-spacing:.7px;margin-top:5px}
+.odh-kpi .k i{display:block;font-style:normal;font-size:12px;color:var(--sed2);margin-top:4px}
+/* Jediná dlaždice, která nese měřený čas, a tím i celý smysl srovnání. */
+.odh-kpi .k.vysledek > b{color:var(--ink)}
+
+.srovnani .posuvnik{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  margin:20px 0 0;padding-top:16px;border-top:1px solid var(--car);font-size:12px}
+.srovnani .posuvnik > span{color:var(--sed);text-transform:uppercase;letter-spacing:.7px;
+  font-size:11px}
+.srovnani .posuvnik input[type=range]{flex:1;min-width:170px;max-width:300px;accent-color:var(--sed)}
+.srovnani .posuvnik output{font-variant-numeric:tabular-nums;font-weight:600;
+  min-width:120px;color:var(--ink)}
+.srovnani .pozn{margin-top:14px}

@@ -1,0 +1,224 @@
+{
+"verze": 1,
+"program": "GRTIME",
+"cesta": "GRTIME.CBL",
+"radku": 522,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 9
+},
+{
+"nazev": "DATA DIVISION",
+"od": 10,
+"do": 11
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 12,
+"do": 101
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 102,
+"do": 146
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 147,
+"do": 522
+}
+],
+"procedureOd": 147,
+"sekce": [
+{
+"nazev": "INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 149,
+"do": 316,
+"radku": 168,
+"radkuKodu": 163,
+"volanoZ": 0,
+"volaDo": 4,
+"poradi": 0
+},
+{
+"nazev": "GRADAY",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 317,
+"do": 320,
+"radku": 4,
+"radkuKodu": 2,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 1
+},
+{
+"nazev": "GRADAY-CHECK-ANO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 321,
+"do": 332,
+"radku": 12,
+"radkuKodu": 9,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 2
+},
+{
+"nazev": "GRADAY-MAIS-DIA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 333,
+"do": 359,
+"radku": 27,
+"radkuKodu": 23,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 3
+},
+{
+"nazev": "GRSDAY",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 360,
+"do": 369,
+"radku": 10,
+"radkuKodu": 7,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 4
+},
+{
+"nazev": "GRSDAY-CHECK-MES-ANO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 370,
+"do": 377,
+"radku": 8,
+"radkuKodu": 6,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 5
+},
+{
+"nazev": "GRSDAY-CHECK-ANO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 378,
+"do": 389,
+"radku": 12,
+"radkuKodu": 9,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 6
+},
+{
+"nazev": "GRSDAY-MENOS-DIA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 390,
+"do": 398,
+"radku": 9,
+"radkuKodu": 6,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 7
+},
+{
+"nazev": "GRSDAY-CHECK",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 399,
+"do": 411,
+"radku": 13,
+"radkuKodu": 10,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 8
+},
+{
+"nazev": "GRDIAS",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 412,
+"do": 522,
+"radku": 111,
+"radkuKodu": 93,
+"volanoZ": 2,
+"volaDo": 0,
+"poradi": 9
+}
+],
+"skoky": [
+{
+"z": "INICIO",
+"zRadek": 172,
+"do": "GRADAY",
+"varianta": "thru",
+"text": "PERFORM GRADAY THRU FIM-GRADAY"
+},
+{
+"z": "INICIO",
+"zRadek": 220,
+"do": "GRDIAS",
+"varianta": "thru",
+"text": "PERFORM GRDIAS THRU FIM-GRDIAS"
+},
+{
+"z": "INICIO",
+"zRadek": 259,
+"do": "GRSDAY",
+"varianta": "thru",
+"text": "PERFORM GRSDAY THRU FIM-GRSDAY"
+},
+{
+"z": "INICIO",
+"zRadek": 305,
+"do": "GRDIAS",
+"varianta": "thru",
+"text": "PERFORM GRDIAS          THRU FIM-GRDIAS"
+}
+],
+"vnejsi": [],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 10,
+"skoku": 4,
+"volaniVen": 0,
+"radkuDat": 146,
+"radkuKodu": 328
+}
+}

@@ -1,0 +1,1366 @@
+{
+"verze": 1,
+"program": "PRINT",
+"cesta": "print.cbl",
+"radku": 532,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 7
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 8,
+"do": 8
+},
+{
+"nazev": "CONFIGURATION SECTION",
+"od": 9,
+"do": 9
+},
+{
+"nazev": "INPUT-OUTPUT SECTION",
+"od": 10,
+"do": 18
+},
+{
+"nazev": "DATA DIVISION",
+"od": 19,
+"do": 19
+},
+{
+"nazev": "FILE SECTION",
+"od": 20,
+"do": 25
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 26,
+"do": 99
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 100,
+"do": 115
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 116,
+"do": 532
+}
+],
+"procedureOd": 116,
+"sekce": [
+{
+"nazev": "RAIZ",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 117,
+"do": 179,
+"radku": 63,
+"radkuKodu": 60,
+"volanoZ": 0,
+"volaDo": 18,
+"poradi": 0
+},
+{
+"nazev": "RAIZ-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 174,
+"do": 179,
+"radku": 6,
+"radkuKodu": 3,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 1
+},
+{
+"nazev": "PRINTER-ABRE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 180,
+"do": 205,
+"radku": 26,
+"radkuKodu": 25,
+"volanoZ": 1,
+"volaDo": 3,
+"poradi": 2
+},
+{
+"nazev": "PRINTER-ABRE-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 203,
+"do": 205,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 3
+},
+{
+"nazev": "PRINTER-FECHA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "data",
+"od": 206,
+"do": 212,
+"radku": 7,
+"radkuKodu": 6,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 4
+},
+{
+"nazev": "PRINTER-FECHA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 210,
+"do": 212,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 5
+},
+{
+"nazev": "PRINTER-CANCELA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 213,
+"do": 218,
+"radku": 6,
+"radkuKodu": 5,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 6
+},
+{
+"nazev": "PRINTER-CANCELA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 216,
+"do": 218,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 7
+},
+{
+"nazev": "PRINTER-COMANDO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 219,
+"do": 232,
+"radku": 14,
+"radkuKodu": 13,
+"volanoZ": 3,
+"volaDo": 1,
+"poradi": 8
+},
+{
+"nazev": "PRINTER-COMANDO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 230,
+"do": 232,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 9
+},
+{
+"nazev": "PRINTER-INFORMACAO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 233,
+"do": 268,
+"radku": 36,
+"radkuKodu": 35,
+"volanoZ": 2,
+"volaDo": 1,
+"poradi": 10
+},
+{
+"nazev": "PRINTER-INFORMACAO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 266,
+"do": 268,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 11
+},
+{
+"nazev": "PRINTER-SETFONTE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 269,
+"do": 295,
+"radku": 27,
+"radkuKodu": 26,
+"volanoZ": 3,
+"volaDo": 1,
+"poradi": 12
+},
+{
+"nazev": "PRINTER-SETFONTE-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 293,
+"do": 295,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 13
+},
+{
+"nazev": "PRINTER-GETFONTE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 296,
+"do": 331,
+"radku": 36,
+"radkuKodu": 28,
+"volanoZ": 0,
+"volaDo": 3,
+"poradi": 14
+},
+{
+"nazev": "PRINTER-GETFONTE-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 329,
+"do": 331,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 15
+},
+{
+"nazev": "PRINTER-LINHA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 332,
+"do": 337,
+"radku": 6,
+"radkuKodu": 5,
+"volanoZ": 3,
+"volaDo": 1,
+"poradi": 16
+},
+{
+"nazev": "PRINTER-LINHA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 335,
+"do": 337,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 17
+},
+{
+"nazev": "PRINTER-WRITE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 338,
+"do": 355,
+"radku": 18,
+"radkuKodu": 17,
+"volanoZ": 4,
+"volaDo": 2,
+"poradi": 18
+},
+{
+"nazev": "PRINTER-WRITE-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 353,
+"do": 355,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 19
+},
+{
+"nazev": "PRINTER-NEGRITO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 356,
+"do": 367,
+"radku": 12,
+"radkuKodu": 11,
+"volanoZ": 1,
+"volaDo": 2,
+"poradi": 20
+},
+{
+"nazev": "PRINTER-NEGRITO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 365,
+"do": 367,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 21
+},
+{
+"nazev": "PRINTER-CBARRA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 368,
+"do": 381,
+"radku": 14,
+"radkuKodu": 13,
+"volanoZ": 1,
+"volaDo": 2,
+"poradi": 22
+},
+{
+"nazev": "PRINTER-CBARRA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 379,
+"do": 381,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 23
+},
+{
+"nazev": "PRINTER-AVANCA-LINHA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 382,
+"do": 387,
+"radku": 6,
+"radkuKodu": 5,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 24
+},
+{
+"nazev": "PRINTER-AVANCA-LINHA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 385,
+"do": 387,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 25
+},
+{
+"nazev": "PRINTER-SALTA-PAGINA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 388,
+"do": 393,
+"radku": 6,
+"radkuKodu": 5,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 26
+},
+{
+"nazev": "PRINTER-SALTA-PAGINA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 391,
+"do": 393,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 27
+},
+{
+"nazev": "PRINTER-CABECALHO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "tisk",
+"od": 394,
+"do": 408,
+"radku": 15,
+"radkuKodu": 14,
+"volanoZ": 1,
+"volaDo": 3,
+"poradi": 28
+},
+{
+"nazev": "PRINTER-CABECALHO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 406,
+"do": 408,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 29
+},
+{
+"nazev": "PRINTER-TIMBRADO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 409,
+"do": 431,
+"radku": 23,
+"radkuKodu": 19,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 30
+},
+{
+"nazev": "PRINTER-TIMBRADO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 426,
+"do": 431,
+"radku": 6,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 31
+},
+{
+"nazev": "VIDEO-ABRE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 432,
+"do": 448,
+"radku": 17,
+"radkuKodu": 16,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 32
+},
+{
+"nazev": "VIDEO-ABRE-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 446,
+"do": 448,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 33
+},
+{
+"nazev": "VIDEO-FECHA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "data",
+"od": 449,
+"do": 453,
+"radku": 5,
+"radkuKodu": 4,
+"volanoZ": 2,
+"volaDo": 0,
+"poradi": 34
+},
+{
+"nazev": "VIDEO-FECHA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 451,
+"do": 453,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 35
+},
+{
+"nazev": "VIDEO-CANCELA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 454,
+"do": 458,
+"radku": 5,
+"radkuKodu": 4,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 36
+},
+{
+"nazev": "VIDEO-CANCELA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 456,
+"do": 458,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 37
+},
+{
+"nazev": "VIDEO-COMANDO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 459,
+"do": 462,
+"radku": 4,
+"radkuKodu": 3,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 38
+},
+{
+"nazev": "VIDEO-COMANDO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 460,
+"do": 462,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 39
+},
+{
+"nazev": "VIDEO-INFORMACAO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 463,
+"do": 468,
+"radku": 6,
+"radkuKodu": 5,
+"volanoZ": 2,
+"volaDo": 0,
+"poradi": 40
+},
+{
+"nazev": "VIDEO-INFORMACAO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 466,
+"do": 468,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 41
+},
+{
+"nazev": "VIDEO-LINHA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 469,
+"do": 474,
+"radku": 6,
+"radkuKodu": 5,
+"volanoZ": 3,
+"volaDo": 1,
+"poradi": 42
+},
+{
+"nazev": "VIDEO-LINHA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 472,
+"do": 474,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 43
+},
+{
+"nazev": "VIDEO-WRITE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 475,
+"do": 485,
+"radku": 11,
+"radkuKodu": 10,
+"volanoZ": 2,
+"volaDo": 0,
+"poradi": 44
+},
+{
+"nazev": "VIDEO-WRITE-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 483,
+"do": 485,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 45
+},
+{
+"nazev": "VIDEO-NEGRITO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 486,
+"do": 490,
+"radku": 5,
+"radkuKodu": 4,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 46
+},
+{
+"nazev": "VIDEO-NEGRITO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 488,
+"do": 490,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 47
+},
+{
+"nazev": "VIDEO-CBARRA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 491,
+"do": 495,
+"radku": 5,
+"radkuKodu": 4,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 48
+},
+{
+"nazev": "VIDEO-CBARRA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 493,
+"do": 495,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 49
+},
+{
+"nazev": "VIDEO-AVANCA-LINHA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 496,
+"do": 499,
+"radku": 4,
+"radkuKodu": 3,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 50
+},
+{
+"nazev": "VIDEO-AVANCA-LINHA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 497,
+"do": 499,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 51
+},
+{
+"nazev": "VIDEO-SALTA-PAGINA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 500,
+"do": 506,
+"radku": 7,
+"radkuKodu": 6,
+"volanoZ": 2,
+"volaDo": 0,
+"poradi": 52
+},
+{
+"nazev": "VIDEO-SALTA-PAGINA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 504,
+"do": 506,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 53
+},
+{
+"nazev": "VIDEO-CABECALHO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "tisk",
+"od": 507,
+"do": 518,
+"radku": 12,
+"radkuKodu": 11,
+"volanoZ": 1,
+"volaDo": 2,
+"poradi": 54
+},
+{
+"nazev": "VIDEO-CABECALHO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 516,
+"do": 518,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 55
+},
+{
+"nazev": "MENSAGEM-PADRAO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 519,
+"do": 525,
+"radku": 7,
+"radkuKodu": 6,
+"volanoZ": 6,
+"volaDo": 1,
+"poradi": 56
+},
+{
+"nazev": "MENSAGEM-PADRAO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 523,
+"do": 525,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 57
+},
+{
+"nazev": "EXIBIR-MENSAGEM",
+"preklad": "Show message",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "obrazovka",
+"od": 526,
+"do": 532,
+"radku": 7,
+"radkuKodu": 6,
+"volanoZ": 3,
+"volaDo": 0,
+"poradi": 58
+},
+{
+"nazev": "EXIBIR-MENSAGEM-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "obrazovka",
+"od": 530,
+"do": 530,
+"radku": 1,
+"radkuKodu": 1,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 59
+},
+{
+"nazev": "EXIT",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 531,
+"do": 532,
+"radku": 2,
+"radkuKodu": 1,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 60
+}
+],
+"skoky": [
+{
+"z": "RAIZ",
+"zRadek": 121,
+"do": "VIDEO-ABRE",
+"varianta": "prosty",
+"text": "perform video-abre"
+},
+{
+"z": "RAIZ",
+"zRadek": 123,
+"do": "PRINTER-ABRE",
+"varianta": "prosty",
+"text": "perform printer-abre"
+},
+{
+"z": "RAIZ",
+"zRadek": 127,
+"do": "VIDEO-FECHA",
+"varianta": "prosty",
+"text": "perform video-fecha"
+},
+{
+"z": "RAIZ",
+"zRadek": 129,
+"do": "PRINTER-FECHA",
+"varianta": "prosty",
+"text": "perform printer-fecha"
+},
+{
+"z": "RAIZ",
+"zRadek": 133,
+"do": "VIDEO-LINHA",
+"varianta": "prosty",
+"text": "perform video-linha"
+},
+{
+"z": "RAIZ",
+"zRadek": 135,
+"do": "PRINTER-LINHA",
+"varianta": "prosty",
+"text": "perform printer-linha"
+},
+{
+"z": "RAIZ",
+"zRadek": 139,
+"do": "VIDEO-NEGRITO",
+"varianta": "prosty",
+"text": "perform video-negrito"
+},
+{
+"z": "RAIZ",
+"zRadek": 141,
+"do": "PRINTER-NEGRITO",
+"varianta": "prosty",
+"text": "perform printer-negrito"
+},
+{
+"z": "RAIZ",
+"zRadek": 145,
+"do": "VIDEO-CBARRA",
+"varianta": "prosty",
+"text": "perform video-cbarra"
+},
+{
+"z": "RAIZ",
+"zRadek": 147,
+"do": "PRINTER-CBARRA",
+"varianta": "prosty",
+"text": "perform printer-cbarra"
+},
+{
+"z": "RAIZ",
+"zRadek": 151,
+"do": "VIDEO-CANCELA",
+"varianta": "prosty",
+"text": "perform video-cancela"
+},
+{
+"z": "RAIZ",
+"zRadek": 153,
+"do": "PRINTER-CANCELA",
+"varianta": "prosty",
+"text": "perform printer-cancela"
+},
+{
+"z": "RAIZ",
+"zRadek": 157,
+"do": "VIDEO-SALTA-PAGINA",
+"varianta": "prosty",
+"text": "perform video-salta-pagina"
+},
+{
+"z": "RAIZ",
+"zRadek": 159,
+"do": "PRINTER-SALTA-PAGINA",
+"varianta": "prosty",
+"text": "perform printer-salta-pagina"
+},
+{
+"z": "RAIZ",
+"zRadek": 163,
+"do": "VIDEO-INFORMACAO",
+"varianta": "prosty",
+"text": "perform video-informacao"
+},
+{
+"z": "RAIZ",
+"zRadek": 165,
+"do": "PRINTER-INFORMACAO",
+"varianta": "prosty",
+"text": "perform printer-informacao"
+},
+{
+"z": "RAIZ",
+"zRadek": 169,
+"do": "VIDEO-CABECALHO",
+"varianta": "prosty",
+"text": "perform video-cabecalho"
+},
+{
+"z": "RAIZ",
+"zRadek": 171,
+"do": "PRINTER-CABECALHO",
+"varianta": "prosty",
+"text": "perform printer-cabecalho"
+},
+{
+"z": "PRINTER-ABRE",
+"zRadek": 195,
+"do": "PRINTER-SETFONTE",
+"varianta": "prosty",
+"text": "perform printer-setfonte"
+},
+{
+"z": "PRINTER-ABRE",
+"zRadek": 197,
+"do": "PRINTER-INFORMACAO",
+"varianta": "prosty",
+"text": "perform printer-informacao"
+},
+{
+"z": "PRINTER-ABRE",
+"zRadek": 201,
+"do": "MENSAGEM-PADRAO",
+"varianta": "prosty",
+"text": "perform mensagem-padrao"
+},
+{
+"z": "PRINTER-CANCELA",
+"zRadek": 215,
+"do": "PRINTER-COMANDO",
+"varianta": "prosty",
+"text": "perform printer-comando."
+},
+{
+"z": "PRINTER-COMANDO",
+"zRadek": 228,
+"do": "MENSAGEM-PADRAO",
+"varianta": "prosty",
+"text": "perform mensagem-padrao"
+},
+{
+"z": "PRINTER-INFORMACAO",
+"zRadek": 264,
+"do": "MENSAGEM-PADRAO",
+"varianta": "prosty",
+"text": "perform mensagem-padrao"
+},
+{
+"z": "PRINTER-SETFONTE",
+"zRadek": 291,
+"do": "MENSAGEM-PADRAO",
+"varianta": "prosty",
+"text": "perform mensagem-padrao"
+},
+{
+"z": "PRINTER-GETFONTE",
+"zRadek": 306,
+"do": "MENSAGEM-PADRAO",
+"varianta": "prosty",
+"text": "perform mensagem-padrao"
+},
+{
+"z": "PRINTER-GETFONTE",
+"zRadek": 313,
+"do": "EXIBIR-MENSAGEM",
+"varianta": "prosty",
+"text": "perform exibir-mensagem"
+},
+{
+"z": "PRINTER-GETFONTE",
+"zRadek": 327,
+"do": "EXIBIR-MENSAGEM",
+"varianta": "prosty",
+"text": "perform exibir-mensagem"
+},
+{
+"z": "PRINTER-LINHA",
+"zRadek": 334,
+"do": "PRINTER-WRITE",
+"varianta": "prosty",
+"text": "perform printer-write."
+},
+{
+"z": "PRINTER-WRITE",
+"zRadek": 346,
+"do": "PRINTER-AVANCA-LINHA",
+"varianta": "prosty",
+"text": "perform printer-avanca-linha"
+},
+{
+"z": "PRINTER-WRITE",
+"zRadek": 350,
+"do": "MENSAGEM-PADRAO",
+"varianta": "prosty",
+"text": "perform mensagem-padrao"
+},
+{
+"z": "PRINTER-NEGRITO",
+"zRadek": 363,
+"do": "PRINTER-LINHA",
+"varianta": "prosty",
+"text": "perform printer-linha."
+},
+{
+"z": "PRINTER-NEGRITO",
+"zRadek": 364,
+"do": "PRINTER-SETFONTE",
+"varianta": "prosty",
+"text": "perform printer-setfonte."
+},
+{
+"z": "PRINTER-CBARRA",
+"zRadek": 377,
+"do": "PRINTER-LINHA",
+"varianta": "prosty",
+"text": "perform printer-linha."
+},
+{
+"z": "PRINTER-CBARRA",
+"zRadek": 378,
+"do": "PRINTER-SETFONTE",
+"varianta": "prosty",
+"text": "perform printer-setfonte."
+},
+{
+"z": "PRINTER-AVANCA-LINHA",
+"zRadek": 384,
+"do": "PRINTER-COMANDO",
+"varianta": "prosty",
+"text": "perform printer-comando."
+},
+{
+"z": "PRINTER-SALTA-PAGINA",
+"zRadek": 390,
+"do": "PRINTER-COMANDO",
+"varianta": "prosty",
+"text": "perform printer-comando."
+},
+{
+"z": "PRINTER-CABECALHO",
+"zRadek": 397,
+"do": "PRINTER-WRITE",
+"varianta": "prosty",
+"text": "perform printer-write"
+},
+{
+"z": "PRINTER-CABECALHO",
+"zRadek": 399,
+"do": "PRINTER-TIMBRADO",
+"varianta": "prosty",
+"text": "perform printer-timbrado."
+},
+{
+"z": "PRINTER-CABECALHO",
+"zRadek": 404,
+"do": "PRINTER-WRITE",
+"varianta": "prosty",
+"text": "perform printer-write"
+},
+{
+"z": "PRINTER-TIMBRADO",
+"zRadek": 424,
+"do": "PRINTER-WRITE",
+"varianta": "prosty",
+"text": "perform printer-write"
+},
+{
+"z": "VIDEO-ABRE",
+"zRadek": 445,
+"do": "VIDEO-INFORMACAO",
+"varianta": "prosty",
+"text": "perform video-informacao."
+},
+{
+"z": "VIDEO-CANCELA",
+"zRadek": 455,
+"do": "VIDEO-FECHA",
+"varianta": "prosty",
+"text": "perform video-fecha."
+},
+{
+"z": "VIDEO-LINHA",
+"zRadek": 471,
+"do": "VIDEO-WRITE",
+"varianta": "prosty",
+"text": "perform video-write."
+},
+{
+"z": "VIDEO-NEGRITO",
+"zRadek": 487,
+"do": "VIDEO-LINHA",
+"varianta": "prosty",
+"text": "perform video-linha."
+},
+{
+"z": "VIDEO-CBARRA",
+"zRadek": 492,
+"do": "VIDEO-LINHA",
+"varianta": "prosty",
+"text": "perform video-linha."
+},
+{
+"z": "VIDEO-CABECALHO",
+"zRadek": 509,
+"do": "VIDEO-SALTA-PAGINA",
+"varianta": "prosty",
+"text": "perform video-salta-pagina."
+},
+{
+"z": "VIDEO-CABECALHO",
+"zRadek": 514,
+"do": "VIDEO-WRITE",
+"varianta": "prosty",
+"text": "perform video-write"
+},
+{
+"z": "MENSAGEM-PADRAO",
+"zRadek": 522,
+"do": "EXIBIR-MENSAGEM",
+"varianta": "prosty",
+"text": "perform exibir-mensagem."
+}
+],
+"vnejsi": [
+{
+"cil": "PC_PRINTER_SET_FONT",
+"n": 3,
+"radky": [
+282,
+358,
+372
+],
+"zSekci": [
+"PRINTER-SETFONTE",
+"PRINTER-NEGRITO",
+"PRINTER-CBARRA"
+],
+"co": ""
+},
+{
+"cil": "PC_PRINTER_OPEN",
+"n": 1,
+"radky": [
+187
+],
+"zSekci": [
+"PRINTER-ABRE"
+],
+"co": ""
+},
+{
+"cil": "PC_PRINTER_CLOSE",
+"n": 1,
+"radky": [
+207
+],
+"zSekci": [
+"PRINTER-FECHA"
+],
+"co": ""
+},
+{
+"cil": "PC_PRINTER_CONTROL",
+"n": 1,
+"radky": [
+220
+],
+"zSekci": [
+"PRINTER-COMANDO"
+],
+"co": ""
+},
+{
+"cil": "PC_PRINTER_INFO",
+"n": 1,
+"radky": [
+253
+],
+"zSekci": [
+"PRINTER-INFORMACAO"
+],
+"co": ""
+},
+{
+"cil": "PC_PRINTER_GET_FONT",
+"n": 1,
+"radky": [
+297
+],
+"zSekci": [
+"PRINTER-GETFONTE"
+],
+"co": ""
+},
+{
+"cil": "PC_PRINTER_WRITE",
+"n": 1,
+"radky": [
+339
+],
+"zSekci": [
+"PRINTER-WRITE"
+],
+"co": ""
+},
+{
+"cil": "MENSAGEM",
+"n": 1,
+"radky": [
+528
+],
+"zSekci": [
+"EXIBIR-MENSAGEM"
+],
+"co": "user messages"
+}
+],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 30,
+"odstavcu": 31,
+"skoku": 49,
+"volaniVen": 10,
+"radkuDat": 115,
+"radkuKodu": 435
+}
+}

@@ -1,0 +1,687 @@
+{
+"verze": 1,
+"program": "GALHO90",
+"cesta": "galho90.cbl",
+"radku": 1019,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 6
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 7,
+"do": 10
+},
+{
+"nazev": "INPUT-OUTPUT SECTION",
+"od": 11,
+"do": 17
+},
+{
+"nazev": "DATA DIVISION",
+"od": 18,
+"do": 18
+},
+{
+"nazev": "FILE SECTION",
+"od": 19,
+"do": 25
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 26,
+"do": 105
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 106,
+"do": 1019
+}
+],
+"procedureOd": 106,
+"sekce": [
+{
+"nazev": "MAIN-PROCESS",
+"preklad": "Main process",
+"prekladMuj": true,
+"druh": "sekce",
+"role": "rizeni",
+"od": 107,
+"do": 174,
+"radku": 68,
+"radkuKodu": 52,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+},
+{
+"nazev": "0010-PROCURAR-PROGRAMACAO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 139,
+"do": 154,
+"radku": 16,
+"radkuKodu": 12,
+"volanoZ": 0,
+"volaDo": 4,
+"poradi": 1
+},
+{
+"nazev": "0015-OUTRA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 155,
+"do": 174,
+"radku": 20,
+"radkuKodu": 12,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 2
+},
+{
+"nazev": "ACHAR-EXCLUSAO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 175,
+"do": 219,
+"radku": 45,
+"radkuKodu": 38,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 3
+},
+{
+"nazev": "VENCIMENTO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 185,
+"do": 216,
+"radku": 32,
+"radkuKodu": 29,
+"volanoZ": 0,
+"volaDo": 1,
+"poradi": 4
+},
+{
+"nazev": "ACHAR-EXCLUSAO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 217,
+"do": 219,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 5
+},
+{
+"nazev": "CONTINUAR",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 220,
+"do": 326,
+"radku": 107,
+"radkuKodu": 83,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 6
+},
+{
+"nazev": "0018-DATA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 254,
+"do": 292,
+"radku": 39,
+"radkuKodu": 30,
+"volanoZ": 0,
+"volaDo": 1,
+"poradi": 7
+},
+{
+"nazev": "0018-VALOR",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 293,
+"do": 323,
+"radku": 31,
+"radkuKodu": 24,
+"volanoZ": 0,
+"volaDo": 1,
+"poradi": 8
+},
+{
+"nazev": "CONTINUAR-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 324,
+"do": 326,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 9
+},
+{
+"nazev": "ACHAR-TODAS",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 327,
+"do": 399,
+"radku": 73,
+"radkuKodu": 60,
+"volanoZ": 1,
+"volaDo": 2,
+"poradi": 10
+},
+{
+"nazev": "LISTAR-PROGRAMACAO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 400,
+"do": 592,
+"radku": 193,
+"radkuKodu": 154,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 11
+},
+{
+"nazev": "LISTAR-PROGRAMACAO-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 590,
+"do": 592,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 12
+},
+{
+"nazev": "LISTAR-PROGRAMACAO2",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 593,
+"do": 702,
+"radku": 110,
+"radkuKodu": 88,
+"volanoZ": 3,
+"volaDo": 2,
+"poradi": 13
+},
+{
+"nazev": "LISTAR-PROGRAMACAO2-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 700,
+"do": 702,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 14
+},
+{
+"nazev": "LISTAR-LOG",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 703,
+"do": 729,
+"radku": 27,
+"radkuKodu": 16,
+"volanoZ": 5,
+"volaDo": 0,
+"poradi": 15
+},
+{
+"nazev": "LISTAR-PROGRAMACAO3",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 730,
+"do": 882,
+"radku": 153,
+"radkuKodu": 117,
+"volanoZ": 2,
+"volaDo": 2,
+"poradi": 16
+},
+{
+"nazev": "LISTAR-PROGRAMACAO3-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 880,
+"do": 882,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 17
+},
+{
+"nazev": "LISTAR-PROGRAMACAO4",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 883,
+"do": 980,
+"radku": 98,
+"radkuKodu": 74,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 18
+},
+{
+"nazev": "LISTAR-PROGRAMACAO4-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 978,
+"do": 980,
+"radku": 3,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 19
+},
+{
+"nazev": "PROCURA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "sekce",
+"role": "zpracovani",
+"od": 981,
+"do": 1019,
+"radku": 39,
+"radkuKodu": 35,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 20
+},
+{
+"nazev": "PROCURA-FIM",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 1018,
+"do": 1019,
+"radku": 2,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 21
+}
+],
+"skoky": [
+{
+"z": "0010-PROCURAR-PROGRAMACAO",
+"zRadek": 148,
+"do": "CONTINUAR",
+"varianta": "prosty",
+"text": "WHEN \"N\" PERFORM CONTINUAR"
+},
+{
+"z": "0010-PROCURAR-PROGRAMACAO",
+"zRadek": 149,
+"do": "ACHAR-EXCLUSAO",
+"varianta": "prosty",
+"text": "WHEN \"S\" PERFORM ACHAR-EXCLUSAO"
+},
+{
+"z": "0010-PROCURAR-PROGRAMACAO",
+"zRadek": 150,
+"do": "ACHAR-TODAS",
+"varianta": "prosty",
+"text": "WHEN \"T\" PERFORM ACHAR-TODAS"
+},
+{
+"z": "0010-PROCURAR-PROGRAMACAO",
+"zRadek": 151,
+"do": "PROCURA",
+"varianta": "prosty",
+"text": "WHEN \"2\" PERFORM PROCURA"
+},
+{
+"z": "VENCIMENTO",
+"zRadek": 213,
+"do": "LISTAR-PROGRAMACAO2",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-PROGRAMACAO2"
+},
+{
+"z": "CONTINUAR",
+"zRadek": 244,
+"do": "LISTAR-PROGRAMACAO",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-PROGRAMACAO"
+},
+{
+"z": "0018-DATA",
+"zRadek": 282,
+"do": "LISTAR-PROGRAMACAO2",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-PROGRAMACAO2"
+},
+{
+"z": "0018-VALOR",
+"zRadek": 316,
+"do": "LISTAR-PROGRAMACAO3",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-PROGRAMACAO3"
+},
+{
+"z": "ACHAR-TODAS",
+"zRadek": 366,
+"do": "LISTAR-PROGRAMACAO2",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-PROGRAMACAO2"
+},
+{
+"z": "ACHAR-TODAS",
+"zRadek": 390,
+"do": "LISTAR-PROGRAMACAO3",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-PROGRAMACAO3"
+},
+{
+"z": "LISTAR-PROGRAMACAO2",
+"zRadek": 685,
+"do": "LISTAR-LOG",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-LOG"
+},
+{
+"z": "LISTAR-PROGRAMACAO2",
+"zRadek": 691,
+"do": "LISTAR-LOG",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-LOG"
+},
+{
+"z": "LISTAR-PROGRAMACAO3",
+"zRadek": 833,
+"do": "LISTAR-LOG",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-LOG"
+},
+{
+"z": "LISTAR-PROGRAMACAO3",
+"zRadek": 841,
+"do": "LISTAR-LOG",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-LOG"
+},
+{
+"z": "LISTAR-PROGRAMACAO4",
+"zRadek": 967,
+"do": "LISTAR-LOG",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-LOG"
+},
+{
+"z": "PROCURA",
+"zRadek": 1011,
+"do": "LISTAR-PROGRAMACAO4",
+"varianta": "prosty",
+"text": "PERFORM LISTAR-PROGRAMACAO4"
+}
+],
+"vnejsi": [],
+"copybooky": [
+{
+"nazev": "CPPX020",
+"radek": 13,
+"sdiliS": [
+"CCP201",
+"CCP204",
+"CCP205",
+"CCP208",
+"CGD201",
+"COP100",
+"COP998",
+"COP999",
+"CPP020",
+"CPP020A",
+"CPP020B",
+"CPP020C",
+"CPP022",
+"CPP022A",
+"CPP050",
+"CPP051",
+"CPP051T",
+"CPP052",
+"CPP053",
+"CPP054",
+"CPP055",
+"CPP056",
+"CPP057",
+"CPP058",
+"CPP059",
+"CPP060",
+"CPP061",
+"CPP062",
+"CPP063",
+"CXP100",
+"CXP100-08-06-2009",
+"CXP100-23102012",
+"FIN001",
+"GALHO73",
+"GALHO75",
+"GALHO78",
+"GALHO80",
+"GALHO85",
+"GALHO86",
+"GALHO97",
+"GALHO99ACPP",
+"GALHOCXD100-BRINDE",
+"GALHOCXD100-BRINDE2"
+]
+},
+{
+"nazev": "CPPX024",
+"radek": 14,
+"sdiliS": [
+"CCP208",
+"CPP022",
+"CPP022A",
+"CPP063"
+]
+},
+{
+"nazev": "CPPX099",
+"radek": 15,
+"sdiliS": [
+"CPP020",
+"CPP020A",
+"CPP020B",
+"CPP022",
+"CPP022A",
+"GALHO78",
+"GALHO85",
+"GALHO86"
+]
+},
+{
+"nazev": "LOGX003",
+"radek": 16,
+"sdiliS": [
+"CGP001",
+"CGP010",
+"CGP010A",
+"CGP030",
+"CPP020",
+"CPP020A",
+"CPP020B",
+"CPP022",
+"CPP022A",
+"CPP052",
+"CPP056",
+"CPP063",
+"CRP020",
+"CRP020A",
+"CRP020B",
+"CRP022",
+"GALHO90CRD",
+"GALHO96",
+"GALHO96A",
+"OEP030",
+"RCP100"
+]
+},
+{
+"nazev": "CPPW020",
+"radek": 20,
+"sdiliS": [
+"CCP201",
+"CCP204",
+"CCP205",
+"CCP208",
+"CGD201",
+"COP100",
+"COP998",
+"COP999",
+"CPP020",
+"CPP020A",
+"CPP020B",
+"CPP020C",
+"CPP022",
+"CPP022A",
+"CPP050",
+"CPP051",
+"CPP051T",
+"CPP052",
+"CPP053",
+"CPP054",
+"CPP055",
+"CPP056",
+"CPP057",
+"CPP058",
+"CPP059",
+"CPP060",
+"CPP061",
+"CPP062",
+"CPP063",
+"CXP100",
+"CXP100-08-06-2009",
+"CXP100-23102012",
+"FIN001",
+"GALHO73",
+"GALHO75",
+"GALHO78",
+"GALHO80",
+"GALHO85",
+"GALHO86",
+"GALHO97",
+"GALHO99ACPP",
+"GALHOCXD100-BRINDE",
+"GALHOCXD100-BRINDE2"
+]
+},
+{
+"nazev": "CPPW024",
+"radek": 21,
+"sdiliS": [
+"CCP208",
+"CPP022",
+"CPP022A",
+"CPP063"
+]
+},
+{
+"nazev": "CPPW099",
+"radek": 22,
+"sdiliS": [
+"CPP020",
+"CPP020A",
+"CPP020B",
+"CPP022",
+"CPP022A",
+"GALHO78",
+"GALHO85",
+"GALHO86"
+]
+},
+{
+"nazev": "LOGW003",
+"radek": 23,
+"sdiliS": [
+"CGP001",
+"CGP010",
+"CGP010A",
+"CGP030",
+"CPP020",
+"CPP020A",
+"CPP020B",
+"CPP022",
+"CPP022A",
+"CPP052",
+"CPP056",
+"CPP063",
+"CRP020",
+"CRP020A",
+"CRP020B",
+"CRP022",
+"GALHO90CRD",
+"GALHO96",
+"GALHO96A",
+"OEP030",
+"RCP100"
+]
+}
+],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 10,
+"odstavcu": 12,
+"skoku": 16,
+"volaniVen": 0,
+"radkuDat": 105,
+"radkuKodu": 838
+}
+}

@@ -1,0 +1,140 @@
+{
+"verze": 1,
+"program": "GRFINA",
+"cesta": "GRFINA.CBL",
+"radku": 143,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 9
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 10,
+"do": 10
+},
+{
+"nazev": "INPUT-OUTPUT SECTION",
+"od": 11,
+"do": 17
+},
+{
+"nazev": "DATA DIVISION",
+"od": 18,
+"do": 18
+},
+{
+"nazev": "FILE SECTION",
+"od": 19,
+"do": 36
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 37,
+"do": 62
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 63,
+"do": 69
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 70,
+"do": 143
+}
+],
+"procedureOd": 70,
+"sekce": [
+{
+"nazev": "000-INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 72,
+"do": 111,
+"radku": 40,
+"radkuKodu": 33,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+},
+{
+"nazev": "000-STOPRUN",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 112,
+"do": 143,
+"radku": 32,
+"radkuKodu": 27,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 1
+}
+],
+"skoky": [],
+"vnejsi": [
+{
+"cil": "?",
+"n": 1,
+"radky": [
+74
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "GRREFE",
+"n": 1,
+"radky": [
+119
+],
+"zSekci": [
+"000-STOPRUN"
+],
+"co": ""
+},
+{
+"cil": "GRDATA",
+"n": 1,
+"radky": [
+126
+],
+"zSekci": [
+"000-STOPRUN"
+],
+"co": ""
+}
+],
+"copybooky": [
+{
+"nazev": "CPREFE",
+"radek": 61,
+"sdiliS": [
+"GRISAM"
+]
+}
+],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 2,
+"skoku": 0,
+"volaniVen": 3,
+"radkuDat": 69,
+"radkuKodu": 60
+}
+}

@@ -1,0 +1,120 @@
+{
+"verze": 1,
+"program": "GRFILE",
+"cesta": "GRFILE.CBL",
+"radku": 95,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 9
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 10,
+"do": 10
+},
+{
+"nazev": "CONFIGURATION SECTION",
+"od": 11,
+"do": 12
+},
+{
+"nazev": "INPUT-OUTPUT SECTION",
+"od": 13,
+"do": 21
+},
+{
+"nazev": "DATA DIVISION",
+"od": 22,
+"do": 22
+},
+{
+"nazev": "FILE SECTION",
+"od": 23,
+"do": 26
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 27,
+"do": 41
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 42,
+"do": 45
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 46,
+"do": 95
+}
+],
+"procedureOd": 46,
+"sekce": [
+{
+"nazev": "000-INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 48,
+"do": 95,
+"radku": 48,
+"radkuKodu": 37,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+}
+],
+"skoky": [],
+"vnejsi": [
+{
+"cil": "GRISAM",
+"n": 3,
+"radky": [
+61,
+69,
+87
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "GRFINA",
+"n": 1,
+"radky": [
+51
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+}
+],
+"copybooky": [
+{
+"nazev": "CPCONF",
+"radek": 25,
+"sdiliS": []
+}
+],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 1,
+"skoku": 0,
+"volaniVen": 4,
+"radkuDat": 45,
+"radkuKodu": 37
+}
+}

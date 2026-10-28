@@ -1,0 +1,325 @@
+{
+"verze": 1,
+"program": "GREXTE",
+"cesta": "GREXTE.CBL",
+"radku": 364,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 3,
+"do": 10
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 11,
+"do": 12
+},
+{
+"nazev": "CONFIGURATION SECTION",
+"od": 13,
+"do": 16
+},
+{
+"nazev": "DATA DIVISION",
+"od": 17,
+"do": 19
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 20,
+"do": 118
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 119,
+"do": 128
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 129,
+"do": 364
+}
+],
+"procedureOd": 129,
+"sekce": [
+{
+"nazev": "A01-PROCURA-DIGITO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 135,
+"do": 139,
+"radku": 5,
+"radkuKodu": 2,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+},
+{
+"nazev": "A02-INICIALIZAR",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 140,
+"do": 150,
+"radku": 11,
+"radkuKodu": 10,
+"volanoZ": 0,
+"volaDo": 3,
+"poradi": 1
+},
+{
+"nazev": "A03-PREPARA-SAIDA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 151,
+"do": 158,
+"radku": 8,
+"radkuKodu": 7,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 2
+},
+{
+"nazev": "A04-FINALIZAR",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "rizeni",
+"od": 159,
+"do": 165,
+"radku": 7,
+"radkuKodu": 4,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 3
+},
+{
+"nazev": "B01-PROCESSAMENTO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 166,
+"do": 189,
+"radku": 24,
+"radkuKodu": 23,
+"volanoZ": 1,
+"volaDo": 4,
+"poradi": 4
+},
+{
+"nazev": "B05-CENTAVOS",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 190,
+"do": 232,
+"radku": 43,
+"radkuKodu": 39,
+"volanoZ": 1,
+"volaDo": 3,
+"poradi": 5
+},
+{
+"nazev": "C01-CENTENA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 233,
+"do": 241,
+"radku": 9,
+"radkuKodu": 6,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 6
+},
+{
+"nazev": "C02-DEZENA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 242,
+"do": 252,
+"radku": 11,
+"radkuKodu": 8,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 7
+},
+{
+"nazev": "C03-NOME-UNIDADE",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 253,
+"do": 330,
+"radku": 78,
+"radkuKodu": 75,
+"volanoZ": 1,
+"volaDo": 2,
+"poradi": 8
+},
+{
+"nazev": "C06-NOME-CENTAVO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 331,
+"do": 341,
+"radku": 11,
+"radkuKodu": 9,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 9
+},
+{
+"nazev": "D01-MOVER-LETRA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 342,
+"do": 346,
+"radku": 5,
+"radkuKodu": 4,
+"volanoZ": 6,
+"volaDo": 0,
+"poradi": 10
+},
+{
+"nazev": "D02-CONT-DIG",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 347,
+"do": 364,
+"radku": 18,
+"radkuKodu": 16,
+"volanoZ": 1,
+"volaDo": 0,
+"poradi": 11
+}
+],
+"skoky": [
+{
+"z": "A02-INICIALIZAR",
+"zRadek": 144,
+"do": "B01-PROCESSAMENTO",
+"varianta": "prosty",
+"text": "PERFORM B01-PROCESSAMENTO"
+},
+{
+"z": "A02-INICIALIZAR",
+"zRadek": 148,
+"do": "B05-CENTAVOS",
+"varianta": "prosty",
+"text": "PERFORM B05-CENTAVOS"
+},
+{
+"z": "A02-INICIALIZAR",
+"zRadek": 149,
+"do": "C06-NOME-CENTAVO",
+"varianta": "prosty",
+"text": "PERFORM C06-NOME-CENTAVO."
+},
+{
+"z": "B01-PROCESSAMENTO",
+"zRadek": 169,
+"do": "C01-CENTENA",
+"varianta": "prosty",
+"text": "IF CENTENA AND IND-2 > 0 PERFORM C01-CENTENA           ELSE"
+},
+{
+"z": "B01-PROCESSAMENTO",
+"zRadek": 170,
+"do": "C02-DEZENA",
+"varianta": "prosty",
+"text": "IF DEZENA  AND IND-2 > 0 PERFORM C02-DEZENA            ELSE"
+},
+{
+"z": "B01-PROCESSAMENTO",
+"zRadek": 173,
+"do": "D01-MOVER-LETRA",
+"varianta": "prosty",
+"text": "PERFORM D01-MOVER-LETRA"
+},
+{
+"z": "B01-PROCESSAMENTO",
+"zRadek": 187,
+"do": "C03-NOME-UNIDADE",
+"varianta": "prosty",
+"text": "PERFORM C03-NOME-UNIDADE."
+},
+{
+"z": "B05-CENTAVOS",
+"zRadek": 207,
+"do": "D01-MOVER-LETRA",
+"varianta": "until",
+"text": "PERFORM D01-MOVER-LETRA UNTIL"
+},
+{
+"z": "B05-CENTAVOS",
+"zRadek": 222,
+"do": "D01-MOVER-LETRA",
+"varianta": "until",
+"text": "PERFORM D01-MOVER-LETRA UNTIL"
+},
+{
+"z": "B05-CENTAVOS",
+"zRadek": 227,
+"do": "D01-MOVER-LETRA",
+"varianta": "until",
+"text": "PERFORM D01-MOVER-LETRA UNTIL"
+},
+{
+"z": "C03-NOME-UNIDADE",
+"zRadek": 257,
+"do": "D02-CONT-DIG",
+"varianta": "until",
+"text": "PERFORM D02-CONT-DIG UNTIL IND-1 > 12."
+},
+{
+"z": "C03-NOME-UNIDADE",
+"zRadek": 325,
+"do": "D01-MOVER-LETRA",
+"varianta": "prosty",
+"text": "PERFORM D01-MOVER-LETRA"
+},
+{
+"z": "C06-NOME-CENTAVO",
+"zRadek": 337,
+"do": "D01-MOVER-LETRA",
+"varianta": "until",
+"text": "PERFORM D01-MOVER-LETRA UNTIL"
+}
+],
+"vnejsi": [],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 12,
+"skoku": 13,
+"volaniVen": 0,
+"radkuDat": 128,
+"radkuKodu": 203
+}
+}

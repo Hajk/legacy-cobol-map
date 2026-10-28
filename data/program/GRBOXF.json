@@ -1,0 +1,352 @@
+{
+"verze": 1,
+"program": "GRBOXF",
+"cesta": "GRBOXF.CBL",
+"radku": 699,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 16
+},
+{
+"nazev": "DATA DIVISION",
+"od": 17,
+"do": 18
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 19,
+"do": 118
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 119,
+"do": 146
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 147,
+"do": 699
+}
+],
+"procedureOd": 147,
+"sekce": [
+{
+"nazev": "000-INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 149,
+"do": 183,
+"radku": 35,
+"radkuKodu": 29,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+},
+{
+"nazev": "200-SHOW",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 184,
+"do": 525,
+"radku": 342,
+"radkuKodu": 326,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 1
+},
+{
+"nazev": "201-LER-TECLA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 526,
+"do": 602,
+"radku": 77,
+"radkuKodu": 74,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 2
+},
+{
+"nazev": "205-INICIO-BOXWRK",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 603,
+"do": 610,
+"radku": 8,
+"radkuKodu": 5,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 3
+},
+{
+"nazev": "206-FIM-BOXWRK",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 611,
+"do": 635,
+"radku": 25,
+"radkuKodu": 20,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 4
+},
+{
+"nazev": "210-MONTA-TELA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 636,
+"do": 662,
+"radku": 27,
+"radkuKodu": 24,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 5
+},
+{
+"nazev": "215-DISCO-MEMORIA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 663,
+"do": 676,
+"radku": 14,
+"radkuKodu": 10,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 6
+},
+{
+"nazev": "220-EXIBE-TELA",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 677,
+"do": 688,
+"radku": 12,
+"radkuKodu": 9,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 7
+},
+{
+"nazev": "250-LER",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 689,
+"do": 699,
+"radku": 11,
+"radkuKodu": 8,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 8
+}
+],
+"skoky": [],
+"vnejsi": [
+{
+"cil": "CBL_WRITE_SCR_N_ATTR",
+"n": 5,
+"radky": [
+266,
+326,
+333,
+398,
+515
+],
+"zSekci": [
+"200-SHOW"
+],
+"co": ""
+},
+{
+"cil": "?",
+"n": 3,
+"radky": [
+163,
+174,
+691
+],
+"zSekci": [
+"000-INICIO",
+"250-LER"
+],
+"co": ""
+},
+{
+"cil": "GRHORA",
+"n": 3,
+"radky": [
+179,
+293,
+401
+],
+"zSekci": [
+"000-INICIO",
+"200-SHOW"
+],
+"co": ""
+},
+{
+"cil": "GRWIND",
+"n": 2,
+"radky": [
+195,
+522
+],
+"zSekci": [
+"200-SHOW"
+],
+"co": ""
+},
+{
+"cil": "CBL_READ_KBD_CHAR",
+"n": 2,
+"radky": [
+366,
+377
+],
+"zSekci": [
+"200-SHOW"
+],
+"co": ""
+},
+{
+"cil": "GRFINA",
+"n": 1,
+"radky": [
+154
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "GREMSG",
+"n": 1,
+"radky": [
+170
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_INIT_MOUSE",
+"n": 1,
+"radky": [
+218
+],
+"zSekci": [
+"200-SHOW"
+],
+"co": ""
+},
+{
+"cil": "CBL_SET_CSR_POS",
+"n": 1,
+"radky": [
+280
+],
+"zSekci": [
+"200-SHOW"
+],
+"co": ""
+},
+{
+"cil": "CBL_GET_KBD_STATUS",
+"n": 1,
+"radky": [
+285
+],
+"zSekci": [
+"200-SHOW"
+],
+"co": ""
+},
+{
+"cil": "CBL_GET_MOUSE_POSITION",
+"n": 1,
+"radky": [
+286
+],
+"zSekci": [
+"200-SHOW"
+],
+"co": ""
+},
+{
+"cil": "CBL_READ_MOUSE_EVENT",
+"n": 1,
+"radky": [
+294
+],
+"zSekci": [
+"200-SHOW"
+],
+"co": ""
+},
+{
+"cil": "CBL_READ_SCR_CHARS",
+"n": 1,
+"radky": [
+304
+],
+"zSekci": [
+"200-SHOW"
+],
+"co": ""
+}
+],
+"copybooky": [
+{
+"nazev": "CPEDIT",
+"radek": 32,
+"sdiliS": [
+"GRLINE"
+]
+},
+{
+"nazev": "CPWIND",
+"radek": 117,
+"sdiliS": [
+"GRSEND"
+]
+}
+],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 9,
+"skoku": 0,
+"volaniVen": 23,
+"radkuDat": 146,
+"radkuKodu": 505
+}
+}

@@ -1,0 +1,371 @@
+{
+"verze": 1,
+"program": "GRLINE",
+"cesta": "GRLINE.CBL",
+"radku": 631,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 9
+},
+{
+"nazev": "DATA DIVISION",
+"od": 10,
+"do": 10
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 11,
+"do": 96
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 97,
+"do": 129
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 130,
+"do": 631
+}
+],
+"procedureOd": 130,
+"sekce": [
+{
+"nazev": "000-INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 132,
+"do": 464,
+"radku": 333,
+"radkuKodu": 326,
+"volanoZ": 0,
+"volaDo": 10,
+"poradi": 0
+},
+{
+"nazev": "CHECK-POSITION",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 465,
+"do": 510,
+"radku": 46,
+"radkuKodu": 43,
+"volanoZ": 2,
+"volaDo": 0,
+"poradi": 1
+},
+{
+"nazev": "SET-REVERSO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 511,
+"do": 568,
+"radku": 58,
+"radkuKodu": 47,
+"volanoZ": 1,
+"volaDo": 1,
+"poradi": 2
+},
+{
+"nazev": "APAGAR",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 569,
+"do": 579,
+"radku": 11,
+"radkuKodu": 8,
+"volanoZ": 3,
+"volaDo": 0,
+"poradi": 3
+},
+{
+"nazev": "EXIBE-BUTTON",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 580,
+"do": 631,
+"radku": 52,
+"radkuKodu": 46,
+"volanoZ": 5,
+"volaDo": 0,
+"poradi": 4
+}
+],
+"skoky": [
+{
+"z": "000-INICIO",
+"zRadek": 217,
+"do": "EXIBE-BUTTON",
+"varianta": "prosty",
+"text": "PERFORM EXIBE-BUTTON"
+},
+{
+"z": "000-INICIO",
+"zRadek": 260,
+"do": "EXIBE-BUTTON",
+"varianta": "prosty",
+"text": "PERFORM EXIBE-BUTTON"
+},
+{
+"z": "000-INICIO",
+"zRadek": 327,
+"do": "APAGAR",
+"varianta": "prosty",
+"text": "PERFORM APAGAR"
+},
+{
+"z": "000-INICIO",
+"zRadek": 336,
+"do": "EXIBE-BUTTON",
+"varianta": "prosty",
+"text": "PERFORM EXIBE-BUTTON"
+},
+{
+"z": "000-INICIO",
+"zRadek": 346,
+"do": "SET-REVERSO",
+"varianta": "thru",
+"text": "PERFORM SET-REVERSO THRU FIM-SET-REVERSO"
+},
+{
+"z": "000-INICIO",
+"zRadek": 350,
+"do": "APAGAR",
+"varianta": "prosty",
+"text": "PERFORM APAGAR"
+},
+{
+"z": "000-INICIO",
+"zRadek": 359,
+"do": "EXIBE-BUTTON",
+"varianta": "prosty",
+"text": "PERFORM EXIBE-BUTTON"
+},
+{
+"z": "000-INICIO",
+"zRadek": 381,
+"do": "CHECK-POSITION",
+"varianta": "prosty",
+"text": "PERFORM CHECK-POSITION"
+},
+{
+"z": "000-INICIO",
+"zRadek": 385,
+"do": "EXIBE-BUTTON",
+"varianta": "prosty",
+"text": "PERFORM EXIBE-BUTTON"
+},
+{
+"z": "000-INICIO",
+"zRadek": 430,
+"do": "CHECK-POSITION",
+"varianta": "prosty",
+"text": "PERFORM CHECK-POSITION"
+},
+{
+"z": "SET-REVERSO",
+"zRadek": 526,
+"do": "APAGAR",
+"varianta": "prosty",
+"text": "PERFORM APAGAR"
+}
+],
+"vnejsi": [
+{
+"cil": "CBL_WRITE_SCR_N_ATTR",
+"n": 8,
+"radky": [
+229,
+278,
+289,
+420,
+473,
+483,
+493,
+503
+],
+"zSekci": [
+"000-INICIO",
+"CHECK-POSITION"
+],
+"co": ""
+},
+{
+"cil": "CBL_WRITE_SCR_CHATTRS",
+"n": 3,
+"radky": [
+614,
+619,
+624
+],
+"zSekci": [
+"EXIBE-BUTTON"
+],
+"co": ""
+},
+{
+"cil": "CBL_READ_SCR_ATTRS",
+"n": 2,
+"radky": [
+153,
+557
+],
+"zSekci": [
+"000-INICIO",
+"SET-REVERSO"
+],
+"co": ""
+},
+{
+"cil": "CBL_SET_CSR_POS",
+"n": 2,
+"radky": [
+265,
+461
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_READ_KBD_CHAR",
+"n": 2,
+"radky": [
+351,
+365
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_WRITE_SCR_ATTRS",
+"n": 2,
+"radky": [
+564,
+572
+],
+"zSekci": [
+"SET-REVERSO",
+"APAGAR"
+],
+"co": ""
+},
+{
+"cil": "CBL_GET_CSR_POS",
+"n": 1,
+"radky": [
+134
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_INIT_MOUSE",
+"n": 1,
+"radky": [
+136
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "?",
+"n": 1,
+"radky": [
+207
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "GRHORA",
+"n": 1,
+"radky": [
+302
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_GET_KBD_STATUS",
+"n": 1,
+"radky": [
+303
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_GET_MOUSE_POSITION",
+"n": 1,
+"radky": [
+304
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+},
+{
+"cil": "CBL_READ_MOUSE_EVENT",
+"n": 1,
+"radky": [
+315
+],
+"zSekci": [
+"000-INICIO"
+],
+"co": ""
+}
+],
+"copybooky": [
+{
+"nazev": "CPEDIT",
+"radek": 85,
+"sdiliS": [
+"GRBOXF"
+]
+}
+],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 5,
+"skoku": 11,
+"volaniVen": 26,
+"radkuDat": 129,
+"radkuKodu": 470
+}
+}

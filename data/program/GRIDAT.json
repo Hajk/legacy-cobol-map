@@ -1,0 +1,54 @@
+{
+"verze": 1,
+"program": "GRIDAT",
+"cesta": "GRIDAT.CBL",
+"radku": 28,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 10
+},
+{
+"nazev": "DATA DIVISION",
+"od": 11,
+"do": 12
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 13,
+"do": 16
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 17,
+"do": 20
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 21,
+"do": 28
+}
+],
+"procedureOd": 21,
+"sekce": [],
+"skoky": [],
+"vnejsi": [],
+"copybooky": [],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 0,
+"skoku": 0,
+"volaniVen": 0,
+"radkuDat": 20,
+"radkuKodu": 0
+}
+}

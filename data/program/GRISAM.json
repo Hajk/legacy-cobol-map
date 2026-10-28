@@ -1,0 +1,169 @@
+{
+"verze": 1,
+"program": "GRISAM",
+"cesta": "GRISAM.CBL",
+"radku": 329,
+"divize": [
+{
+"nazev": "IDENTIFICATION DIVISION",
+"od": 1,
+"do": 9
+},
+{
+"nazev": "ENVIRONMENT DIVISION",
+"od": 10,
+"do": 10
+},
+{
+"nazev": "CONFIGURATION SECTION",
+"od": 11,
+"do": 12
+},
+{
+"nazev": "INPUT-OUTPUT SECTION",
+"od": 13,
+"do": 19
+},
+{
+"nazev": "DATA DIVISION",
+"od": 20,
+"do": 20
+},
+{
+"nazev": "FILE SECTION",
+"od": 21,
+"do": 38
+},
+{
+"nazev": "WORKING-STORAGE SECTION",
+"od": 39,
+"do": 129
+},
+{
+"nazev": "LINKAGE SECTION",
+"od": 130,
+"do": 138
+},
+{
+"nazev": "PROCEDURE DIVISION",
+"od": 139,
+"do": 329
+}
+],
+"procedureOd": 139,
+"sekce": [
+{
+"nazev": "000-INICIO",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 141,
+"do": 248,
+"radku": 108,
+"radkuKodu": 101,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 0
+},
+{
+"nazev": "010-MSG",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 249,
+"do": 308,
+"radku": 60,
+"radkuKodu": 53,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 1
+},
+{
+"nazev": "110-ESPERA-5",
+"preklad": "",
+"prekladMuj": false,
+"druh": "odstavec",
+"role": "zpracovani",
+"od": 309,
+"do": 329,
+"radku": 21,
+"radkuKodu": 18,
+"volanoZ": 0,
+"volaDo": 0,
+"poradi": 2
+}
+],
+"skoky": [],
+"vnejsi": [
+{
+"cil": "GRFINA",
+"n": 3,
+"radky": [
+231,
+243,
+296
+],
+"zSekci": [
+"000-INICIO",
+"010-MSG"
+],
+"co": ""
+},
+{
+"cil": "GRSEND",
+"n": 2,
+"radky": [
+149,
+269
+],
+"zSekci": [
+"000-INICIO",
+"010-MSG"
+],
+"co": ""
+},
+{
+"cil": "GRHORA",
+"n": 1,
+"radky": [
+319
+],
+"zSekci": [
+"110-ESPERA-5"
+],
+"co": ""
+}
+],
+"copybooky": [
+{
+"nazev": "CPREFE",
+"radek": 127,
+"sdiliS": [
+"GRFINA"
+]
+},
+{
+"nazev": "CPSEND",
+"radek": 128,
+"sdiliS": []
+}
+],
+"popisRoli": {
+"rizeni": "Control flow and start-up",
+"obrazovka": "Screen (Dialog System)",
+"data": "Reading and writing data",
+"zpracovani": "Processing and data mapping",
+"kontrola": "Input validation",
+"tisk": "Printing and reports"
+},
+"souhrn": {
+"sekci": 0,
+"odstavcu": 3,
+"skoku": 0,
+"volaniVen": 6,
+"radkuDat": 138,
+"radkuKodu": 172
+}
+}

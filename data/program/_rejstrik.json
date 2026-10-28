@@ -1,0 +1,3541 @@
+{
+ "verze": 1,
+ "programu": 707,
+ "programy": [
+  {
+   "program": "ACP010",
+   "sekci": 24,
+   "skoku": 46
+  },
+  {
+   "program": "ACP010T",
+   "sekci": 13,
+   "skoku": 19
+  },
+  {
+   "program": "ACP020",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "ACP030",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "ACP030T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "ACP100",
+   "sekci": 54,
+   "skoku": 209
+  },
+  {
+   "program": "ACP110",
+   "sekci": 87,
+   "skoku": 182
+  },
+  {
+   "program": "ACP120",
+   "sekci": 73,
+   "skoku": 145
+  },
+  {
+   "program": "ACP130",
+   "sekci": 101,
+   "skoku": 230
+  },
+  {
+   "program": "ACP140",
+   "sekci": 87,
+   "skoku": 182
+  },
+  {
+   "program": "ACP900",
+   "sekci": 52,
+   "skoku": 123
+  },
+  {
+   "program": "ACPW010",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPW110",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPW111",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPW120",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPW121",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPW130",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPW140",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPW141",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPX010",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPX110",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPX111",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPX120",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPX121",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPX130",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPX140",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ACPX141",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "ALSEQBR3",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALSEQBR9",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALSEQBRC",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALSEQBRE",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALSEQBRM",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALSEQBRP",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALSEQBRR",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALTCH13",
+   "sekci": 10,
+   "skoku": 12
+  },
+  {
+   "program": "ALTCH13A",
+   "sekci": 10,
+   "skoku": 14
+  },
+  {
+   "program": "ALTCH13B",
+   "sekci": 10,
+   "skoku": 12
+  },
+  {
+   "program": "ALTCO500",
+   "sekci": 10,
+   "skoku": 12
+  },
+  {
+   "program": "ALTCO501",
+   "sekci": 10,
+   "skoku": 12
+  },
+  {
+   "program": "ALTLB028",
+   "sekci": 10,
+   "skoku": 12
+  },
+  {
+   "program": "ALTLB105",
+   "sekci": 10,
+   "skoku": 12
+  },
+  {
+   "program": "ALTSBRA2",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALTSBRA3",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALTSBRAD",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALTSEQBC",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALTSEQBD",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALTSEQBR",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "ALTSEQBRM",
+   "sekci": 11,
+   "skoku": 13
+  },
+  {
+   "program": "ALTTAXA",
+   "sekci": 13,
+   "skoku": 20
+  },
+  {
+   "program": "BXREC",
+   "sekci": 44,
+   "skoku": 92
+  },
+  {
+   "program": "CADGRU",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "CADMOD",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "CADPRO",
+   "sekci": 60,
+   "skoku": 87
+  },
+  {
+   "program": "CADSEG",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "CAIXA",
+   "sekci": 34,
+   "skoku": 73
+  },
+  {
+   "program": "CAIXA2",
+   "sekci": 34,
+   "skoku": 73
+  },
+  {
+   "program": "CAIXA3",
+   "sekci": 34,
+   "skoku": 73
+  },
+  {
+   "program": "CAIXA4",
+   "sekci": 34,
+   "skoku": 73
+  },
+  {
+   "program": "CAP000",
+   "sekci": 10,
+   "skoku": 9
+  },
+  {
+   "program": "CAP002",
+   "sekci": 27,
+   "skoku": 45
+  },
+  {
+   "program": "CAP002T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CAP003",
+   "sekci": 18,
+   "skoku": 32
+  },
+  {
+   "program": "CAP003T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CAP004",
+   "sekci": 28,
+   "skoku": 51
+  },
+  {
+   "program": "CAP005",
+   "sekci": 11,
+   "skoku": 13
+  },
+  {
+   "program": "CAP010",
+   "sekci": 23,
+   "skoku": 45
+  },
+  {
+   "program": "CAP010T",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "CAP012",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "CAP012T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CAP013",
+   "sekci": 18,
+   "skoku": 31
+  },
+  {
+   "program": "CAP014",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "CAP014T",
+   "sekci": 12,
+   "skoku": 16
+  },
+  {
+   "program": "CAP018",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "CAP018T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CAP019",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "CAP019T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CAP020",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "CAP020T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CBP001",
+   "sekci": 22,
+   "skoku": 40
+  },
+  {
+   "program": "CBP001T",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "CBP002",
+   "sekci": 20,
+   "skoku": 36
+  },
+  {
+   "program": "CBP003",
+   "sekci": 21,
+   "skoku": 38
+  },
+  {
+   "program": "CBP003T",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "CBP004",
+   "sekci": 23,
+   "skoku": 45
+  },
+  {
+   "program": "CBP004T",
+   "sekci": 12,
+   "skoku": 14
+  },
+  {
+   "program": "CBP005",
+   "sekci": 22,
+   "skoku": 43
+  },
+  {
+   "program": "CBP100",
+   "sekci": 25,
+   "skoku": 44
+  },
+  {
+   "program": "CBP101",
+   "sekci": 26,
+   "skoku": 45
+  },
+  {
+   "program": "CBP101E",
+   "sekci": 9,
+   "skoku": 10
+  },
+  {
+   "program": "CBP105",
+   "sekci": 22,
+   "skoku": 30
+  },
+  {
+   "program": "CBP150",
+   "sekci": 22,
+   "skoku": 48
+  },
+  {
+   "program": "CBP200",
+   "sekci": 2,
+   "skoku": 27
+  },
+  {
+   "program": "CCP001",
+   "sekci": 21,
+   "skoku": 34
+  },
+  {
+   "program": "CCP010",
+   "sekci": 15,
+   "skoku": 23
+  },
+  {
+   "program": "CCP010E",
+   "sekci": 9,
+   "skoku": 10
+  },
+  {
+   "program": "CCP011",
+   "sekci": 15,
+   "skoku": 23
+  },
+  {
+   "program": "CCP100",
+   "sekci": 43,
+   "skoku": 83
+  },
+  {
+   "program": "CCP105",
+   "sekci": 24,
+   "skoku": 53
+  },
+  {
+   "program": "CCP110",
+   "sekci": 16,
+   "skoku": 27
+  },
+  {
+   "program": "CCP111",
+   "sekci": 21,
+   "skoku": 42
+  },
+  {
+   "program": "CCP115",
+   "sekci": 24,
+   "skoku": 53
+  },
+  {
+   "program": "CCP121",
+   "sekci": 20,
+   "skoku": 42
+  },
+  {
+   "program": "CCP140",
+   "sekci": 24,
+   "skoku": 51
+  },
+  {
+   "program": "CCP200",
+   "sekci": 18,
+   "skoku": 34
+  },
+  {
+   "program": "CCP201",
+   "sekci": 35,
+   "skoku": 94
+  },
+  {
+   "program": "CCP202",
+   "sekci": 20,
+   "skoku": 40
+  },
+  {
+   "program": "CCP204",
+   "sekci": 34,
+   "skoku": 59
+  },
+  {
+   "program": "CCP205",
+   "sekci": 46,
+   "skoku": 81
+  },
+  {
+   "program": "CCP206",
+   "sekci": 25,
+   "skoku": 50
+  },
+  {
+   "program": "CCP207",
+   "sekci": 27,
+   "skoku": 49
+  },
+  {
+   "program": "CCP208",
+   "sekci": 42,
+   "skoku": 99
+  },
+  {
+   "program": "CCPLOG",
+   "sekci": 20,
+   "skoku": 40
+  },
+  {
+   "program": "CDCP110",
+   "sekci": 45,
+   "skoku": 116
+  },
+  {
+   "program": "CDCP120",
+   "sekci": 38,
+   "skoku": 118
+  },
+  {
+   "program": "CDCP130",
+   "sekci": 40,
+   "skoku": 109
+  },
+  {
+   "program": "CEAP010T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CGD201",
+   "sekci": 22,
+   "skoku": 69
+  },
+  {
+   "program": "CGP001",
+   "sekci": 63,
+   "skoku": 156
+  },
+  {
+   "program": "CGP001T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CGP006T",
+   "sekci": 17,
+   "skoku": 12
+  },
+  {
+   "program": "CGP010",
+   "sekci": 70,
+   "skoku": 172
+  },
+  {
+   "program": "CGP010A",
+   "sekci": 70,
+   "skoku": 173
+  },
+  {
+   "program": "CGP010T",
+   "sekci": 13,
+   "skoku": 15
+  },
+  {
+   "program": "CGP010X",
+   "sekci": 33,
+   "skoku": 52
+  },
+  {
+   "program": "CGP020",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "CGP020T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CGP030",
+   "sekci": 23,
+   "skoku": 46
+  },
+  {
+   "program": "CGP030T",
+   "sekci": 12,
+   "skoku": 17
+  },
+  {
+   "program": "CHP010",
+   "sekci": 50,
+   "skoku": 96
+  },
+  {
+   "program": "CHP010A",
+   "sekci": 50,
+   "skoku": 86
+  },
+  {
+   "program": "CHP010B",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "CHP012",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "CHP012T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CHP013T",
+   "sekci": 24,
+   "skoku": 38
+  },
+  {
+   "program": "CHP040",
+   "sekci": 32,
+   "skoku": 53
+  },
+  {
+   "program": "CHP040B",
+   "sekci": 23,
+   "skoku": 32
+  },
+  {
+   "program": "CHP050",
+   "sekci": 26,
+   "skoku": 47
+  },
+  {
+   "program": "CHP051",
+   "sekci": 34,
+   "skoku": 84
+  },
+  {
+   "program": "CHP052",
+   "sekci": 51,
+   "skoku": 132
+  },
+  {
+   "program": "CHP053",
+   "sekci": 14,
+   "skoku": 18
+  },
+  {
+   "program": "CHP054",
+   "sekci": 27,
+   "skoku": 46
+  },
+  {
+   "program": "CHP055",
+   "sekci": 28,
+   "skoku": 55
+  },
+  {
+   "program": "CHP056",
+   "sekci": 37,
+   "skoku": 87
+  },
+  {
+   "program": "CHP057",
+   "sekci": 33,
+   "skoku": 58
+  },
+  {
+   "program": "CHP057-2",
+   "sekci": 33,
+   "skoku": 58
+  },
+  {
+   "program": "CHP057B",
+   "sekci": 33,
+   "skoku": 91
+  },
+  {
+   "program": "CHP057COMDISPLAY",
+   "sekci": 33,
+   "skoku": 58
+  },
+  {
+   "program": "CHP057T",
+   "sekci": 33,
+   "skoku": 91
+  },
+  {
+   "program": "CHP058",
+   "sekci": 26,
+   "skoku": 48
+  },
+  {
+   "program": "CHP060",
+   "sekci": 27,
+   "skoku": 54
+  },
+  {
+   "program": "CHP061",
+   "sekci": 38,
+   "skoku": 85
+  },
+  {
+   "program": "CHP061B",
+   "sekci": 47,
+   "skoku": 147
+  },
+  {
+   "program": "CHP070",
+   "sekci": 31,
+   "skoku": 58
+  },
+  {
+   "program": "CHPW010B",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "CHPX010B",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "CIEP001",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "CIEP002",
+   "sekci": 23,
+   "skoku": 43
+  },
+  {
+   "program": "CIEP200",
+   "sekci": 20,
+   "skoku": 34
+  },
+  {
+   "program": "CIEP300",
+   "sekci": 22,
+   "skoku": 32
+  },
+  {
+   "program": "CONCAD",
+   "sekci": 27,
+   "skoku": 44
+  },
+  {
+   "program": "CONDENSA",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "CONGRU",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CONMOD",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CONPRO",
+   "sekci": 12,
+   "skoku": 17
+  },
+  {
+   "program": "CONSEG",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "COP001",
+   "sekci": 21,
+   "skoku": 39
+  },
+  {
+   "program": "COP001T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "COP002",
+   "sekci": 24,
+   "skoku": 52
+  },
+  {
+   "program": "COP002T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "COP003",
+   "sekci": 21,
+   "skoku": 39
+  },
+  {
+   "program": "COP003T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "COP004",
+   "sekci": 21,
+   "skoku": 39
+  },
+  {
+   "program": "COP004T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "COP005",
+   "sekci": 18,
+   "skoku": 31
+  },
+  {
+   "program": "COP007",
+   "sekci": 29,
+   "skoku": 42
+  },
+  {
+   "program": "COP007E",
+   "sekci": 24,
+   "skoku": 29
+  },
+  {
+   "program": "COP008",
+   "sekci": 21,
+   "skoku": 42
+  },
+  {
+   "program": "COP008T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "COP009",
+   "sekci": 24,
+   "skoku": 52
+  },
+  {
+   "program": "COP009T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "COP040",
+   "sekci": 42,
+   "skoku": 76
+  },
+  {
+   "program": "COP040E",
+   "sekci": 10,
+   "skoku": 11
+  },
+  {
+   "program": "COP040T",
+   "sekci": 14,
+   "skoku": 14
+  },
+  {
+   "program": "COP040X",
+   "sekci": 13,
+   "skoku": 22
+  },
+  {
+   "program": "COP041",
+   "sekci": 33,
+   "skoku": 68
+  },
+  {
+   "program": "COP041T",
+   "sekci": 15,
+   "skoku": 15
+  },
+  {
+   "program": "COP041T2",
+   "sekci": 15,
+   "skoku": 17
+  },
+  {
+   "program": "COP041X",
+   "sekci": 33,
+   "skoku": 67
+  },
+  {
+   "program": "COP042",
+   "sekci": 13,
+   "skoku": 12
+  },
+  {
+   "program": "COP042T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "COP043",
+   "sekci": 19,
+   "skoku": 55
+  },
+  {
+   "program": "COP044",
+   "sekci": 12,
+   "skoku": 16
+  },
+  {
+   "program": "COP045",
+   "sekci": 26,
+   "skoku": 50
+  },
+  {
+   "program": "COP050",
+   "sekci": 37,
+   "skoku": 84
+  },
+  {
+   "program": "COP050X",
+   "sekci": 37,
+   "skoku": 86
+  },
+  {
+   "program": "COP055",
+   "sekci": 37,
+   "skoku": 84
+  },
+  {
+   "program": "COP055X",
+   "sekci": 37,
+   "skoku": 86
+  },
+  {
+   "program": "COP060",
+   "sekci": 41,
+   "skoku": 95
+  },
+  {
+   "program": "COP060X",
+   "sekci": 42,
+   "skoku": 100
+  },
+  {
+   "program": "COP070",
+   "sekci": 29,
+   "skoku": 51
+  },
+  {
+   "program": "COP070X",
+   "sekci": 30,
+   "skoku": 55
+  },
+  {
+   "program": "COP080",
+   "sekci": 23,
+   "skoku": 41
+  },
+  {
+   "program": "COP081",
+   "sekci": 19,
+   "skoku": 30
+  },
+  {
+   "program": "COP100",
+   "sekci": 96,
+   "skoku": 280
+  },
+  {
+   "program": "COP101",
+   "sekci": 38,
+   "skoku": 99
+  },
+  {
+   "program": "COP102",
+   "sekci": 48,
+   "skoku": 108
+  },
+  {
+   "program": "COP103",
+   "sekci": 19,
+   "skoku": 73
+  },
+  {
+   "program": "COP104",
+   "sekci": 52,
+   "skoku": 111
+  },
+  {
+   "program": "COP104-2",
+   "sekci": 52,
+   "skoku": 111
+  },
+  {
+   "program": "COP104-BACK",
+   "sekci": 52,
+   "skoku": 111
+  },
+  {
+   "program": "COP105",
+   "sekci": 34,
+   "skoku": 62
+  },
+  {
+   "program": "COP106",
+   "sekci": 42,
+   "skoku": 123
+  },
+  {
+   "program": "COP108",
+   "sekci": 36,
+   "skoku": 77
+  },
+  {
+   "program": "COP109",
+   "sekci": 34,
+   "skoku": 66
+  },
+  {
+   "program": "COP110",
+   "sekci": 25,
+   "skoku": 74
+  },
+  {
+   "program": "COP111",
+   "sekci": 52,
+   "skoku": 114
+  },
+  {
+   "program": "COP112",
+   "sekci": 26,
+   "skoku": 63
+  },
+  {
+   "program": "COP113",
+   "sekci": 25,
+   "skoku": 60
+  },
+  {
+   "program": "COP114",
+   "sekci": 12,
+   "skoku": 19
+  },
+  {
+   "program": "COP119",
+   "sekci": 24,
+   "skoku": 44
+  },
+  {
+   "program": "COP150",
+   "sekci": 27,
+   "skoku": 68
+  },
+  {
+   "program": "COP151",
+   "sekci": 25,
+   "skoku": 54
+  },
+  {
+   "program": "COP152",
+   "sekci": 31,
+   "skoku": 65
+  },
+  {
+   "program": "COP500",
+   "sekci": 20,
+   "skoku": 35
+  },
+  {
+   "program": "COP900",
+   "sekci": 33,
+   "skoku": 65
+  },
+  {
+   "program": "COP909",
+   "sekci": 32,
+   "skoku": 59
+  },
+  {
+   "program": "COP998",
+   "sekci": 62,
+   "skoku": 169
+  },
+  {
+   "program": "COP999",
+   "sekci": 62,
+   "skoku": 169
+  },
+  {
+   "program": "CPP020",
+   "sekci": 63,
+   "skoku": 139
+  },
+  {
+   "program": "CPP020A",
+   "sekci": 46,
+   "skoku": 82
+  },
+  {
+   "program": "CPP020B",
+   "sekci": 46,
+   "skoku": 82
+  },
+  {
+   "program": "CPP020C",
+   "sekci": 55,
+   "skoku": 112
+  },
+  {
+   "program": "CPP022",
+   "sekci": 71,
+   "skoku": 168
+  },
+  {
+   "program": "CPP022A",
+   "sekci": 71,
+   "skoku": 167
+  },
+  {
+   "program": "CPP050",
+   "sekci": 31,
+   "skoku": 46
+  },
+  {
+   "program": "CPP051",
+   "sekci": 36,
+   "skoku": 85
+  },
+  {
+   "program": "CPP051T",
+   "sekci": 32,
+   "skoku": 77
+  },
+  {
+   "program": "CPP052",
+   "sekci": 30,
+   "skoku": 49
+  },
+  {
+   "program": "CPP053",
+   "sekci": 18,
+   "skoku": 35
+  },
+  {
+   "program": "CPP054",
+   "sekci": 21,
+   "skoku": 36
+  },
+  {
+   "program": "CPP055",
+   "sekci": 28,
+   "skoku": 70
+  },
+  {
+   "program": "CPP056",
+   "sekci": 28,
+   "skoku": 60
+  },
+  {
+   "program": "CPP057",
+   "sekci": 16,
+   "skoku": 21
+  },
+  {
+   "program": "CPP058",
+   "sekci": 22,
+   "skoku": 50
+  },
+  {
+   "program": "CPP059",
+   "sekci": 17,
+   "skoku": 23
+  },
+  {
+   "program": "CPP060",
+   "sekci": 30,
+   "skoku": 57
+  },
+  {
+   "program": "CPP061",
+   "sekci": 32,
+   "skoku": 80
+  },
+  {
+   "program": "CPP062",
+   "sekci": 12,
+   "skoku": 17
+  },
+  {
+   "program": "CPP063",
+   "sekci": 34,
+   "skoku": 60
+  },
+  {
+   "program": "CRP001",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "CRP001T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CRP020",
+   "sekci": 53,
+   "skoku": 106
+  },
+  {
+   "program": "CRP020A",
+   "sekci": 43,
+   "skoku": 74
+  },
+  {
+   "program": "CRP020B",
+   "sekci": 43,
+   "skoku": 74
+  },
+  {
+   "program": "CRP022",
+   "sekci": 56,
+   "skoku": 120
+  },
+  {
+   "program": "CRP050",
+   "sekci": 26,
+   "skoku": 41
+  },
+  {
+   "program": "CRP051",
+   "sekci": 48,
+   "skoku": 112
+  },
+  {
+   "program": "CRP052",
+   "sekci": 51,
+   "skoku": 124
+  },
+  {
+   "program": "CRP053",
+   "sekci": 18,
+   "skoku": 30
+  },
+  {
+   "program": "CRP054",
+   "sekci": 24,
+   "skoku": 40
+  },
+  {
+   "program": "CRP055",
+   "sekci": 37,
+   "skoku": 85
+  },
+  {
+   "program": "CRP056",
+   "sekci": 41,
+   "skoku": 73
+  },
+  {
+   "program": "CRP057",
+   "sekci": 29,
+   "skoku": 60
+  },
+  {
+   "program": "CRP058",
+   "sekci": 24,
+   "skoku": 45
+  },
+  {
+   "program": "CRP059",
+   "sekci": 18,
+   "skoku": 30
+  },
+  {
+   "program": "CRP060",
+   "sekci": 25,
+   "skoku": 42
+  },
+  {
+   "program": "CRP061",
+   "sekci": 35,
+   "skoku": 71
+  },
+  {
+   "program": "CRP062",
+   "sekci": 30,
+   "skoku": 58
+  },
+  {
+   "program": "CRP063",
+   "sekci": 47,
+   "skoku": 145
+  },
+  {
+   "program": "CRP099",
+   "sekci": 24,
+   "skoku": 41
+  },
+  {
+   "program": "CRP100",
+   "sekci": 29,
+   "skoku": 50
+  },
+  {
+   "program": "CRP9100",
+   "sekci": 28,
+   "skoku": 50
+  },
+  {
+   "program": "CRP9101",
+   "sekci": 29,
+   "skoku": 50
+  },
+  {
+   "program": "CRP9102",
+   "sekci": 35,
+   "skoku": 66
+  },
+  {
+   "program": "CRP9102A",
+   "sekci": 35,
+   "skoku": 66
+  },
+  {
+   "program": "CRP9102B",
+   "sekci": 35,
+   "skoku": 66
+  },
+  {
+   "program": "CRP9102C",
+   "sekci": 35,
+   "skoku": 66
+  },
+  {
+   "program": "CRP9102D",
+   "sekci": 35,
+   "skoku": 66
+  },
+  {
+   "program": "CRP9103",
+   "sekci": 35,
+   "skoku": 65
+  },
+  {
+   "program": "CRP9104",
+   "sekci": 30,
+   "skoku": 57
+  },
+  {
+   "program": "CRP9105",
+   "sekci": 35,
+   "skoku": 65
+  },
+  {
+   "program": "CRP9106",
+   "sekci": 38,
+   "skoku": 78
+  },
+  {
+   "program": "CRP9106A",
+   "sekci": 38,
+   "skoku": 78
+  },
+  {
+   "program": "CRP9106B",
+   "sekci": 38,
+   "skoku": 78
+  },
+  {
+   "program": "CRP9107",
+   "sekci": 38,
+   "skoku": 78
+  },
+  {
+   "program": "CRP9108",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "CRP9109",
+   "sekci": 35,
+   "skoku": 66
+  },
+  {
+   "program": "CRP9109A",
+   "sekci": 35,
+   "skoku": 66
+  },
+  {
+   "program": "CRP9110",
+   "sekci": 25,
+   "skoku": 52
+  },
+  {
+   "program": "CRP9110A",
+   "sekci": 5,
+   "skoku": 4
+  },
+  {
+   "program": "CRP9111",
+   "sekci": 26,
+   "skoku": 56
+  },
+  {
+   "program": "CRP9112",
+   "sekci": 29,
+   "skoku": 63
+  },
+  {
+   "program": "CRP9112A",
+   "sekci": 29,
+   "skoku": 61
+  },
+  {
+   "program": "CRP9112B",
+   "sekci": 29,
+   "skoku": 61
+  },
+  {
+   "program": "CRP9112C",
+   "sekci": 29,
+   "skoku": 63
+  },
+  {
+   "program": "CRP9112D",
+   "sekci": 29,
+   "skoku": 63
+  },
+  {
+   "program": "CRP9113",
+   "sekci": 29,
+   "skoku": 63
+  },
+  {
+   "program": "CRP9114",
+   "sekci": 29,
+   "skoku": 61
+  },
+  {
+   "program": "CRP9115",
+   "sekci": 29,
+   "skoku": 63
+  },
+  {
+   "program": "CRP9116",
+   "sekci": 41,
+   "skoku": 125
+  },
+  {
+   "program": "CRP9116A",
+   "sekci": 41,
+   "skoku": 125
+  },
+  {
+   "program": "CRP9116B",
+   "sekci": 41,
+   "skoku": 125
+  },
+  {
+   "program": "CRP9117",
+   "sekci": 41,
+   "skoku": 125
+  },
+  {
+   "program": "CRP9118",
+   "sekci": 29,
+   "skoku": 63
+  },
+  {
+   "program": "CRP9119",
+   "sekci": 29,
+   "skoku": 63
+  },
+  {
+   "program": "CRP9119A",
+   "sekci": 29,
+   "skoku": 63
+  },
+  {
+   "program": "CRPW040",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "CRPW041",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "CRPX040",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "CRPX041",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "CXP001",
+   "sekci": 26,
+   "skoku": 38
+  },
+  {
+   "program": "CXP020",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "CXP020T",
+   "sekci": 20,
+   "skoku": 34
+  },
+  {
+   "program": "CXP020T-NOVO",
+   "sekci": 5,
+   "skoku": 8
+  },
+  {
+   "program": "CXP030",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "CXP030T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CXP031",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "CXP031T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "CXP040",
+   "sekci": 15,
+   "skoku": 27
+  },
+  {
+   "program": "CXP040E",
+   "sekci": 7,
+   "skoku": 10
+  },
+  {
+   "program": "CXP100",
+   "sekci": 109,
+   "skoku": 275
+  },
+  {
+   "program": "CXP100-08-06-2009",
+   "sekci": 81,
+   "skoku": 221
+  },
+  {
+   "program": "CXP100-23102012",
+   "sekci": 109,
+   "skoku": 274
+  },
+  {
+   "program": "CXP110",
+   "sekci": 17,
+   "skoku": 28
+  },
+  {
+   "program": "CXP120",
+   "sekci": 30,
+   "skoku": 58
+  },
+  {
+   "program": "CXP130",
+   "sekci": 22,
+   "skoku": 41
+  },
+  {
+   "program": "CXP140",
+   "sekci": 21,
+   "skoku": 37
+  },
+  {
+   "program": "CXP150",
+   "sekci": 30,
+   "skoku": 52
+  },
+  {
+   "program": "CXP151",
+   "sekci": 31,
+   "skoku": 58
+  },
+  {
+   "program": "CXP152",
+   "sekci": 25,
+   "skoku": 51
+  },
+  {
+   "program": "CXP200",
+   "sekci": 15,
+   "skoku": 22
+  },
+  {
+   "program": "CÓPIA (2) DE COP104",
+   "sekci": 52,
+   "skoku": 111
+  },
+  {
+   "program": "CÓPIA DE COP104",
+   "sekci": 52,
+   "skoku": 111
+  },
+  {
+   "program": "DESCONDENSA",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "EXTENSO",
+   "sekci": 1,
+   "skoku": 2
+  },
+  {
+   "program": "FICHA",
+   "sekci": 27,
+   "skoku": 123
+  },
+  {
+   "program": "FICHA2",
+   "sekci": 22,
+   "skoku": 113
+  },
+  {
+   "program": "FILEINI",
+   "sekci": 79,
+   "skoku": 0
+  },
+  {
+   "program": "FIN001",
+   "sekci": 73,
+   "skoku": 215
+  },
+  {
+   "program": "GALHO-CXP120-CAMINHO-IMAGEM",
+   "sekci": 5,
+   "skoku": 5
+  },
+  {
+   "program": "GALHO10",
+   "sekci": 4,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO100",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO11",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO12",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO13",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO14",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO15",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO16",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO17",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO18",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO19",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO20",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO21",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO22",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO23",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO24",
+   "sekci": 36,
+   "skoku": 94
+  },
+  {
+   "program": "GALHO25",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO26",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO30",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO31",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO32",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO33",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO34",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO35",
+   "sekci": 13,
+   "skoku": 24
+  },
+  {
+   "program": "GALHO36",
+   "sekci": 16,
+   "skoku": 33
+  },
+  {
+   "program": "GALHO37",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO38",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO39",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO40",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO41",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO42",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO43",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO44",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO45",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO46",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO47",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO48",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO49",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO50",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO51",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO52",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO53",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO54",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO55",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO56",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO57",
+   "sekci": 11,
+   "skoku": 14
+  },
+  {
+   "program": "GALHO58",
+   "sekci": 2,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO59",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO60",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO61",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO62",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO63",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO64",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO65",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO66",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO67",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO68",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO69",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO70",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO71",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO72",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO73",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO74",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO75",
+   "sekci": 5,
+   "skoku": 4
+  },
+  {
+   "program": "GALHO76",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO77",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO78",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO79",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO80",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO81",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO82",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO83",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO84",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO85",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO86",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO87",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO88",
+   "sekci": 2,
+   "skoku": 1
+  },
+  {
+   "program": "GALHO89",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO90",
+   "sekci": 10,
+   "skoku": 16
+  },
+  {
+   "program": "GALHO90CRD",
+   "sekci": 2,
+   "skoku": 1
+  },
+  {
+   "program": "GALHO91",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO92",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO93",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO94",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO95",
+   "sekci": 2,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO96",
+   "sekci": 2,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO96A",
+   "sekci": 2,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO97",
+   "sekci": 2,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO98",
+   "sekci": 2,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO99",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO99A",
+   "sekci": 10,
+   "skoku": 17
+  },
+  {
+   "program": "GALHO99ACPP",
+   "sekci": 7,
+   "skoku": 11
+  },
+  {
+   "program": "GALHO99ACRD",
+   "sekci": 8,
+   "skoku": 11
+  },
+  {
+   "program": "GALHO99B",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHO99C",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHOAPAGACRD020B",
+   "sekci": 6,
+   "skoku": 5
+  },
+  {
+   "program": "GALHOARRUMADTCRD200",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHOBXVDLOT",
+   "sekci": 21,
+   "skoku": 29
+  },
+  {
+   "program": "GALHOBXVDLOT2",
+   "sekci": 18,
+   "skoku": 24
+  },
+  {
+   "program": "GALHOCGD001",
+   "sekci": 2,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCGD001-2",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCGD011",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCGD011-2",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCGD011REFAZ",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCHD013",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHOCHD041",
+   "sekci": 5,
+   "skoku": 4
+  },
+  {
+   "program": "GALHOCHD041I",
+   "sekci": 7,
+   "skoku": 42
+  },
+  {
+   "program": "GALHOCHDEV",
+   "sekci": 10,
+   "skoku": 18
+  },
+  {
+   "program": "GALHOCOD002",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCOD003",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCOD050",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCOD050-2",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCOD050-3",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCOD050-ITEM4",
+   "sekci": 6,
+   "skoku": 7
+  },
+  {
+   "program": "GALHOCOD060",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCOD060CLOG",
+   "sekci": 5,
+   "skoku": 4
+  },
+  {
+   "program": "GALHOCOP042",
+   "sekci": 6,
+   "skoku": 7
+  },
+  {
+   "program": "GALHOCPAR001",
+   "sekci": 6,
+   "skoku": 7
+  },
+  {
+   "program": "GALHOCRD020",
+   "sekci": 2,
+   "skoku": 4
+  },
+  {
+   "program": "GALHOCRD020A",
+   "sekci": 6,
+   "skoku": 5
+  },
+  {
+   "program": "GALHOCRD020B",
+   "sekci": 2,
+   "skoku": 7
+  },
+  {
+   "program": "GALHOCRD020JUNTAR",
+   "sekci": 2,
+   "skoku": 3
+  },
+  {
+   "program": "GALHOCRD020JUNTAR2",
+   "sekci": 3,
+   "skoku": 3
+  },
+  {
+   "program": "GALHOCRD020JUNTAR3",
+   "sekci": 4,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOCRD020JUNTAR5",
+   "sekci": 3,
+   "skoku": 4
+  },
+  {
+   "program": "GALHOCRD020X",
+   "sekci": 2,
+   "skoku": 2
+  },
+  {
+   "program": "GALHOCRD040",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHOCRD200JUNTAR2",
+   "sekci": 3,
+   "skoku": 3
+  },
+  {
+   "program": "GALHOCRD201JUNTAR2",
+   "sekci": 3,
+   "skoku": 3
+  },
+  {
+   "program": "GALHOCXD100",
+   "sekci": 2,
+   "skoku": 2
+  },
+  {
+   "program": "GALHOCXD100-BRINDE",
+   "sekci": 7,
+   "skoku": 5
+  },
+  {
+   "program": "GALHOCXD100-BRINDE2",
+   "sekci": 6,
+   "skoku": 8
+  },
+  {
+   "program": "GALHOCXD100TP3",
+   "sekci": 5,
+   "skoku": 5
+  },
+  {
+   "program": "GALHOLBD100",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOMTD001",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOMTD001-2",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOMTD001-MTD020",
+   "sekci": 6,
+   "skoku": 7
+  },
+  {
+   "program": "GALHOMTD020",
+   "sekci": 2,
+   "skoku": 1
+  },
+  {
+   "program": "GALHOMTD030",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHONRFORM",
+   "sekci": 14,
+   "skoku": 17
+  },
+  {
+   "program": "GALHOPRODUTOS",
+   "sekci": 7,
+   "skoku": 5
+  },
+  {
+   "program": "GALHORCP100",
+   "sekci": 3,
+   "skoku": 4
+  },
+  {
+   "program": "GALHORCP100CHD010B",
+   "sekci": 6,
+   "skoku": 5
+  },
+  {
+   "program": "GALHORED101",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHORED302",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOREP002",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOVID100",
+   "sekci": 6,
+   "skoku": 6
+  },
+  {
+   "program": "GALHOVIP100",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHOVIP100-2",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GALHOVIP100-3",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "GER001",
+   "sekci": 21,
+   "skoku": 37
+  },
+  {
+   "program": "GER002",
+   "sekci": 24,
+   "skoku": 54
+  },
+  {
+   "program": "GMTD019",
+   "sekci": 2,
+   "skoku": 3
+  },
+  {
+   "program": "GRADAY1",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRBOXF",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRDCGC",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRDCIC",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRDIAS1",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GREXTE",
+   "sekci": 0,
+   "skoku": 13
+  },
+  {
+   "program": "GRFILE",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRFINA",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRHORA",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRIDAT",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRIDAT1",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRIDAT2",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRISAM",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRLINE",
+   "sekci": 0,
+   "skoku": 11
+  },
+  {
+   "program": "GRSEND",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRTIME",
+   "sekci": 0,
+   "skoku": 4
+  },
+  {
+   "program": "GRVDAT1",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRWEEK",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRWEEK1",
+   "sekci": 0,
+   "skoku": 0
+  },
+  {
+   "program": "GRWIND",
+   "sekci": 0,
+   "skoku": 2
+  },
+  {
+   "program": "HSBC",
+   "sekci": 35,
+   "skoku": 75
+  },
+  {
+   "program": "IEP010",
+   "sekci": 21,
+   "skoku": 41
+  },
+  {
+   "program": "IEP010T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "IEP011",
+   "sekci": 21,
+   "skoku": 39
+  },
+  {
+   "program": "IEP011T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "IMP001",
+   "sekci": 45,
+   "skoku": 87
+  },
+  {
+   "program": "ITAU",
+   "sekci": 33,
+   "skoku": 73
+  },
+  {
+   "program": "ITAU2",
+   "sekci": 33,
+   "skoku": 73
+  },
+  {
+   "program": "LBP021",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "LBP021T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "LBP023",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "LBP023T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "LBP024",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "LBP024T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "LBP025",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "LBP025T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "LBP026",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "LBP026T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "LBP027",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "LBP027T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "LBP028",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "LBP028T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "LBP029",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "LBP029T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "LBP030",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "LBP030T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "LBP100",
+   "sekci": 29,
+   "skoku": 50
+  },
+  {
+   "program": "LBP101",
+   "sekci": 27,
+   "skoku": 47
+  },
+  {
+   "program": "LBP102",
+   "sekci": 28,
+   "skoku": 49
+  },
+  {
+   "program": "LBP103",
+   "sekci": 28,
+   "skoku": 49
+  },
+  {
+   "program": "LBP104",
+   "sekci": 26,
+   "skoku": 45
+  },
+  {
+   "program": "LBP105",
+   "sekci": 27,
+   "skoku": 49
+  },
+  {
+   "program": "LBP106",
+   "sekci": 26,
+   "skoku": 45
+  },
+  {
+   "program": "LBP107",
+   "sekci": 24,
+   "skoku": 48
+  },
+  {
+   "program": "LBP201",
+   "sekci": 23,
+   "skoku": 57
+  },
+  {
+   "program": "LBP202",
+   "sekci": 28,
+   "skoku": 68
+  },
+  {
+   "program": "LBP203",
+   "sekci": 27,
+   "skoku": 67
+  },
+  {
+   "program": "LBP204",
+   "sekci": 27,
+   "skoku": 64
+  },
+  {
+   "program": "LBP205",
+   "sekci": 27,
+   "skoku": 67
+  },
+  {
+   "program": "LBP206",
+   "sekci": 28,
+   "skoku": 71
+  },
+  {
+   "program": "LBP207",
+   "sekci": 22,
+   "skoku": 43
+  },
+  {
+   "program": "LBP208",
+   "sekci": 22,
+   "skoku": 43
+  },
+  {
+   "program": "LBP209",
+   "sekci": 22,
+   "skoku": 39
+  },
+  {
+   "program": "LBP210",
+   "sekci": 23,
+   "skoku": 40
+  },
+  {
+   "program": "LBP211",
+   "sekci": 22,
+   "skoku": 36
+  },
+  {
+   "program": "LBP212",
+   "sekci": 21,
+   "skoku": 37
+  },
+  {
+   "program": "LBP213",
+   "sekci": 23,
+   "skoku": 37
+  },
+  {
+   "program": "LBP214",
+   "sekci": 22,
+   "skoku": 43
+  },
+  {
+   "program": "LBP215",
+   "sekci": 14,
+   "skoku": 26
+  },
+  {
+   "program": "LBP230",
+   "sekci": 28,
+   "skoku": 64
+  },
+  {
+   "program": "LOG002",
+   "sekci": 42,
+   "skoku": 41
+  },
+  {
+   "program": "LOGACESS",
+   "sekci": 17,
+   "skoku": 30
+  },
+  {
+   "program": "LOGCAIXA",
+   "sekci": 16,
+   "skoku": 30
+  },
+  {
+   "program": "LOGMTP19",
+   "sekci": 12,
+   "skoku": 27
+  },
+  {
+   "program": "MENSAGEM",
+   "sekci": 5,
+   "skoku": 6
+  },
+  {
+   "program": "MENU",
+   "sekci": 20,
+   "skoku": 34
+  },
+  {
+   "program": "MENUNOVO",
+   "sekci": 20,
+   "skoku": 34
+  },
+  {
+   "program": "MTP001",
+   "sekci": 36,
+   "skoku": 76
+  },
+  {
+   "program": "MTP002",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "MTP002T",
+   "sekci": 13,
+   "skoku": 16
+  },
+  {
+   "program": "MTP019",
+   "sekci": 60,
+   "skoku": 137
+  },
+  {
+   "program": "MTP019T",
+   "sekci": 13,
+   "skoku": 16
+  },
+  {
+   "program": "MTP019T2",
+   "sekci": 13,
+   "skoku": 16
+  },
+  {
+   "program": "MTP020",
+   "sekci": 38,
+   "skoku": 83
+  },
+  {
+   "program": "MTP020C",
+   "sekci": 18,
+   "skoku": 28
+  },
+  {
+   "program": "MTP020E",
+   "sekci": 18,
+   "skoku": 28
+  },
+  {
+   "program": "MTP020NOVO",
+   "sekci": 48,
+   "skoku": 106
+  },
+  {
+   "program": "MTP021",
+   "sekci": 30,
+   "skoku": 73
+  },
+  {
+   "program": "MTP021NOVO",
+   "sekci": 61,
+   "skoku": 121
+  },
+  {
+   "program": "MTP022",
+   "sekci": 30,
+   "skoku": 60
+  },
+  {
+   "program": "MTP023",
+   "sekci": 41,
+   "skoku": 76
+  },
+  {
+   "program": "MTP023A",
+   "sekci": 28,
+   "skoku": 51
+  },
+  {
+   "program": "MTP023A2",
+   "sekci": 28,
+   "skoku": 51
+  },
+  {
+   "program": "MTP029",
+   "sekci": 57,
+   "skoku": 127
+  },
+  {
+   "program": "MTP029A",
+   "sekci": 56,
+   "skoku": 124
+  },
+  {
+   "program": "MTP040",
+   "sekci": 53,
+   "skoku": 112
+  },
+  {
+   "program": "MTP041",
+   "sekci": 15,
+   "skoku": 28
+  },
+  {
+   "program": "MTP042",
+   "sekci": 15,
+   "skoku": 24
+  },
+  {
+   "program": "MTP043",
+   "sekci": 13,
+   "skoku": 18
+  },
+  {
+   "program": "MTP044",
+   "sekci": 11,
+   "skoku": 14
+  },
+  {
+   "program": "MTP045",
+   "sekci": 13,
+   "skoku": 17
+  },
+  {
+   "program": "MTP050",
+   "sekci": 24,
+   "skoku": 44
+  },
+  {
+   "program": "MTP051",
+   "sekci": 42,
+   "skoku": 94
+  },
+  {
+   "program": "MTP051NOVO",
+   "sekci": 42,
+   "skoku": 94
+  },
+  {
+   "program": "MTP052",
+   "sekci": 35,
+   "skoku": 68
+  },
+  {
+   "program": "MTP060",
+   "sekci": 50,
+   "skoku": 102
+  },
+  {
+   "program": "MTP061",
+   "sekci": 26,
+   "skoku": 50
+  },
+  {
+   "program": "MTP062",
+   "sekci": 47,
+   "skoku": 26
+  },
+  {
+   "program": "MTP062222222222",
+   "sekci": 21,
+   "skoku": 2
+  },
+  {
+   "program": "MTP062A",
+   "sekci": 27,
+   "skoku": 4
+  },
+  {
+   "program": "MTP062B",
+   "sekci": 50,
+   "skoku": 28
+  },
+  {
+   "program": "OEP010",
+   "sekci": 29,
+   "skoku": 47
+  },
+  {
+   "program": "OEP020",
+   "sekci": 34,
+   "skoku": 62
+  },
+  {
+   "program": "OEP020X",
+   "sekci": 33,
+   "skoku": 64
+  },
+  {
+   "program": "OEP030",
+   "sekci": 52,
+   "skoku": 105
+  },
+  {
+   "program": "OEP050",
+   "sekci": 26,
+   "skoku": 41
+  },
+  {
+   "program": "OEP051",
+   "sekci": 25,
+   "skoku": 41
+  },
+  {
+   "program": "OEP052",
+   "sekci": 16,
+   "skoku": 46
+  },
+  {
+   "program": "OEP053",
+   "sekci": 35,
+   "skoku": 75
+  },
+  {
+   "program": "OEP054",
+   "sekci": 25,
+   "skoku": 56
+  },
+  {
+   "program": "OUTILITARIO",
+   "sekci": 33,
+   "skoku": 0
+  },
+  {
+   "program": "PAR001",
+   "sekci": 40,
+   "skoku": 65
+  },
+  {
+   "program": "PAR002",
+   "sekci": 23,
+   "skoku": 31
+  },
+  {
+   "program": "PEGAIP",
+   "sekci": 2,
+   "skoku": 0
+  },
+  {
+   "program": "PRINT",
+   "sekci": 30,
+   "skoku": 49
+  },
+  {
+   "program": "PRP010",
+   "sekci": 15,
+   "skoku": 17
+  },
+  {
+   "program": "PRP011",
+   "sekci": 22,
+   "skoku": 39
+  },
+  {
+   "program": "PRP012",
+   "sekci": 18,
+   "skoku": 30
+  },
+  {
+   "program": "PRP100",
+   "sekci": 63,
+   "skoku": 148
+  },
+  {
+   "program": "PRP101",
+   "sekci": 35,
+   "skoku": 90
+  },
+  {
+   "program": "PRP102",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "PRP103",
+   "sekci": 9,
+   "skoku": 10
+  },
+  {
+   "program": "PRP104",
+   "sekci": 1,
+   "skoku": 0
+  },
+  {
+   "program": "PRP999",
+   "sekci": 34,
+   "skoku": 82
+  },
+  {
+   "program": "RCAIXA",
+   "sekci": 32,
+   "skoku": 63
+  },
+  {
+   "program": "RCAIXA4",
+   "sekci": 33,
+   "skoku": 69
+  },
+  {
+   "program": "RCP001",
+   "sekci": 18,
+   "skoku": 31
+  },
+  {
+   "program": "RCP002",
+   "sekci": 21,
+   "skoku": 35
+  },
+  {
+   "program": "RCP100",
+   "sekci": 62,
+   "skoku": 174
+  },
+  {
+   "program": "RCP100PROD",
+   "sekci": 82,
+   "skoku": 209
+  },
+  {
+   "program": "RCP101",
+   "sekci": 23,
+   "skoku": 43
+  },
+  {
+   "program": "RCP102",
+   "sekci": 23,
+   "skoku": 40
+  },
+  {
+   "program": "RCP103",
+   "sekci": 23,
+   "skoku": 41
+  },
+  {
+   "program": "RCP109",
+   "sekci": 50,
+   "skoku": 145
+  },
+  {
+   "program": "RCP110",
+   "sekci": 20,
+   "skoku": 41
+  },
+  {
+   "program": "RCP111",
+   "sekci": 27,
+   "skoku": 95
+  },
+  {
+   "program": "RCP202",
+   "sekci": 35,
+   "skoku": 76
+  },
+  {
+   "program": "RCP202A",
+   "sekci": 30,
+   "skoku": 58
+  },
+  {
+   "program": "RCP203",
+   "sekci": 66,
+   "skoku": 169
+  },
+  {
+   "program": "RCP204",
+   "sekci": 30,
+   "skoku": 59
+  },
+  {
+   "program": "RCP205",
+   "sekci": 40,
+   "skoku": 85
+  },
+  {
+   "program": "RCP206",
+   "sekci": 22,
+   "skoku": 48
+  },
+  {
+   "program": "RCP207",
+   "sekci": 29,
+   "skoku": 63
+  },
+  {
+   "program": "RCP208",
+   "sekci": 26,
+   "skoku": 47
+  },
+  {
+   "program": "RCP209",
+   "sekci": 45,
+   "skoku": 75
+  },
+  {
+   "program": "RCP999",
+   "sekci": 28,
+   "skoku": 53
+  },
+  {
+   "program": "RECALC",
+   "sekci": 2,
+   "skoku": 0
+  },
+  {
+   "program": "REP001",
+   "sekci": 21,
+   "skoku": 39
+  },
+  {
+   "program": "REP001T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "REP002",
+   "sekci": 21,
+   "skoku": 39
+  },
+  {
+   "program": "REP002T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "REP003",
+   "sekci": 21,
+   "skoku": 39
+  },
+  {
+   "program": "REP003T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "REP004",
+   "sekci": 21,
+   "skoku": 39
+  },
+  {
+   "program": "REP004T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "REP005",
+   "sekci": 24,
+   "skoku": 47
+  },
+  {
+   "program": "REP005T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "REP006",
+   "sekci": 25,
+   "skoku": 47
+  },
+  {
+   "program": "REP006T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "REP007",
+   "sekci": 21,
+   "skoku": 39
+  },
+  {
+   "program": "REP007T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "REP008",
+   "sekci": 21,
+   "skoku": 36
+  },
+  {
+   "program": "REP100",
+   "sekci": 43,
+   "skoku": 110
+  },
+  {
+   "program": "REP101",
+   "sekci": 39,
+   "skoku": 94
+  },
+  {
+   "program": "REP132",
+   "sekci": 17,
+   "skoku": 28
+  },
+  {
+   "program": "REP201",
+   "sekci": 24,
+   "skoku": 47
+  },
+  {
+   "program": "REP202",
+   "sekci": 23,
+   "skoku": 41
+  },
+  {
+   "program": "REP203",
+   "sekci": 24,
+   "skoku": 42
+  },
+  {
+   "program": "REP204",
+   "sekci": 43,
+   "skoku": 78
+  },
+  {
+   "program": "REP205",
+   "sekci": 31,
+   "skoku": 57
+  },
+  {
+   "program": "REP206",
+   "sekci": 36,
+   "skoku": 73
+  },
+  {
+   "program": "REP206-A",
+   "sekci": 33,
+   "skoku": 67
+  },
+  {
+   "program": "REP207",
+   "sekci": 19,
+   "skoku": 34
+  },
+  {
+   "program": "REP208",
+   "sekci": 20,
+   "skoku": 39
+  },
+  {
+   "program": "REP209",
+   "sekci": 25,
+   "skoku": 45
+  },
+  {
+   "program": "REP424",
+   "sekci": 18,
+   "skoku": 20
+  },
+  {
+   "program": "REP500",
+   "sekci": 36,
+   "skoku": 83
+  },
+  {
+   "program": "REP501",
+   "sekci": 31,
+   "skoku": 64
+  },
+  {
+   "program": "REP502",
+   "sekci": 23,
+   "skoku": 46
+  },
+  {
+   "program": "RHSBC",
+   "sekci": 28,
+   "skoku": 56
+  },
+  {
+   "program": "RITAU",
+   "sekci": 28,
+   "skoku": 56
+  },
+  {
+   "program": "RITAU2",
+   "sekci": 28,
+   "skoku": 54
+  },
+  {
+   "program": "SISTEMA",
+   "sekci": 20,
+   "skoku": 34
+  },
+  {
+   "program": "SISTEMARES",
+   "sekci": 20,
+   "skoku": 38
+  },
+  {
+   "program": "SISTNOVO",
+   "sekci": 20,
+   "skoku": 34
+  },
+  {
+   "program": "SISTNOVORES",
+   "sekci": 20,
+   "skoku": 38
+  },
+  {
+   "program": "UTISPLAN",
+   "sekci": 5,
+   "skoku": 8
+  },
+  {
+   "program": "VIP020",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "VIP020T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "VIP021",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "VIP021T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "VIP022",
+   "sekci": 21,
+   "skoku": 40
+  },
+  {
+   "program": "VIP022T",
+   "sekci": 12,
+   "skoku": 15
+  },
+  {
+   "program": "VIP100",
+   "sekci": 34,
+   "skoku": 71
+  },
+  {
+   "program": "VIP101",
+   "sekci": 33,
+   "skoku": 61
+  },
+  {
+   "program": "VIP105",
+   "sekci": 44,
+   "skoku": 95
+  },
+  {
+   "program": "VIP118",
+   "sekci": 20,
+   "skoku": 33
+  },
+  {
+   "program": "VIP130",
+   "sekci": 22,
+   "skoku": 35
+  },
+  {
+   "program": "VIP131",
+   "sekci": 14,
+   "skoku": 16
+  },
+  {
+   "program": "VIP132",
+   "sekci": 17,
+   "skoku": 32
+  },
+  {
+   "program": "VIP300",
+   "sekci": 27,
+   "skoku": 52
+  },
+  {
+   "program": "VIP301",
+   "sekci": 21,
+   "skoku": 52
+  },
+  {
+   "program": "VIP301A",
+   "sekci": 22,
+   "skoku": 46
+  },
+  {
+   "program": "VIRTUA",
+   "sekci": 44,
+   "skoku": 96
+  }
+ ]
+}
