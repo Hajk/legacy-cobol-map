@@ -350,3 +350,19 @@ body.dash-aktivni{overflow:auto}
 .srovnani .posuvnik output{font-variant-numeric:tabular-nums;font-weight:600;
   min-width:120px;color:var(--ink)}
 .srovnani .pozn{margin-top:14px}
+
+/* --- Proof: tabulky měřidla ------------------------------------------------
+   Dvě tabulky: případy (pár řádků) a rozpad věty na pole (31 řádků, dvakrát
+   hodnota vedle sebe). Hodnoty jsou pevnou šířkou, protože se porovnávají
+   sloupec na sloupec — proporcionální písmo by tu lhalo. */
+.dash table.tab{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0 4px}
+.dash table.tab th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--sed);font-weight:600;padding:6px 10px 6px 0;border-bottom:1px solid var(--linka)}
+.dash table.tab td{padding:5px 10px 5px 0;border-bottom:1px solid var(--linka2,var(--linka))}
+.dash table.tab td.kod,.dash table.tab th.kod{font-family:var(--mono,ui-monospace,SFMono-Regular,Menlo,monospace);
+  font-size:12px;white-space:pre}
+.dash table.tab td.cis{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dash .ok{color:#2e7d4f;font-weight:600}
+.dash .pad{opacity:.38}
+.dash .mez{border-left:3px solid var(--akc);padding:2px 0 2px 14px;margin:14px 0 0}
+.dash .mez li{margin:4px 0}

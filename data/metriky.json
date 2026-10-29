@@ -5,27 +5,27 @@
    {
     "klic": "inventura",
     "popis": "finding the canonical source tree and copybook directories",
-    "s": 3.18
+    "s": 3.05
    },
    {
     "klic": "normalizace",
     "popis": "normalising a mixed-encoding delivery into one UTF-8/LF working copy",
-    "s": 6.79
+    "s": 7.5
    },
    {
     "klic": "analyza",
     "popis": "reading every program and resolving the call graph",
-    "s": 3.87
+    "s": 3.88
    },
    {
     "klic": "mapa",
     "popis": "aggregating the graph into subsystem- and program-level map data",
-    "s": 0.21
+    "s": 0.2
    },
    {
     "klic": "programy",
     "popis": "writing one detail view per program",
-    "s": 4.31
+    "s": 4.25
    },
    {
     "klic": "korpus",
@@ -38,13 +38,13 @@
     "s": 0.0
    }
   ],
-  "celkemS": 18.94,
-  "radkuZaSekundu": 25546,
+  "celkemS": 19.46,
+  "radkuZaSekundu": 24863,
   "opakovani": 3,
   "rozptyl": {
-   "minS": 18.86,
-   "medianS": 18.93,
-   "maxS": 18.94
+   "minS": 19.06,
+   "medianS": 19.45,
+   "maxS": 19.73
   }
  },
  "inventura": {

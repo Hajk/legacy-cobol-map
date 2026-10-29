@@ -1,6 +1,6 @@
 {
  "verze": 1,
- "programu": 707,
+ "programu": 706,
  "programy": [
   {
    "program": "ACP010",
@@ -1426,11 +1426,6 @@
    "program": "CRP9107",
    "sekci": 38,
    "skoku": 78
-  },
-  {
-   "program": "CRP9108",
-   "sekci": 0,
-   "skoku": 0
   },
   {
    "program": "CRP9109",

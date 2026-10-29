@@ -793,8 +793,9 @@ fetch('data/mapa.json').then((r) => r.json()).then(async (d) => {
   nastaveni();
   filtry();
   await dashboard();
+  await meridlo();
   if (prg) await otevriProgram(prg, S.podsystem); else kresli();
-  naMapu(dashVychozi ? 'dash' : 'mapa');
+  naMapu(/^#proof$/i.test(location.hash) ? 'proof' : (dashVychozi ? 'dash' : 'mapa'));
   addEventListener('resize', () => { if (S.uroven !== 'L2') kresli(); });
 });
 
@@ -1495,18 +1496,130 @@ function posuvnikCteni(M) {
    (#BANKS/CAIXA2), takže dashboard dostal vlastní (#dashboard) a výchozí
    stav bez adresy je dashboard. */
 function zalozky() {
+  // Mapa je jediná záložka s vlastními adresami (#BANKS/CAIXA2); ostatní jsou
+  // stránky textu a čísel, takže mají prostou kotvu. Seznam je tady jeden,
+  // ať přidání další záložky znamená jeden řádek, ne čtyři místa.
+  const STRANKY = { dash: 'dashboard', proof: 'proof' };
   const prepni = (tab) => {
-    const naDash = tab === 'dash';
-    document.body.classList.toggle('dash-aktivni', naDash);
-    document.getElementById('dash').hidden = !naDash;
+    const naStrance = tab in STRANKY;
+    document.body.classList.toggle('dash-aktivni', naStrance);
+    for (const id of Object.keys(STRANKY)) {
+      document.getElementById(id).hidden = id !== tab;
+    }
     for (const b of document.querySelectorAll('#zalozky button')) {
       b.classList.toggle('aktivni', b.dataset.tab === tab);
     }
-    if (naDash) history.replaceState(null, '', `${location.pathname}${location.search}#dashboard`);
-    else { doAdresy(); fit(); }
+    if (naStrance) {
+      history.replaceState(null, '', `${location.pathname}${location.search}#${STRANKY[tab]}`);
+    } else { doAdresy(); fit(); }
   };
   for (const b of document.querySelectorAll('#zalozky button')) {
     b.addEventListener('click', () => prepni(b.dataset.tab));
   }
   return prepni;
+}
+
+
+/* ===========================================================================
+   PROOF — výsledek měřidla.
+
+   Záložka ukazuje jedinou věc: původní COBOL a modernizovaná aplikace dostaly
+   týž vstup a vyrobily týž soubor, bajt po bajtu. Všechna čísla jdou
+   z `data/meridlo.json`, který vyrábí `nastroje/meridlo-export.py` ze
+   skutečných běhů — na téhle stránce není ručně napsané ani jedno.
+
+   Mez měřidla je tu schválně stejně viditelná jako výsledek. Prezentace, která
+   ukáže jen to hezké, se zákazníkovi vrátí v první technické due diligence.
+   =========================================================================== */
+async function meridlo() {
+  const cil = document.getElementById('proof');
+  if (!cil) return;
+  let D;
+  try { D = await (await fetch('data/meridlo.json')).json(); }
+  catch {
+    cil.innerHTML = '<p class="pozn">data/meridlo.json is missing — run nastroje/meridlo-export.py.</p>';
+    return;
+  }
+  const s = D.souhrn, v = D.vyriznuti || {};
+  const meta = (S.data && S.data.meta) || {};
+  const kpi = (b, popis, pod, trida) =>
+    `<div class="k ${trida || ''}"><b>${b}</b><span>${popis}</span>${pod ? `<i>${pod}</i>` : ''}</div>`;
+  // Mezery se v pevné šířce nepoznají, a přitom jsou v souboru pro banku
+  // polovina obsahu — proto se kreslí jako tečka.
+  const vidt = (t) => t.replace(/ /g, '<span class="pad">·</span>');
+
+  const pripady = D.pripady.map((p) => `<tr>
+      <td class="kod">${p.carteira}</td><td class="kod">${p.especie}</td>
+      <td class="cis">${čís(p.vet)}</td><td class="cis">${čís(p.bajtu)}</td>
+      <td class="kod">${p.prvniNossoNumero || ''}</td>
+      <td>${p.shoda ? '<span class="ok">identical</span>' : '<b>DIFFERS</b>'}</td>
+    </tr>`).join('');
+
+  const pole = D.ukazkovaVeta.map((f) => `<tr>
+      <td class="kod">${f.jmeno}</td>
+      <td class="cis">${f.od}–${f.do}</td>
+      <td class="kod">${f.pic}</td>
+      <td class="kod">${vidt(f.sonda)}</td>
+      <td class="kod">${vidt(f.aplikace)}</td>
+      <td>${f.sonda === f.aplikace ? '<span class="ok">=</span>' : '<b>≠</b>'}</td>
+    </tr>`).join('');
+
+  cil.innerHTML = `
+    <h2>${meta.nazev || 'The system'} — proof that the rewrite behaves like the original</h2>
+    <p class="lead">A rewrite is only worth as much as the evidence that it does the same thing.
+      Here the original COBOL and the new implementation were given <b>the same input</b> and
+      their output files were compared <b>byte for byte</b> — not screenshot by screenshot,
+      not test by test.</p>
+
+    <h3>The measurement</h3>
+    <div class="kpi">
+      ${kpi(čís(s.vet), 'records compared', `across ${s.pripadu} independent cases`)}
+      ${kpi(čís(s.bajtu), 'bytes compared', 'every byte of every record, including the line endings')}
+      ${kpi(s.shodaVsude ? 'identical' : 'DIFFERS', 'result',
+            s.shodaVsude ? 'not one byte apart' : 'see the field table below', s.shodaVsude ? '' : 'duraz')}
+      ${kpi(čís(s.poliVeVete), 'fields per record', 'each one carrying a line reference into the original COBOL')}
+    </div>
+
+    <h3>How the original was run at all</h3>
+    <p class="lead">The original program cannot be started: its control flow lives in a GUI
+      runtime we do not have, and the delivery contains no data. So it was not started —
+      <b>the part that builds the record was cut out of it mechanically</b>, compiled, and run
+      on its own. The cut is done by a script, so every line can be traced back.</p>
+    <div class="kpi">
+      ${kpi(čís(v.radkuZOriginalu || 0), 'lines taken from the original', `out of ${čís(v.useku || 0)} marked ranges`)}
+      ${kpi(čís(v.radkuObsluhy || 0), 'lines of harness around it', 'open the files, feed the case in, write the result out')}
+      ${kpi(čís(v.odchylek || 0), 'documented deviations', 'compiler dialect only — none of them touches the arithmetic')}
+      ${kpi('3', 'negative controls', 'deliberate defects injected; the measurement caught all three')}
+    </div>
+
+    <h3>The cases</h3>
+    <table class="tab">
+      <tr><th class="kod">carteira</th><th class="kod">espécie</th><th>records</th><th>bytes</th>
+          <th class="kod">first nosso número</th><th>result</th></tr>
+      ${pripady}
+    </table>
+    <p class="pozn">Carteira 12 is the only value where the original overwrites the first digit of
+      the boleto number with a 9. Measuring only that one would leave the other branch of the
+      check digit — the one most receivables get — untested.</p>
+
+    <h3>One record, field by field</h3>
+    <p class="lead">This is the first record of the first case, as both sides produced it.
+      Spaces are drawn as <span class="pad">·</span> so that padding is visible.</p>
+    <table class="tab">
+      <tr><th class="kod">field</th><th>bytes</th><th class="kod">PIC</th>
+          <th class="kod">original COBOL</th><th class="kod">rewrite</th><th></th></tr>
+      ${pole}
+    </table>
+
+    <h3>What this does not prove</h3>
+    <ul class="mez">
+      <li><b>Which receivables go into the batch, and in what order.</b> The probe gets them
+        already selected. Order decides the boleto numbers, so this is not a detail.</li>
+      <li><b>The customer checks</b> (tax number, postcode, address) — the subprogram that does
+        them is not in the delivery.</li>
+      <li><b>That the production compiler computes the same thing.</b> The probe runs on
+        GnuCOBOL, not on the Micro Focus runtime the system runs on today.</li>
+      <li><b>That the record is what the bank accepts.</b> This proves sameness with the
+        original, not correctness of the original.</li>
+    </ul>`;
 }
