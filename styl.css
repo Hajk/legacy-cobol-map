@@ -367,6 +367,24 @@ body.dash-aktivni{overflow:auto}
 .dash .mez{border-left:3px solid var(--akc);padding:2px 0 2px 14px;margin:14px 0 0}
 .dash .mez li{margin:4px 0}
 
+/* Propustnost: pět sloupců s popisem hranice se do výchozích 640 px tabulky
+   dashboardu nevejde a „Rust → WASM" se láme doprostřed. Jednotka v záhlaví
+   navíc NESMÍ přes verzálky — `µs` se jimi změní na `ΜS` a čte se to jako
+   milisekundy, tedy tisíckrát vedle. */
+.dash table.vykon{max-width:940px}
+.dash table.vykon th{white-space:nowrap}
+.dash table.vykon th.jednotka{text-transform:none;letter-spacing:0}
+.dash table.vykon td:first-child,.dash table.vykon td:nth-child(3){white-space:nowrap}
+
+/* Rozhodnutí, které si zákazník musí udělat sám: prohlížeč (nic neodchází ze
+   stroje) proti serveru (propustnost). Není to výhrada petitem, je to volba
+   mezi dvěma nasazeními — proto rámovaný blok, ne poznámka pod tabulkou.
+   Záměrně BEZ --akc: akcentní barva je nastavitelná a v mapě nese význam
+   „data", a tohle měřená data nejsou, tohle je důsledek. */
+.dash .volba{border:1px solid var(--car);border-radius:10px;padding:14px 16px;
+  margin:18px 0 0;max-width:84ch;font-size:13px;line-height:1.5;color:var(--sed)}
+.dash .volba b{color:var(--ink)}
+
 
 /* --- Application: rám s modernizovanou aplikací ---------------------------
    Rám dostane celou plochu pod záložkami. `dvh` kvůli mobilním prohlížečům,

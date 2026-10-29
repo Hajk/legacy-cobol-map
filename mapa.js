@@ -1549,6 +1549,11 @@ async function meridlo() {
     cil.innerHTML = '<p class="pozn">data/meridlo.json is missing — run nastroje/meridlo-export.py.</p>';
     return;
   }
+  // Propustnost je nepovinná: shoda bajt po bajtu je doklad sama o sobě a dává
+  // smysl i bez měření výkonu. Chybí-li podklad, sekce se vynechá — záložka
+  // nesmí spadnout kvůli tomu, co je na ní navíc.
+  let V = null;
+  try { V = await (await fetch('data/vykon.json')).json(); } catch { /* neměřilo se */ }
   const s = D.souhrn, v = D.vyriznuti || {}, impl = D.implementace || {};
   const meta = (S.data && S.data.meta) || {};
   const kpi = (b, popis, pod, trida) =>
@@ -1621,6 +1626,8 @@ async function meridlo() {
       ${pole}
     </table>
 
+    ${vykonSekce(V)}
+
     <h3>What this does not prove</h3>
     <ul class="mez">
       <li><b>Which receivables go into the batch, and in what order.</b> The probe gets them
@@ -1631,5 +1638,133 @@ async function meridlo() {
         GnuCOBOL, not on the Micro Focus runtime the system runs on today.</li>
       <li><b>That the record is what the bank accepts.</b> This proves sameness with the
         original, not correctness of the original.</li>
+      ${vykonMeze(V)}
     </ul>`;
+}
+
+/* ---------------------------------------------------------------------------
+   PROPUSTNOST — co stojí hranice mezi aplikací a jádrem.
+
+   Patří to do Proof, ne do vlastní záložky: je to měření a musí stát na téže
+   stránce jako jeho meze. Čísla jdou z `data/vykon.json`
+   (`nastroje/vykon-export.py`), který spouští dvě skutečná měření — nativní
+   Rust a srovnání TypeScript / WASM — a ukládá MEDIÁN ze tří běhů i rozsah.
+
+   ⚠️ Smysl tabulky je jediný: mezi řádky se nemění ani logika, ani vstup —
+   mění se **hranice** a **virtuální stroj**. Dokud hranice byla JSON, byl celý
+   Rust přes WASM POMALEJŠÍ než původní TypeScript; to se na stránce neschovává
+   (viz `vykonMeze`), protože přesně to dává tabulce smysl.
+   ------------------------------------------------------------------------ */
+function vykonSekce(V) {
+  if (!V) return '';
+  const m = V.mereno, s = V.sklad, h = V.hranice, c = V.cena, p = V.prohlizec, n = V.nativni;
+  const kpi = (b, popis, pod, trida) =>
+    `<div class="k ${trida || ''}"><b>${b}</b><span>${popis}</span>${pod ? `<i>${pod}</i>` : ''}</div>`;
+  // Cena hranice umí při nepříznivém rozptylu vyjít i pod jedno procento (nebo
+  // pod nulu). Vypsat ji pak jako změřený rozdíl by bylo tvrzení nad rozlišení
+  // měření — proto se v takovém případě říká jen „pod jedno procento".
+  const procent = (x) => (x >= 1 ? `${x.toFixed(0)}<small> %</small>` : `&lt; 1<small> %</small>`);
+  const rada = (v, co, hranice, kde) => `<tr>
+      <td><b>${co}</b></td><td>${hranice}</td><td>${kde}</td>
+      <td class="cis">${čís(v.vetZaS)}</td><td class="cis">${v.mikro.toFixed(1)}</td>
+    </tr>`;
+  const rozsah = (jm, v) => `${jm} ${čís(v.min)}–${čís(v.max)}`;
+
+  // Vlastní `section` se jmenovkou — stejně jako `prevodSekce`. Je to jediný
+  // způsob, jak si na tuhle část udělat snímek výřezem (`nastroje/snimek.mjs`).
+  return `
+    <section id="propustnost">
+    <h3>Throughput — the same logic across four paths</h3>
+    <p class="lead">The same business logic, the same input, ${čís(s.vetVDavce)} records per
+      batch. Between the rows below only two things change: <b>where the boundary between the
+      application and the engine is</b>, and whether Rust runs natively or as WebAssembly in
+      the browser. Nothing else — not the algorithm, not the data.</p>
+    <div class="kpi">
+      ${kpi(čís(p.wasmBin.vetZaS), 'records / s in the browser',
+            `Rust → WASM across the binary boundary — median of ${m.behu} runs,
+             ${rozsah('', p.wasmBin)} records/s`)}
+      ${kpi(čís(n.B.vetZaS), 'records / s native, one thread',
+            'the ceiling of this logic: same code, no boundary and no virtual machine')}
+      ${kpi(procent(c.binarniProcentStropu), 'is what the binary boundary costs',
+            `the JSON boundary it replaced cost ${c.jsonovaProcentStropu.toFixed(0)} % of the
+             same ceiling`)}
+      ${kpi(`${čís(s.vetaB)}<small> B</small>`, 'per input record',
+            `original <b>REG-CRD020</b> records — the same bytes the COBOL probe above
+             was given`)}
+    </div>
+    <table class="tab vykon">
+      <tr><th>path</th><th>boundary, on every call</th><th>runs in</th>
+          <th>records / s</th><th class="jednotka">µs / record</th></tr>
+      ${rada(p.typescript, 'TypeScript', 'none — the engine is handed JavaScript objects',
+             'browser')}
+      ${rada(p.wasmJson, 'Rust → WASM',
+             `JSON: ${čís(h.jsonDovnitrB)} B in, ${čís(h.jsonVenB)} B out`, 'browser')}
+      ${rada(p.wasmBin, 'Rust → WASM',
+             `binary: ${čís(h.zadaniB)} B in, one envelope of ${čís(h.binarniObalkaB)} B out`,
+             'browser')}
+      ${rada(n.B, 'Rust, native', 'none — the ceiling of this logic', 'server, one thread')}
+    </table>
+    <p class="pozn">Each figure is the <b>median of ${m.behu} runs</b>
+      (${čís(m.opakovaniProhlizec)} batches per run in the browser,
+      ${čís(m.opakovaniNativne)} natively), measured on ${m.jader} cores under ${m.os}
+      at load ${m.zatizeniMin}–${m.zatizeniMax}${m.node ? `, Node ${m.node}` : ''},
+      ${m.datum}. Spread between runs, records/s:
+      ${[rozsah('TypeScript', p.typescript), rozsah('WASM + JSON', p.wasmJson),
+         rozsah('WASM binary', p.wasmBin), rozsah('native', n.B)].join(' · ')}.</p>
+
+    <p class="pozn"><b>The boundary, not the language.</b> The JSON boundary cost
+      ${c.jsonovaProcentStropu.toFixed(0)} % of the ceiling, the binary one costs
+      ${c.binarniProcentStropu >= 1 ? `${c.binarniProcentStropu.toFixed(0)} %`
+                                    : 'less than 1 %'}. Per call it carried
+      ${čís(h.jsonDovnitrB)} B in and ${čís(h.jsonVenB)} B out; it now carries
+      ${čís(h.zadaniB)} B in and a single ${čís(h.binarniObalkaB)} B envelope out — and that
+      envelope <i>is</i> the batch, read where it lies, not a copy of it.</p>
+    <p class="pozn"><b>The input is the original records.</b> The application is fed
+      ${čís(s.pohledavek)} × ${s.vetaB} B of REG-CRD020 (${čís(s.souborB)} B in one file),
+      byte for byte the same input the COBOL probe above was given — not a JSON export of
+      ours. Reading and parsing them is inside every figure in the table.</p>
+    <p class="pozn"><b>What is left is the virtual machine.</b> On the identical path, with
+      the identical boundary, WASM in the browser is <b>${c.wasmBinProtiNativniKrat.toFixed(1)}×
+      slower</b> than the native binary (${čís(p.wasmBin.vetZaS)} against
+      ${čís(n.C.vetZaS)} records/s). That difference is no longer the boundary, and no
+      change of data format will close it.</p>
+
+    <div class="volba">
+      <b>One decision this measurement does not make for you.</b> In the browser what you get
+      is that <b>it all runs on your machine</b> — the three input files are loaded once, the
+      batch is built locally, nothing is sent anywhere, there is no server to operate. On a
+      server what you get is <b>throughput</b>: native Rust does ${čís(n.B.vetZaS)} records/s
+      in a single thread, and that figure is not reachable in a browser, because there Rust
+      runs as WASM. The same code can be deployed either way — but the number follows the
+      deployment, and you cannot have both at once.
+    </div>
+    </section>`;
+}
+
+/* Meze měření propustnosti. Jsou ve společném seznamu „What this does not
+   prove", protože mez měření patří k měření, ne do petitu pod ním. */
+function vykonMeze(V) {
+  if (!V) return '';
+  const m = V.mereno, s = V.sklad, c = V.cena;
+  // „0,7× rychlejší" se čte jako zrychlení, přitom je to zpomalení — poměr se
+  // proto pojmenuje slovem, ne znaménkem.
+  const pomer = (x) => (x >= 1 ? `${x.toFixed(1)}× faster` : `${(1 / x).toFixed(1)}× slower`);
+  return `
+      <li><b>Any throughput other than on this machine, with this input.</b> One machine
+        (${m.jader} cores, ${m.os}) and one synthetically built warehouse of
+        ${čís(s.pohledavek)} receivables — not a production volume. On a machine doing
+        something else at the same time the spread runs into tens of per cent.</li>
+      <li><b>I/O, the network or rendering.</b> Only building the batch is timed. The input
+        is read once beforehand and the output is thrown away, so none of the figures
+        contains a disk, a request or a screen.</li>
+      <li><b>Scaling across cores.</b> Every figure is single-threaded. More threads were
+        not measured, so nothing here says anything about them.</li>
+      <li><b>That a few passes are enough to measure a JavaScript path.</b> Each variant runs
+        ${čís(m.opakovaniProhlizec)} batches or more, because V8 needs dozens of passes before
+        it optimises the TypeScript one. Our own earlier measurement, run over ten passes,
+        had Rust → WASM coming out faster than TypeScript; that was an artefact of the short
+        run, and it is corrected here. With enough passes, WASM across the <i>JSON</i>
+        boundary came out
+        ${pomer(c.wasmJsonProtiTsKrat)} than TypeScript — it is the binary boundary that
+        makes it faster (${pomer(c.wasmBinProtiTsKrat)}), not the language.</li>`;
 }
