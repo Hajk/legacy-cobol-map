@@ -19,7 +19,7 @@
      se berou z data/mapa.json (blok `meta`). Tahle stránka je šablona,
      ne stránka o Kellu. -->
 <nav class="zalozky" id="zalozky">
-  <button data-tab="dash" class="aktivni">Dashboard</button><button data-tab="mapa">Code map</button><button data-tab="proof">Proof</button>
+  <button data-tab="dash" class="aktivni">Dashboard</button><button data-tab="mapa">Code map</button><button data-tab="proof">Proof</button><button data-tab="aplikace">Application</button>
 </nav>
 
 <header>
@@ -69,6 +69,13 @@
      vyrábí nastroje/meridlo-export.py ze skutečných běhů sondy — žádné číslo
      na téhle stránce není napsané rukou. -->
 <section id="proof" class="dash" hidden></section>
+<!-- Záložka Application: modernizovaná aplikace. Je to samostatný build
+     (React + Rust→WASM) vložený rámem — vlastní repozitář, vlastní build,
+     nulové sdílení skriptů se stránkou okolo. Rám je tu schválně: běží to
+     celé v prohlížeči, takže žádný server, žádné API, nic k rozbití. -->
+<section id="aplikace" class="dash celostrana" hidden>
+  <iframe id="ram-aplikace" title="Modernised application" loading="lazy"></iframe>
+</section>
 
 <div id="panel-nastaveni" class="nastaveni" hidden>
   <h3>Map appearance</h3>

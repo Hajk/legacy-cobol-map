@@ -366,3 +366,10 @@ body.dash-aktivni{overflow:auto}
 .dash .pad{opacity:.38}
 .dash .mez{border-left:3px solid var(--akc);padding:2px 0 2px 14px;margin:14px 0 0}
 .dash .mez li{margin:4px 0}
+
+
+/* --- Application: rám s modernizovanou aplikací ---------------------------
+   Rám dostane celou plochu pod záložkami. `dvh` kvůli mobilním prohlížečům,
+   kde `vh` počítá i s lištou, která se schová. */
+.dash.celostrana{max-width:none;padding:0;margin:0}
+.dash.celostrana iframe{display:block;width:100%;height:calc(100dvh - 46px);border:0}

@@ -795,7 +795,10 @@ fetch('data/mapa.json').then((r) => r.json()).then(async (d) => {
   await dashboard();
   await meridlo();
   if (prg) await otevriProgram(prg, S.podsystem); else kresli();
-  naMapu(/^#proof$/i.test(location.hash) ? 'proof' : (dashVychozi ? 'dash' : 'mapa'));
+  const prvni = /^#proof$/i.test(location.hash) ? 'proof'
+    : /^#application$/i.test(location.hash) ? 'aplikace'
+    : (dashVychozi ? 'dash' : 'mapa');
+  naMapu(prvni);
   addEventListener('resize', () => { if (S.uroven !== 'L2') kresli(); });
 });
 
@@ -1499,7 +1502,7 @@ function zalozky() {
   // Mapa je jediná záložka s vlastními adresami (#BANKS/CAIXA2); ostatní jsou
   // stránky textu a čísel, takže mají prostou kotvu. Seznam je tady jeden,
   // ať přidání další záložky znamená jeden řádek, ne čtyři místa.
-  const STRANKY = { dash: 'dashboard', proof: 'proof' };
+  const STRANKY = { dash: 'dashboard', proof: 'proof', aplikace: 'application' };
   const prepni = (tab) => {
     const naStrance = tab in STRANKY;
     document.body.classList.toggle('dash-aktivni', naStrance);
@@ -1508,6 +1511,12 @@ function zalozky() {
     }
     for (const b of document.querySelectorAll('#zalozky button')) {
       b.classList.toggle('aktivni', b.dataset.tab === tab);
+    }
+    // Aplikace je samostatný build za rámem; adresu dostane až při prvním
+    // přepnutí, aby se její WASM nestahoval lidem, kteří ji neotevřou.
+    if (tab === 'aplikace') {
+      const ram = document.getElementById('ram-aplikace');
+      if (ram && !ram.src) ram.src = 'aplikace/index.html';
     }
     if (naStrance) {
       history.replaceState(null, '', `${location.pathname}${location.search}#${STRANKY[tab]}`);
@@ -1540,7 +1549,7 @@ async function meridlo() {
     cil.innerHTML = '<p class="pozn">data/meridlo.json is missing — run nastroje/meridlo-export.py.</p>';
     return;
   }
-  const s = D.souhrn, v = D.vyriznuti || {};
+  const s = D.souhrn, v = D.vyriznuti || {}, impl = D.implementace || {};
   const meta = (S.data && S.data.meta) || {};
   const kpi = (b, popis, pod, trida) =>
     `<div class="k ${trida || ''}"><b>${b}</b><span>${popis}</span>${pod ? `<i>${pod}</i>` : ''}</div>`;
@@ -1576,7 +1585,8 @@ async function meridlo() {
       ${kpi(čís(s.vet), 'records compared', `across ${s.pripadu} independent cases`)}
       ${kpi(čís(s.bajtu), 'bytes compared', 'every byte of every record, including the line endings')}
       ${kpi(s.shodaVsude ? 'identical' : 'DIFFERS', 'result',
-            s.shodaVsude ? 'not one byte apart' : 'see the field table below', s.shodaVsude ? '' : 'duraz')}
+            s.shodaVsude ? `not one byte apart${impl.jazyk ? ` — the rewrite runs on <b>${impl.jazyk}</b>` : ''}`
+                         : 'see the field table below', s.shodaVsude ? '' : 'duraz')}
       ${kpi(čís(s.poliVeVete), 'fields per record', 'each one carrying a line reference into the original COBOL')}
     </div>
 
@@ -1607,7 +1617,7 @@ async function meridlo() {
       Spaces are drawn as <span class="pad">·</span> so that padding is visible.</p>
     <table class="tab">
       <tr><th class="kod">field</th><th>bytes</th><th class="kod">PIC</th>
-          <th class="kod">original COBOL</th><th class="kod">rewrite</th><th></th></tr>
+          <th class="kod">original COBOL</th><th class="kod">rewrite${impl.jazyk ? ` (${impl.jazyk})` : ''}</th><th></th></tr>
       ${pole}
     </table>
 
