@@ -385,6 +385,17 @@ body.dash-aktivni{overflow:auto}
   margin:18px 0 0;max-width:84ch;font-size:13px;line-height:1.5;color:var(--sed)}
 .dash .volba b{color:var(--ink)}
 
+/* Fáze 0: šest číslovaných bloků pod sebou. Výchozí `h4` má nulový horní
+   okraj (jinde stojí hned pod nadpisem sekce), takže tady by se nadpis slepil
+   s koncem předchozího odstavce a šest bloků by splynulo v jeden sloupec
+   textu. Odsazení je proto na `#faze0`, ne na `.dash h4` — jinde je nulový
+   okraj správně. */
+#faze0 h4{margin-top:24px;font-size:12.5px;color:var(--ink);letter-spacing:.2px}
+#faze0 h4:first-of-type{margin-top:20px}
+/* Šrafovaný rámeček s odhadem jde hned za odstavcem o rozsahu; bez odsazení
+   by se o něj opřel a splynul by s měřenými čísly nad sebou. */
+#faze0 .srovnani{margin-top:14px}
+
 
 /* --- Application: rám s modernizovanou aplikací ---------------------------
    Rám dostane celou plochu pod záložkami. `dvh` kvůli mobilním prohlížečům,

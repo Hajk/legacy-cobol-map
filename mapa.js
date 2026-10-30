@@ -1552,8 +1552,32 @@ async function meridlo() {
   // Propustnost je nepovinná: shoda bajt po bajtu je doklad sama o sobě a dává
   // smysl i bez měření výkonu. Chybí-li podklad, sekce se vynechá — záložka
   // nesmí spadnout kvůli tomu, co je na ní navíc.
+  //
+  // ⚠️ `.json()` v `try` na to NESTAČÍ — viz past popsaná u fáze 0 o pár
+  // řádků níž. `server.mjs` vrací na 404 tělo `404`, což je **platný JSON**,
+  // takže `catch` nechytí nic a `V` není `null`, ale číslo. Sekce pak spadne
+  // uprostřed vykreslování a **vezme s sebou celou záložku Proof**.
+  // Opraveno 30. 10. 2026; na veřejné adrese se to neprojevilo, protože
+  // GitHub Pages vrací na 404 stránku v HTML, na které `.json()` spadne.
   let V = null;
-  try { V = await (await fetch('data/vykon.json')).json(); } catch { /* neměřilo se */ }
+  try {
+    const o = await fetch('data/vykon.json');
+    if (o.ok) { const d = await o.json(); if (d && d.mereno) V = d; }
+  } catch { /* neměřilo se */ }
+  // Stejně nepovinná je fáze 0: podklad vzniká jen tam, kde se nad databází
+  // doopravdy běželo (`nastroje/faze0-export.py` potřebuje běžící PostgreSQL).
+  // Chybí-li, sekce se vynechá a zbytek záložky stojí.
+  //
+  // ⚠️ Samotné `.json()` v `try` na to NESTAČÍ a je to past, na kterou jsem
+  // naletěl: server mapy vrací na 404 tělo „404" — a to je **platný JSON**
+  // (číslo). `catch` se tedy nespustí, podklad není null, sekce se začne
+  // vykreslovat, spadne na prvním poli a vezme s sebou CELOU záložku. Proto
+  // se chybějící podklad pozná ze stavu odpovědi **a** z tvaru dat.
+  let F = null;
+  try {
+    const o = await fetch('data/faze0.json');
+    if (o.ok) { const d = await o.json(); if (d && d.mereno) F = d; }
+  } catch { /* nebyla fáze 0 */ }
   const s = D.souhrn, v = D.vyriznuti || {}, impl = D.implementace || {};
   const meta = (S.data && S.data.meta) || {};
   const kpi = (b, popis, pod, trida) =>
@@ -1628,6 +1652,8 @@ async function meridlo() {
 
     ${vykonSekce(V)}
 
+    ${faze0Sekce(F)}
+
     <h3>What this does not prove</h3>
     <ul class="mez">
       <li><b>Which receivables go into the batch, and in what order.</b> The probe gets them
@@ -1639,6 +1665,7 @@ async function meridlo() {
       <li><b>That the record is what the bank accepts.</b> This proves sameness with the
         original, not correctness of the original.</li>
       ${vykonMeze(V)}
+      ${faze0Meze(F)}
     </ul>`;
 }
 
@@ -1767,4 +1794,199 @@ function vykonMeze(V) {
         boundary came out
         ${pomer(c.wasmJsonProtiTsKrat)} than TypeScript — it is the binary boundary that
         makes it faster (${pomer(c.wasmBinProtiTsKrat)}), not the language.</li>`;
+}
+
+/* ---------------------------------------------------------------------------
+   FÁZE 0 — ucelený výřez agendy přesunutý z indexovaných souborů do PostgreSQL.
+
+   Všechna čísla jdou z `data/faze0.json` (`nastroje/faze0-export.py`), který
+   spouští čtyři skutečné běhy nad běžící databází a dočítá statické podklady.
+   Na stránce není ručně napsané ani jedno číslo — s jedinou výjimkou, kterou
+   JSON sám označuje jako `prevzato`: náklad proběhlé práce a odhad lidské
+   strany. Ty se kreslí v šrafovaném rámci se štítkem ESTIMATE, stejně jako
+   srovnání s člověkem na dashboardu.
+
+   ⚠️ **Rámec je VZOR, ne obžaloba.** Co se tu popisuje — čítač v souboru,
+   mrtvé kopie vedle živého kódu, přípony, na kterých padá překlad — je to, co
+   u systémů téhle generace vídáme běžně. Tak to taky rozhodl zákazník
+   (30. 10. 2026) a tak je to napsané: vzor doby, ke kterému patří konkrétní
+   čísla, ne soupis cizích hříchů.
+
+   ⚠️ **Čtyři varianty jedné dávky NEJSOU čtyřnásobný doklad** a stránka to
+   nesmí tvrdit. Jsou tam proto, že jedna z nich chodí jinou větví výpočtu
+   kontrolní číslice — to je důvod, který se musí říct, jinak si čtenář odnese
+   čtyřnásobek vzorku.
+   ------------------------------------------------------------------------ */
+function faze0Sekce(F) {
+  if (!F) return '';
+  const m = F.mereno, s = F.schema, mi = F.migrace, p = F.prejimka, sb = F.soubeh;
+  const c = F.cena, k = F.korpus, d = F.dosazitelnost, o = F.obrazovky;
+  const r = F.rozsah, pv = F.prevzato;
+  const kpi = (b, popis, pod, trida) =>
+    `<div class="k ${trida || ''}"><b>${b}</b><span>${popis}</span>${pod ? `<i>${pod}</i>` : ''}</div>`;
+  const ms = (x) => `${x.toFixed(1)}<small> ms</small>`;
+  const cesta = (x, co) => `<tr>
+      <td><b>${x.jmeno}</b></td><td>${co}</td>
+      <td class="cis">${x.medianMs.toFixed(1)}</td>
+      <td class="cis">${x.minMs.toFixed(1)}–${x.maxMs.toFixed(1)}</td>
+    </tr>`;
+  const carteiry = p.pripady.map((x) => x.carteira).join(' / ');
+
+  return `
+    <section id="faze0">
+    <h3>Phase 0 — one agenda off the indexed files, into a database</h3>
+    <p class="lead">One <b>complete agenda</b> — the receivables and the batch file that goes
+      to the bank — was moved out of indexed files (ISAM) into PostgreSQL ${m.postgres},
+      ${s.tabulek} tables. The question was never whether that can be done. The question was
+      whether <b>the behaviour changes</b> — and that is what the evidence below answers.</p>
+    <div class="kpi">
+      ${kpi(čís(mi.vet), 'records reassembled byte for byte', `out of the database and back into
+             the original ${mi.vetaB} B layout — not one of them differs`)}
+      ${kpi(čís(p.vetCelkem), 'records compared with the original COBOL',
+            `${čís(p.bajtuCelkem)} B, built <b>from the database</b> — ${čís(p.vetVPripadu)}
+             records in ${p.pripadu} variants of one parameter`)}
+      ${kpi(čís(sb.cisel), 'numbers issued by two concurrent batches',
+            `${čís(sb.ruznych)} of them different — the second caller waited
+             ${sb.cekalMs} ms on the row lock`)}
+      ${kpi(ms(c.cesty.postgres.medianMs), 'per batch out of the database',
+            `against ${c.cesty.memory.medianMs.toFixed(1)} ms from memory — median of
+             ${c.behu} runs`)}
+    </div>
+
+    <h4>1 · The migration lost nothing — and here is why it did not work first time</h4>
+    <p class="pozn">All ${čís(mi.vet)} records of the ${mi.vetaB} B layout are reassembled out
+      of the database <b>byte for byte</b>, and so is the ${mi.parametryVetaB} B parameter
+      record (${mi.parametryPoli} fields → ${mi.parametrySloupcu} columns). It did not hold at
+      the first attempt, and that is the part worth taking away: the reading layer we already
+      had was written <b>for the computation</b>, so it is <b>deliberately lossy</b> — it
+      carries what the batch needs and drops the rest. Good enough to compute with, not good
+      enough to migrate with. The table therefore has to carry <b>all ${mi.poliCopybooku}
+      fields of the copybook</b>, useful or not — <b>${s.sloupcuPohledavka} columns</b> with
+      the key. Anyone weighing a similar migration pays this once: an existing reader is not
+      a migration.</p>
+
+    <h4>2 · The behaviour did not change</h4>
+    <p class="pozn">The batch is built <b>from the database</b> — selection, client checks,
+      numbering, the ${čís(p.bajtuVPripadu / p.vetVPripadu)} B records — and the file it
+      produces is byte-identical with the one the original COBOL produces from the same input.
+      <b>${čís(p.vetCelkem)} records, ${čís(p.bajtuCelkem)} B</b> in total, and a flipped digit
+      is located down to the field of the record, so the check can fail.</p>
+    <p class="pozn"><b>Read the four variants for what they are.</b> It is
+      ${čís(p.vetVPripadu)} records measured ${p.pripadu}× over, with one bank parameter
+      changed (carteira ${carteiry}) — <b>not four times the evidence</b>. They are there
+      because one of those values, 12, is the only one where the original overwrites the first
+      digit of the boleto number; measuring only it, or only the others, would leave one branch
+      of the check digit untested.</p>
+
+    <h4>3 · The defect the move removes</h4>
+    <p class="pozn"><b>The pattern.</b> In systems of this generation the sequential number
+      that identifies a document at the bank is kept <b>in a file</b>: it is read into memory
+      when the screen opens, incremented in memory, and written back only by a <b>separate
+      action of the operator</b> — with the whole session running in between. Two people
+      starting a batch at the same time is then the textbook lost update, and what the bank
+      receives is <b>the same identifier twice</b>.</p>
+    <p class="pozn"><b>Here it cannot happen, and that was tried.</b> Four guards hold the
+      counter, and the test does not check that they exist — it <b>attempts to break each
+      one</b>: ${mi.zamky.map((z) => z.jmeno).join(' · ')}. All ${mi.zamky.length} held.
+      Two batches run at once came out as <b>${čís(sb.cisel)} numbers,
+      ${čís(sb.ruznych)} of them different</b>, in two consecutive ranges.</p>
+
+    <h4>4 · What real persistence costs</h4>
+    <table class="tab vykon">
+      <tr><th>path</th><th>what happens on the way</th><th>median, ms</th>
+          <th class="jednotka">min–max, ms</th></tr>
+      ${cesta(c.cesty.memory, 'nothing — the records are already in memory')}
+      ${cesta(c.cesty.postgres, `read, compute, number, record, commit — one transaction`)}
+      ${cesta(c.cesty.http, 'the same, requested over HTTP as a file')}
+    </table>
+    <p class="pozn">The same batch of ${čís(c.vetVDavce)} records
+      (${čís(c.bajtuDavky)} B) over a warehouse of ${čís(c.pohledavekVeSkladu)} receivables,
+      median of ${c.behu} runs on ${m.jader} cores under ${m.os} at load ${m.zatizeni1min},
+      ${m.datum}. <b>The database costs ${c.rozdilProtiPametiMs.toFixed(1)} ms more per
+      batch</b> (${c.krat.toFixed(1)}× the in-memory path).</p>
+    <p class="pozn"><b>And why that does not matter here.</b> This is an agenda where the
+      operator presses the button <b>once a day</b>; tens of milliseconds have no meaning at
+      that rate. What is bought for them is a transaction (either the whole batch is recorded
+      or none of it), integrity enforced by the database rather than by every program that
+      touches the data, and a number that <b>cannot</b> be issued twice. The figure would
+      matter if the same logic ran per request; then the in-memory path is still there — it is
+      the same code.</p>
+
+    <h4>5 · What phase 0 found out about the rest of the system</h4>
+    <p class="pozn"><b>One copybook stands between the corpus and a compiler.</b> Of
+      ${čís(k.programu)} programs ${čís(k.prelozeno)} compile today; of the
+      ${čís(k.neproslo)} that do not, <b>${čís(k.blokujeProgramu)} fail on a single cause</b> —
+      one copybook of GUI-framework macros, copied by ${čís(k.copy.programuKopirujicichMakra)}
+      programs, written in a dialect extension the current compiler does not know. Expanding
+      those macros is a bounded piece of work, and it is what unlocks the rest.</p>
+    <p class="pozn"><b>And the "missing" copybooks are not missing.</b> Of all
+      ${čís(k.copy.jmen)} <code>COPY</code> names used in the tree,
+      <b>${k.copy.chybiVeStromu} are absent</b>. They resolve across
+      ${k.copy.priponCelkem} different suffixes — ${čís(k.copy.vyskytuMimoObvyklePripony)} of
+      the ${čís(k.copy.vyskytu)} occurrences under something other than the two a compiler
+      tries by itself. In a system built when the file system cared about neither case nor
+      suffix, that is the normal state, and it is why "file not found" has to be read twice
+      before it goes into an estimate as the cost of a migration.</p>
+    <p class="pozn"><b>${d.nedosazitelneProcent} % of the code is provably unreachable</b>
+      (${čís(d.nedosazitelneRadku)} of ${čís(d.radku)} lines in
+      ${čís(d.nedosazitelneSouboru)} files), ${d.nerozhodnutoProcent} % is undecided. These
+      are dead copies kept next to the live file — the pattern of the years before version
+      control, when a copy <i>was</i> the backup. It matters because dead code is the single
+      largest unknown in any estimate for a system this size.</p>
+    <p class="pozn"><b>${čís(o.obrazovek)} screens, ${čís(o.poli)} fields</b>, median
+      ${o.poliMedian} fields per screen, ${čís(o.poliMaximum)} at the largest. That is the
+      interface that gets rewritten, and it is countable rather than guessable — the labels,
+      buttons and drop-downs come out of the screen definitions mechanically.</p>
+
+    <h4>6 · What phase 0 cost</h4>
+    <p class="pozn">What was built: ${čís(r.radku)} lines across ${r.casti.length} components
+      (${čís(r.kodu)} of them code, comments and blank lines excluded), ${r.tabulek} tables,
+      ${r.testu} tests. ${r.casti.map((x) => `<b>${čís(x.radku)}</b> ln. — ${x.jmeno}${
+        x.jenPridaneRadky ? ' (lines added to an existing repository)' : ''}`).join(' · ')}.</p>
+    <div class="srovnani">
+      <div class="stitek">Machine time measured · human side an <b>estimate</b></div>
+      <p class="uvod">Two numbers of different kinds, side by side, because the comparison is
+        the reader's to make and not ours to assert.</p>
+      <div class="odh-kpi">
+        <div class="k vysledek"><b>${pv.strojovyCasH.toFixed(1)}<small> h</small></b>
+          <span>of machine time, measured</span>
+          <i>${pv.strojovyCasRozpad.map((x) => `${x.h.toFixed(2)} h ${x.co}${
+            x.zmereno ? '' : ' <b>(not measured — estimated)</b>'}`).join(' · ')}</i></div>
+        <div class="k"><b>≈ ${pv.lidskyOdhadMdOd}–${pv.lidskyOdhadMdDo}<small> person-days</small></b>
+          <span>for the same slice by hand</span>
+          <i>bottom-up estimate over analysis, schema, migration, service, interface and
+            tooling, plus review, coordination and onboarding — an estimate, not a
+            measurement, and nobody has run the other side</i></div>
+      </div>
+      <p class="pozn">Deliberately without a ratio. One side is measured and has one
+        unmeasured item in it; the other is an estimate with a range of 1.6× — a single
+        multiple out of that pair would look far more precise than either number is, and it
+        would be a ceiling taken from one bounded, machine-checkable task rather than
+        a property of the method.</p>
+    </div>
+    </section>`;
+}
+
+/* Meze fáze 0. Patří do společného seznamu „What this does not prove" —
+   mez měření stojí u měření, ne v petitu pod ním. */
+function faze0Meze(F) {
+  if (!F) return '';
+  const c = F.cena, p = F.prejimka;
+  return `
+      <li><b>Anything about production volume.</b> Phase 0 ran on
+        ${čís(c.pohledavekVeSkladu)} receivables. The batch reads the whole table, because the
+        original computes one of its fields by walking all records — on a production volume
+        that is an order of magnitude more work, and it was not measured.</li>
+      <li><b>More than one bank.</b> ${p.pripadu} variants of one parameter, one bank, one file
+        layout. The others have a different layout and a different algorithm and are not
+        converted.</li>
+      <li><b>Security.</b> The HTTP API has <b>no authentication</b> — the user is whatever the
+        client claims. No rate limit, no CORS policy, no HTTPS. It is a measurement harness,
+        not a deployment.</li>
+      <li><b>Operational resilience.</b> A process dying in the middle of a transaction was
+        never tried, and the connection pool has neither a ceiling nor a health check.</li>
+      <li><b>That the defects of the original were fixed.</b> They are <b>reproduced on
+        purpose</b>: byte-for-byte sameness is the acceptance criterion, so the original's own
+        quirks come across with everything else. Each of them changes a boleto number or an
+        amount, which makes fixing them a business decision, not ours.</li>`;
 }
