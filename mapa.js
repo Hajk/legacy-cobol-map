@@ -177,10 +177,78 @@ function normalizuj(uzly, sirka, vyska) {
    a při přiblížení i fan-in/fan-out — a hlavně má kam ten text napsat. */
 const mN = () => (S.n ? S.n.karty / 100 : 1);   // měřítko karet z nastavení
 
-/** Půlkruhový budík 0–100 %. Dráha, naplněná část a ručička.
- *  Úhly: 180° = 0 %, 0° = 100 % (čte se zleva doprava jako každá stupnice). */
-function tachometr(podil, cx, cy, r) {
-  const g = el('g', { class: 'tacho' });
+/* --------------------------------------------- UKAZATEL NÁROČNOSTI PŘEPISU
+ *
+ * Budík na kartě podsystému původně ukazoval PODÍL PROGRAMŮ VÁZANÝCH NA GUI.
+ * Jako „náročnost" to nefunguje a je to změřené: u většiny podsystémů je ten
+ * podíl 97–100 % (COP 98, CRP 99, CHP 100, RCP 100, CPP 100, REP 100,
+ * BANKS 100), takže ručička stála pořád na témže místě a karty se podle ní
+ * nedaly porovnat. Podíl GUI je pravda o systému, ale ne rozdíl mezi jeho
+ * částmi — a budík má ukazovat rozdíl.
+ *
+ * Náročnost se proto skládá ze TŘÍ MĚŘENÝCH VSTUPŮ, které se mezi podsystémy
+ * doopravdy liší:
+ *
+ *   U  jedinečných řádků  = řádky bez komentářů MÍNUS řádky, které jsou kopií
+ *                           jiného souboru (data/narocnost.json)
+ *   O  obrazovek k přepsání (tytéž obrazovky, které počítá fáze 0)
+ *
+ * a sečtou se po normalizaci na nejtěžší podsystém, v poměru 2 : 1:
+ *
+ *   index = ( 2·(U / U_max)  +  1·(O / O_max) ) / 3
+ *
+ * 100 % tedy znamená „nejhorší v obou vstupech naráz" — je to dosažitelné,
+ * ale ne automatické. Poměr 2 : 1 je VOLBA, ne měření: objem kódu je větší a
+ * poctivěji změřený driver než počet obrazovek. Proto se na stránce rozpad na
+ * vstupy ukazuje vždycky vedle výsledku — kdo s poměrem nesouhlasí, vidí
+ * čísla, ze kterých si ho přepočítá.
+ *
+ * ⚠️ Je to UKAZATEL, ne měření. Vstupy jsou měřené, složenina je náš návrh.
+ * Stránka to tak musí i pojmenovat.
+ */
+const VAHA_KODU = 2, VAHA_OBRAZOVEK = 1;
+// GALHO je mimo rozsah modernizace (rozhodnutí z 30. 10. 2026). Z ukazatele
+// se nevyřazuje potichu: karta budík má, ale místo ručičky nese „out of scope",
+// a do normalizace nevstupuje, aby neposouvala stupnici ostatním.
+const MIMO_SCOPE = new Set(['GALHO']);
+
+/** Načte vstupy ukazatele a spočítá index pro každý podsystém.
+ *  Podklad je NEPOVINNÝ — bez něj se budík nekreslí a mapa jede dál. */
+async function nactiNarocnost() {
+  // ⚠️ Samotné `.json()` v try nestačí: server mapy vrací na 404 tělo „404",
+  // a to je platný JSON. Chybějící podklad se pozná ze stavu odpovědi A z
+  // tvaru dat. (Táž past jako u vykon.json a faze0.json.)
+  let d = null;
+  try {
+    const o = await fetch('data/narocnost.json');
+    if (o.ok) { const x = await o.json(); if (x && Array.isArray(x.podsystemy)) d = x; }
+  } catch { /* duplicita se neměřila */ }
+  if (!d) return;
+  S.narocnost = d;
+  const vScope = d.podsystemy.filter((p) => !MIMO_SCOPE.has(p.id));
+  const jedinecnych = (p) => Math.max(0, p.radkuBezKomentaru - p.kopiiRadku);
+  const maxU = Math.max(1, ...vScope.map(jedinecnych));
+  const maxO = Math.max(1, ...vScope.map((p) => p.obrazovek));
+  S.nar = new Map(d.podsystemy.map((p) => [p.id, {
+    bezKomentaru: p.radkuBezKomentaru, kopiiRadku: p.kopiiRadku,
+    kopiiSouboru: p.kopiiSouboru, obrazovek: p.obrazovek,
+    jedinecnych: jedinecnych(p), mimoScope: MIMO_SCOPE.has(p.id),
+    index: (VAHA_KODU * (jedinecnych(p) / maxU)
+            + VAHA_OBRAZOVEK * (p.obrazovek / maxO)) / (VAHA_KODU + VAHA_OBRAZOVEK),
+  }]));
+  S.narMax = { u: maxU, o: maxO };
+}
+
+/** Vzorec ukazatele jednou větou. Je na třech místech (legenda, panel, úvod),
+ *  takže je na JEDNOM místě v kódu — jinak se ta tři místa rozejdou. */
+const VZOREC = `index = ( ${VAHA_KODU} × unique lines ÷ largest`
+  + ` + ${VAHA_OBRAZOVEK} × screens ÷ largest ) ÷ ${VAHA_KODU + VAHA_OBRAZOVEK}`;
+
+/** Půlkruhový budík 0–100 %. Dráha, stupnice, naplněná část a ručička.
+ *  Úhly: 180° = 0 %, 0° = 100 % (čte se zleva doprava jako každá stupnice).
+ *  `o.trida` mění velikost písma, `o.mimoScope` kreslí budík bez ručičky. */
+function tachometr(podil, cx, cy, r, o = {}) {
+  const g = el('g', { class: `tacho${o.trida ? ` ${o.trida}` : ''}${o.mimoScope ? ' mimo' : ''}` });
   const bod = (uhel, polomer) => [
     (cx + polomer * Math.cos((Math.PI * uhel) / 180)).toFixed(2),
     (cy - polomer * Math.sin((Math.PI * uhel) / 180)).toFixed(2),
@@ -190,27 +258,73 @@ function tachometr(podil, cx, cy, r) {
     return `M ${a[0]} ${a[1]} A ${polomer} ${polomer} 0 0 1 ${b[0]} ${b[1]}`;
   };
   g.appendChild(el('path', { class: 'draha', d: oblouk(180, 0, r) }));
-  if (podil > 0.001) {
-    g.appendChild(el('path', { class: 'naplneno', d: oblouk(180, 180 - 180 * podil, r) }));
+  // Stupnice: bez rysek je to jen oblouk a úhel ručičky se nedá odečíst.
+  // Pět rysek po 25 %, aby šly dvě karty vedle sebe porovnat na pohled.
+  if (o.rysky !== false) {
+    for (let i = 0; i <= 4; i++) {
+      const u = 180 - 45 * i;
+      const a = bod(u, r - r * 0.26), b = bod(u, r);
+      g.appendChild(el('line', { class: 'ryska', x1: a[0], y1: a[1], x2: b[0], y2: b[1] }));
+    }
   }
-  const sp = bod(180 - 180 * podil, r - 2.5);
-  g.appendChild(el('line', { class: 'rucicka', x1: cx, y1: cy, x2: sp[0], y2: sp[1] }));
-  g.appendChild(el('circle', { class: 'cep', cx, cy, r: 1.8 }));
-  const t2 = el('text', { class: 'tacho-popis', x: cx, y: cy + 11, 'text-anchor': 'middle' });
-  t2.textContent = `${Math.round(podil * 100)}%`;
+  if (!o.mimoScope) {
+    if (podil > 0.001) {
+      g.appendChild(el('path', { class: 'naplneno', d: oblouk(180, 180 - 180 * podil, r) }));
+    }
+    const sp = bod(180 - 180 * podil, r * 0.82);
+    g.appendChild(el('line', { class: 'rucicka', x1: cx, y1: cy, x2: sp[0], y2: sp[1] }));
+    g.appendChild(el('circle', { class: 'cep', cx, cy, r: (r * 0.13).toFixed(2) }));
+  }
+  const t2 = el('text', { class: 'tacho-popis', x: cx, y: (cy + r * 0.70).toFixed(1), 'text-anchor': 'middle' });
+  t2.textContent = o.mimoScope ? 'n/a' : `${Math.round(podil * 100)}%`;
   g.appendChild(t2);
-  g.appendChild(titulekSVG(`GUI share ${Math.round(podil * 100)} %`,
-    'Share of programs that call the Dialog System runtime (DSRUN). ' +
-    'That code cannot be rewritten separately from its screens.'));
+  if (o.nadpis) {
+    const t3 = el('text', { class: 'tacho-nadpis', x: cx, y: (cy + r * 1.22).toFixed(1), 'text-anchor': 'middle' });
+    t3.textContent = o.nadpis;
+    g.appendChild(t3);
+  }
+  g.appendChild(titulekSVG(o.titulek || '', o.text || ''));
   return g;
 }
+
+/** Budík náročnosti pro kartu podsystému. Vrací null, když podklad chybí. */
+function budikNarocnosti(id, cx, cy, r) {
+  const n = S.nar && S.nar.get(id);
+  if (!n) return null;
+  return tachometr(n.index, cx, cy, r, {
+    trida: 'velky',
+    mimoScope: n.mimoScope,
+    nadpis: 'REWRITE EFFORT',
+    titulek: n.mimoScope
+      ? `${id} — out of scope`
+      : `Rewrite effort ${Math.round(n.index * 100)} % of the heaviest subsystem`,
+    text: n.mimoScope
+      ? 'This subsystem is outside the scope of the modernisation, so it carries no '
+        + 'effort figure and does not enter the scale of the others.'
+      : `Indicator, not a measurement — built from measured inputs: `
+        + `${čísl(n.jedinecnych)} unique lines (${čísl(n.bezKomentaru)} without comments, `
+        + `of which ${čísl(n.kopiiRadku)} are a copy of other code) and `
+        + `${n.obrazovek} screens. ${VZOREC}. 100 % = worst on both counts.`,
+  });
+}
+
+// Budík na kartě podsystému. Je nahoře, NAD jménem, a karta mu na to dostane
+// vlastní pás — tím je velký na pohled a nepřekrývá text (předtím seděl v rohu
+// o poloměru 12 px přes čísla karty). Bez podkladu je pás nulový a karta
+// vypadá jako dřív.
+const R_BUDIK = 21;      // poloměr budíku před měřítkem karet
+const PAS_BUDIK = 56;    // výška pásu nad jménem: oblouk + hodnota + popisek
+// Pás dostane jen karta, pro kterou budík doopravdy je. Podsystém, který
+// v podkladu chybí (nový, přejmenovaný), by jinak měl nahoře prázdné místo
+// a vypadalo by to jako vada vykreslení.
+const pasBudiku = (id) => (S.nar && S.nar.has(id) ? PAS_BUDIK * mN() : 0);
 
 function uzlyL0() {
   const max = Math.max(...S.data.podsystemy.map((p) => p.radku));
   return S.data.podsystemy.map((p) => ({
     id: p.id, popis: p.id, druh: 'podsystem',
     w: (92 + 86 * Math.sqrt(p.radku / max)) * mN(),
-    h: (44 + 26 * Math.sqrt(p.radku / max)) * mN(),
+    h: (44 + 26 * Math.sqrt(p.radku / max)) * mN() + pasBudiku(p.id),
     radku: p.radku, programu: p.programu, uzlu: p.uzlu || 0,
     volaDo: p.volaDo || 0, volanoZ: p.volanoZ || 0,
     sGui: p.sGui || 0, osirelych: p.osirelych || 0, fragmentu: p.fragmentu || 0,
@@ -364,26 +478,43 @@ function kresli() {
     const w = u.w, h = u.h;
     gu.appendChild(el('rect', { x: (-w / 2).toFixed(1), y: (-h / 2).toFixed(1),
       width: w.toFixed(1), height: h.toFixed(1), rx: 7 }));
-    // Tachometr = podíl programů, které volají Dialog System. Proti proužku
-    // má navíc stupnici: 0 vlevo, 100 % vpravo, takže se dá číst i bez legendy
-    // a dvě karty vedle sebe jdou porovnat podle úhlu ručičky, ne podle délky.
-    if (u.druh === 'podsystem' || u.gui > 0) {
-      gu.appendChild(tachometr(Math.min(1, u.gui), w / 2 - 17, -h / 2 + 17, 12));
+    // Budík NÁROČNOSTI PŘEPISU: nahoře, nad jménem, přes celou šířku karty.
+    // Dvě karty vedle sebe se porovnají podle úhlu ručičky, ne podle délky
+    // proužku — a stupnice po 25 % se dá odečíst i bez legendy.
+    const pas = u.druh === 'podsystem' ? pasBudiku(u.id) : 0;
+    if (pas) {
+      const b = budikNarocnosti(u.id, 0, -h / 2 + (7 + R_BUDIK) * mN(), R_BUDIK * mN());
+      if (b) gu.appendChild(b);
     }
-    const t = el('text', { class: 'jmeno', y: detail === 0 ? 4 : (-h / 2 + 17).toFixed(1) });
+    // Program vázaný na Dialog System (L1). Budík by tu byl na dvě polohy —
+    // program GUI buď volá, nebo ne — a na kartě podsystému vedle něj by se
+    // četl jako táž veličina. Proto je to proužek: přítomnost, ne stupnice.
+    if (u.druh !== 'podsystem' && u.gui > 0) {
+      const pr = el('rect', { class: 'pruh-gui', x: (-w / 2 + 7).toFixed(1),
+        y: (-h / 2 + 4).toFixed(1), width: (w - 14).toFixed(1), height: 3, rx: 1.5 });
+      pr.appendChild(titulekSVG('Tied to the Dialog System GUI',
+        'This program calls DSRUN, the Dialog System runtime. Its business logic and '
+        + 'its screen handling are the same code, so it cannot be ported on its own.'));
+      gu.appendChild(pr);
+    }
+    const vrch = -h / 2 + pas;             // horní hrana textové části karty
+    const t = el('text', { class: 'jmeno', y: detail === 0 ? (pas / 2 + 4).toFixed(1) : (vrch + 17).toFixed(1) });
     t.textContent = u.popis;
     gu.appendChild(t);
     if (detail >= 1) {
-      const t2 = el('text', { class: 'cis1', y: (-h / 2 + 31).toFixed(1) });
+      const t2 = el('text', { class: 'cis1', y: (vrch + 31).toFixed(1) });
       t2.textContent = u.druh === 'podsystem'
         ? `${u.programu} prg · ${(u.radku / 1000).toFixed(1)}k ln.`
         : `${u.radku.toLocaleString('en')} ln.`;
       gu.appendChild(t2);
     }
     if (detail >= 2) {
-      const t3 = el('text', { class: 'cis2', y: (-h / 2 + 44).toFixed(1) });
+      const t3 = el('text', { class: 'cis2', y: (vrch + 44).toFixed(1) });
+      const n = S.nar && S.nar.get(u.id);
       t3.textContent = u.druh === 'podsystem'
-        ? `in ${u.volanoZ} · out ${u.volaDo} · GUI ${Math.round(u.gui * 100)} %`
+        ? (n && !n.mimoScope
+            ? `${čísl(n.jedinecnych)} unique ln. · ${n.obrazovek} screens`
+            : `in ${u.volanoZ} · out ${u.volaDo} · GUI ${Math.round(u.gui * 100)} %`)
         : `in ${u.volanoZ} · out ${u.volaDo}${u.typ && u.typ !== 'program' ? ' · ' + u.typ : ''}`;
       gu.appendChild(t3);
     }
@@ -439,6 +570,42 @@ function vyber(u) {
   kresli();
 }
 
+/* Rozpad ukazatele náročnosti pro jeden podsystém. Ukazuje VSTUPY, ne jen
+   výsledek, a rovnou dosazené do vzorce — jediný způsob, jak si čtenář může
+   číslo přepočítat a případně s naším poměrem 2 : 1 nesouhlasit se znalostí
+   věci. Prázdný řetězec, když podklad chybí. */
+function rozpadNarocnosti(id) {
+  const n = S.nar && S.nar.get(id);
+  if (!n) return '';
+  if (n.mimoScope) {
+    return `<h3>Rewrite effort</h3>
+      <p class="pozn"><b>Out of scope.</b> This subsystem is not part of the
+      modernisation, so it carries no effort figure and does not enter the scale
+      of the others. Its ${čísl(n.bezKomentaru)} lines are still counted everywhere
+      the whole tree is counted.</p>`;
+  }
+  const kopiiProcent = n.bezKomentaru
+    ? Math.round((n.kopiiRadku / n.bezKomentaru) * 100) : 0;
+  return `
+    <h3>Rewrite effort — ${Math.round(n.index * 100)} %</h3>
+    <p class="pozn"><b>An indicator, not a measurement.</b> The inputs below are
+      measured; putting them together in this ratio is our choice. 100 % would be
+      the worst subsystem on both counts at once.</p>
+    <ul>
+      <li>lines, comments excluded<span>${čísl(n.bezKomentaru)}</span></li>
+      <li>of those, a copy of other code<span>${čísl(n.kopiiRadku)} · ${kopiiProcent} %</span></li>
+      <li><b>unique lines to rewrite</b><span>${čísl(n.jedinecnych)}</span></li>
+      <li>screens to rebuild<span>${n.obrazovek}</span></li>
+    </ul>
+    <p class="pozn">(${VAHA_KODU} × ${čísl(n.jedinecnych)} ÷ ${čísl(S.narMax.u)}
+      + ${VAHA_OBRAZOVEK} × ${n.obrazovek} ÷ ${S.narMax.o})
+      ÷ ${VAHA_KODU + VAHA_OBRAZOVEK} = <b>${Math.round(n.index * 100)} %</b>.
+      The divisors are the largest subsystem in each input.
+      ${n.kopiiSouboru ? `${n.kopiiSouboru} of its files are near-identical to another
+      file in the tree (${Math.round(S.narocnost.metoda.prahShody * 100)} % of lines
+      or more) — those are counted once, not twice.` : ''}</p>`;
+}
+
 /* Na L1 je „úvodní" panel o PODSYSTÉMU, ve kterém jsme — ne o celém systému.
    Dřív se po prokliku dovnitř ukázal souhrn za celé Legacy COBOL system a detail prvku, do
    kterého uživatel vlezl, zmizel. */
@@ -456,7 +623,10 @@ function panelPodsystem() {
     ${p.fragmentu ? `<p class="pozn">${p.fragmentu} of those files are data descriptions,
       not programs (dashed cards).</p>` : ''}
     <p class="pozn">${p.osirelych} of its programs are called by nobody — entry points
-      <b>or</b> dead code; the call graph cannot tell them apart.</p>
+      <b>or</b> dead code; the call graph cannot tell them apart. Which of them is
+      <b>provably</b> reachable is a different measurement and it is on the
+      <b>Proof</b> tab.</p>
+    ${rozpadNarocnosti(p.id)}
     <h3>Calls out to (${ven.length})</h3><ul>${ven.slice(0, 12).map((v) => `<li>${v.do}<span>${v.volani}×</span></li>`).join('') || '<li class="nic">nothing</li>'}</ul>
     <h3>Called from (${dov.length})</h3><ul>${dov.slice(0, 12).map((v) => `<li>${v.z}<span>${v.volani}×</span></li>`).join('') || '<li class="nic">nothing</li>'}</ul>
     <p class="tip">Click a card for its detail · double-click to open the program ·
@@ -487,6 +657,7 @@ function panel(u) {
     const dov = S.data.vazbyPodsystemu.filter((v) => v.do === u.id).sort((a, b) => b.volani - a.volani);
     p.innerHTML = `<h2>${u.id}</h2>
       <p class="cis"><b>${u.programu}</b> programs · <b>${u.radku.toLocaleString('en')}</b> lines</p>
+      ${rozpadNarocnosti(u.id)}
       <h3>Calls out to (${ven.length})</h3><ul>${ven.map((v) => `<li>${v.do}<span>${v.volani}×</span></li>`).join('') || '<li class="nic">nothing</li>'}</ul>
       <h3>Called from (${dov.length})</h3><ul>${dov.map((v) => `<li>${v.z}<span>${v.volani}×</span></li>`).join('') || '<li class="nic">nothing</li>'}</ul>
       <button class="otevri" data-cil="${u.id}">Open subsystem ▸</button>
@@ -516,7 +687,10 @@ function panelUvod() {
   const velke = [...d.programy].sort((a, b) => b.radku - a.radku).slice(0, 10);
   document.getElementById('panel').innerHTML = `
     <h2>Legacy COBOL system — analysis</h2>
-    <p class="cis"><b>${z.programu}</b> programs · <b>${z.uzlu.toLocaleString('en')}</b> internal nodes ·
+    ${/* ⚠️ Tohle číslo je „kolik uzlů má graf", ne „kolik má systém programů".
+          Liší se od počtu na Dashboardu, a bez vysvětlení to vypadá jako
+          rozpor. Říká se to proto rovnou tady — jedním slovem navíc. */ ''}
+    <p class="cis"><b>${z.programu}</b> files in the graph · <b>${z.uzlu.toLocaleString('en')}</b> internal nodes ·
        <b>${z.hran.toLocaleString('en')}</b> edges · <b>${z.nevyresenych}</b> unresolved</p>
     <h3>Most called (fan-in)</h3>
     <ul>${huby.map((p) => `<li>${p.id}<span>${p.volanoZ}×</span></li>`).join('')}</ul>
@@ -524,7 +698,9 @@ function panelUvod() {
     <ul>${velke.map((p) => `<li>${p.id}<span>${p.radku.toLocaleString('en')} ln.</span></li>`).join('')}</ul>
     <h3>Nobody calls them (${osirele.length})</h3>
     <p class="pozn">Entry points <b>or</b> dead code — the call graph cannot tell
-       them apart. ${Math.round((osirele.length / z.programu) * 100)} % of all programs.</p>
+       them apart, and that is a property of the graph, not a finding. Which code is
+       <b>provably</b> reachable was measured separately and is on the <b>Proof</b>
+       tab (Phase 0).</p>
     <h3>Calls outside the corpus (${d.vnejsiVolani.length})</h3>
     <ul>${d.vnejsiVolani.slice(0, 8).map((v) => `<li>${v.cil}<span>${v.volani}×</span></li>`).join('')}</ul>
     <h3>Two different things, two different encodings</h3>
@@ -532,18 +708,25 @@ function panelUvod() {
       from the centre = how much the rest of the system depends on it. The middle
       is the most-called part — everything falls into it. The outer ring is the
       launch end: nodes <b>nobody</b> calls, i.e. the entry points.</p>
-    <p class="pozn"><b>The orange strip</b> answers something else entirely —
-      <i>how hard it will be to rewrite.</i> It is the share of the card's programs
-      that call <code>DSRUN</code>, the Dialog System runtime.</p>
-    <p class="pozn">A program that calls <code>DSRUN</code> does not merely
-      <i>have</i> a screen: its business logic and its screen handling are the same
-      code, talking to a runtime we do not own and cannot port. Such a program
-      cannot be moved on its own — the screens have to be rebuilt with it. That is
-      why <b>a card can sit on the outer ring (nothing depends on it) and still be
-      expensive</b>, and why a central card with no strip is the cheap kind of
-      important.</p>
+    ${S.nar ? `<p class="pozn"><b>The dial above the card name</b> answers something
+      else entirely — <i>how much work it is to rewrite that part.</i> It is an
+      <b>indicator, not a measurement</b>: the inputs are measured, the way they are
+      put together is our choice, and both are shown. 100 % is the heaviest
+      subsystem of this system, not an absolute scale.</p>
+    <p class="pozn">It is built from what actually <b>differs</b> between the parts:
+      <b>unique lines</b> (lines without comments, minus lines that are a copy of
+      another file in the tree) and <b>screens to rebuild</b>, each scaled against
+      the largest subsystem and weighted ${VAHA_KODU} : ${VAHA_OBRAZOVEK}. Click a
+      card and the panel shows the arithmetic with its own numbers in it.</p>
+    <p class="pozn"><b>Why not the share of programs tied to the GUI</b>, which the
+      dial used to show: it is 97–100 % almost everywhere, so it says something true
+      about the system and nothing about the difference between its parts. The
+      whole-system figure is on the <b>Dashboard</b>.</p>
+    <p class="pozn">That is why <b>a card can sit on the outer ring (nothing depends
+      on it) and still be expensive</b>, and why a central card with a low dial is
+      the cheap kind of important.</p>` : ''}
     <p class="pozn"><b>Zoom in for more.</b> Cards show only names when zoomed out;
-      counts appear at ~75 %, fan-in / fan-out and GUI share at ~125 %.</p>
+      counts appear at ~75 %, and the inputs behind the dial at ~125 %.</p>
     <p class="tip">Click = detail · double-click a subsystem = go inside ·
       double-click a program = open it · wheel = zoom · 0 = fit all</p>`;
 }
@@ -560,6 +743,20 @@ function pocitadla(uzly) {
   // Na přehledu podsystémů nemá smysl — proto se neukazuje vůbec, místo aby
   // seděl zašedlý a zvyšoval složitost lišty.
   document.getElementById('l-osirele').hidden = S.uroven !== 'L1';
+  // Legenda karty se mění s úrovní: budík náročnosti je vlastnost podsystému,
+  // proužek GUI vlastnost programu. Ukázat obojí naráz by znamenalo tvrdit,
+  // že karta nese obojí — a nenese.
+  const ln = document.getElementById('l-narocnost'), lg = document.getElementById('l-gui');
+  ln.hidden = S.uroven !== 'L0' || !S.nar;
+  lg.hidden = S.uroven !== 'L1';
+  // Nadpis skupiny bez jediné položky je jen zbytek po něčem, co tu není.
+  document.getElementById('l-karta').hidden = ln.hidden && lg.hidden;
+  if (!ln.title) {
+    ln.title = 'How much work it is to rewrite this subsystem, relative to the heaviest one. '
+      + 'An indicator, not a measurement: it is built from measured inputs — unique lines '
+      + '(lines without comments, minus lines that are a copy of another file) and screens '
+      + `to rebuild. ${VZOREC}.`;
+  }
 }
 
 /* Nastavení filtrů žije i v adrese — stejný důvod jako u #CRP: pohled jde
@@ -786,6 +983,9 @@ fetch('data/mapa.json').then((r) => r.json()).then(async (d) => {
   const naMapu = zalozky();
   const dashVychozi = !location.hash || /^#dashboard$/i.test(location.hash);
   const prg = zAdresy();
+  // Vstupy ukazatele náročnosti musí být dřív než první kreslení: na nich visí
+  // výška karty (pás budíku), takže dotažení „až potom" by mapu překreslilo.
+  await nactiNarocnost();
   panelUvod();
   nactiNastaveni();
   ovladani();
@@ -1211,6 +1411,9 @@ async function dashboard() {
   let P = null;
   try { P = await (await fetch('data/prevod.json')).json(); } catch { /* ještě se nepřevádělo */ }
   const m = M.mereno, k = M.korpus, g = M.graf, mp = M.mapa;
+  // Duplicita uvnitř stromu a obrazovky po podsystémech. Nepovinné — podklad
+  // vyrábí nastroje/duplicita.py a bez něj dashboard jen vynechá, co z něj je.
+  const N = S.narocnost || null;
   const meta = (S.data && S.data.meta) || {};
   const guiPodil = k.programu ? M.guiZavislost.programuSGui / k.programu : 0;
 
@@ -1225,9 +1428,16 @@ async function dashboard() {
       <span><span class="bar" style="width:${Math.max(2, (p.radku / maxR) * 100)}%"></span></span>
       <span class="cis">${čís(p.radku)} ln.</span></li>`;
   };
-  const pruhGui = [...S.data.podsystemy]
-    .map((p) => ({ id: p.id, podil: p.programu ? (p.sGui || 0) / p.programu : 0, n: p.programu }))
-    .sort((a, b) => b.podil - a.podil || b.n - a.n).slice(0, 10);
+  /* Žebříček NÁROČNOSTI místo podílu GUI.
+     Původní žebříček „Most tied to the GUI" měl u prvních deseti podsystémů
+     samé 100 % — deset stejně dlouhých proužků neříká nic o pořadí, a přitom
+     vedle sebe seděl s nadpisem, který pořadí slibuje. Celosystémový podíl GUI
+     zůstává o dlaždici výš, tam smysl dává. */
+  const pruhNar = S.nar
+    ? [...S.nar.entries()].filter(([, n]) => !n.mimoScope)
+        .map(([id, n]) => ({ id, ...n }))
+        .sort((a, b) => b.index - a.index).slice(0, 10)
+    : [];
 
   cil.innerHTML = `
     <h2>${meta.nazev || 'Code'} — scale of the system, and of the migration</h2>
@@ -1251,7 +1461,15 @@ async function dashboard() {
     <h3>What was analysed</h3>
     <div class="kpi">
       ${kpi(čís(k.radkuKodu), 'lines of COBOL', `+ ${čís(k.radkuCopybooku)} lines of shared data descriptions`)}
-      ${kpi(čís(k.programu), 'real programs', `${k.fragmentu} further .cbl files are data descriptions, not programs`)}
+      ${/* ⚠️ Na stránce jsou ČTYŘI počty „programů" — 711, 707, 706, 681 —
+            a všechny jsou pravdivé. Bez věty, která je dá do řady, to vypadá,
+            že si stránka protiřečí; čtenář si pak nevěří ani u zbytku.
+            Řetěz se proto píše celý tady, na jednom místě, a ostatní čísla
+            na něj ukazují. Doplněno 1. 11. 2026. */ ''}
+      ${kpi(čís(k.programu), 'real programs',
+            `out of the ${čís(k.souboruCbl)} files read — ${k.fragmentu} are data descriptions ` +
+            `(FD / SELECT) copied into other programs, the remaining ` +
+            `${k.souboruCbl - k.programu - k.fragmentu} sit in the copybook folder or are empty`)}
       ${kpi(čís(g.uzlu), 'parts inside programs', `sections and paragraphs, each with its line range`)}
       ${kpi(čís(g.hran), 'links between them', `${čís(mp.vazebProgramu)} program-to-program · ${čís(mp.sdilenychDvojic)} sharing data`)}
     </div>
@@ -1260,24 +1478,46 @@ async function dashboard() {
     <div class="kpi">
       ${kpi(`${Math.round(guiPodil * 100)}<small> %</small>`, 'of programs tied to the GUI',
             `${čís(M.guiZavislost.programuSGui)} programs call DSRUN ${čís(M.guiZavislost.volaniDsrun)}× — they cannot be ported separately from their screens`, 'duraz')}
-      ${kpi(čís(M.osirele), 'programs nobody calls',
-            `entry points <b>or</b> dead code — the call graph cannot tell them apart`)}
-      ${kpi(čís(mp.podsystemu), 'subsystems', 'taken from the folders the authors themselves used')}
-      ${kpi(`${(k.radkuVsechKopii / k.radkuKodu).toFixed(1)}×`, 'duplication in the repository',
-            `${čís(k.souboruCblVRepu)} files hold ${čís(k.souboruCbl)} distinct programs`)}
+      ${N ? kpi(`${N.souhrn.kopiiProcent}<small> %</small>`, 'of the code inside the tree is a copy',
+            `${čís(N.souhrn.kopiiSouboru)} of ${čís(N.mereno.souboru)} files are near-identical to
+             another file (${Math.round(N.metoda.prahShody * 100)} % of lines or more), measured
+             over ${čís(N.mereno.radkuBezKomentaru)} lines with comments excluded`)
+          : kpi(čís(mp.podsystemu), 'subsystems', 'taken from the folders the authors themselves used')}
+      ${kpi(`${(k.radkuVsechKopii / k.radkuKodu).toFixed(1)}×`, 'copies of the whole tree in the delivery',
+            `${čís(k.souboruCblVRepu)} .cbl files in the delivery hold ${čís(k.souboruCbl)} distinct
+             programs — the same tree packed several times over`)}
+      ${N ? kpi(čís(mp.podsystemu), 'subsystems', 'taken from the folders the authors themselves used') : ''}
     </div>
+    <p class="pozn"><b>Two different things with a similar name, and both are true.</b>
+      ${(k.radkuVsechKopii / k.radkuKodu).toFixed(1)}× is about the <b>delivery</b>: the same
+      source tree is in it several times over, and the run works out for itself which copy to
+      read. That costs disk space, not rewriting.${N ? ` ${N.souhrn.kopiiProcent} % is about the
+      inside of that one tree: files that are near-copies of another file — work that would
+      otherwise be paid for twice.` : ''}</p>
+    <p class="pozn"><b>Whether that code is still reachable is a third question, and it is not
+      answered here.</b> A call graph can only say that nobody calls a program, and that is an
+      entry point as often as it is dead code. What is <b>provably</b> reachable was measured
+      separately, from three sides, and it is on the <b>Proof</b> tab (Phase 0).</p>
 
     <div class="dvojice">
       <div>
         <h3>Biggest subsystems</h3>
         <ul class="pruhy">${nej.map(pruh).join('')}</ul>
+        <p class="pozn">All lines of the delivered source, comments included.</p>
       </div>
-      <div>
-        <h3>Most tied to the GUI</h3>
-        <ul class="pruhy">${pruhGui.map((p) => `<li><span class="jm">${p.id}</span>
-          <span><span class="bar gui" style="width:${Math.max(2, p.podil * 100)}%"></span></span>
-          <span class="cis">${Math.round(p.podil * 100)} % of ${p.n}</span></li>`).join('')}</ul>
-      </div>
+      ${pruhNar.length ? `<div>
+        <h3>Hardest to rewrite — indicator</h3>
+        <ul class="pruhy">${pruhNar.map((p) => `<li><span class="jm">${p.id}</span>
+          <span><span class="bar gui" style="width:${Math.max(2, p.index * 100)}%"></span></span>
+          <span class="cis">${Math.round(p.index * 100)} %</span></li>`).join('')}</ul>
+        <p class="pozn"><b>An indicator, not a measurement.</b> ${VAHA_KODU} parts unique lines
+          (comments excluded, minus lines that are a copy of another file) and
+          ${VAHA_OBRAZOVEK} part screens to rebuild, each scaled against the largest subsystem;
+          100 % would be the worst on both counts at once. The inputs are measured, the ratio
+          between them is our choice — the <b>Code map</b> shows the arithmetic per subsystem.
+          ${[...MIMO_SCOPE].join(', ')} is outside the scope of the modernisation and is left
+          out of this list.</p>
+      </div>` : ''}
     </div>
 
     ${prevodSekce(P, M)}
@@ -1509,7 +1749,7 @@ function zalozky() {
     for (const id of Object.keys(STRANKY)) {
       document.getElementById(id).hidden = id !== tab;
     }
-    for (const b of document.querySelectorAll('#zalozky button')) {
+    for (const b of document.querySelectorAll('#zalozky button[data-tab]')) {
       b.classList.toggle('aktivni', b.dataset.tab === tab);
     }
     // Aplikace je samostatný build za rámem; adresu dostane až při prvním
@@ -1522,7 +1762,7 @@ function zalozky() {
       history.replaceState(null, '', `${location.pathname}${location.search}#${STRANKY[tab]}`);
     } else { doAdresy(); fit(); }
   };
-  for (const b of document.querySelectorAll('#zalozky button')) {
+  for (const b of document.querySelectorAll('#zalozky button[data-tab]')) {
     b.addEventListener('click', () => prepni(b.dataset.tab));
   }
   return prepni;

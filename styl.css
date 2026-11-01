@@ -97,16 +97,34 @@ main{display:grid;grid-template-columns:1fr 340px;flex:1;min-height:0}
 .vzorek.gui{border-top:4px solid var(--gui,var(--obrazovka));border-radius:2px;width:16px}
 .legenda-gui b{color:var(--ink)}
 .legenda-gui{display:flex;align-items:center;gap:6px;color:var(--sed);cursor:help}
+.legenda-gui[hidden]{display:none}
+/* Vzorek budíku v legendě: tentýž tvar jako na kartě, jen malý — jinak se
+   legenda a karta čtou jako dvě různé věci. */
+.vzorek-budik{width:20px;height:12px;color:var(--gui,var(--obrazovka));flex:none}
+/* Vzorec ukazatele patří do legendy, ne jen do bubliny: kdo se myší netrefí,
+   nemá z čeho poznat, co ručička skládá. */
+.legenda-gui em{font-style:normal;color:var(--sed2);font-size:11.5px}
 .skupina.odsazeno{margin-left:6px;padding-left:16px;border-left:1px solid var(--car)}
+.skupina[hidden]{display:none}
 #l-osirele[hidden]{display:none}
 .ikona{font-size:15px;line-height:1;padding:4px 9px}
 
-/* ---- nastavení vzhledu ---------------------------------------------------- */
-.nastaveni{position:absolute;right:16px;top:60px;z-index:12;width:252px;
+/* ---- nastavení vzhledu ----------------------------------------------------
+   Panel visí u ozubeného kola na liště záložek, tedy MIMO hlavičku: hlavička
+   se na záložkách Dashboard/Proof/Application schovává (`display:none`) a
+   stránka se tam roluje. Proto `fixed`, ne `absolute` — absolutní panel by na
+   rolující se záložce ujel s obsahem pryč od tlačítka, které ho otevřelo. */
+.nastaveni{position:fixed;right:16px;top:48px;z-index:12;width:252px;
   background:var(--papir);border:1px solid var(--car);border-radius:10px;
   padding:12px 14px 10px;box-shadow:0 12px 34px rgba(0,0,0,.26)}
 .nastaveni h3{margin:0 0 8px;font-size:11.5px;text-transform:uppercase;
   letter-spacing:.8px;color:var(--sed)}
+/* Dvě skupiny: co platí všude a co jen pro mapu. Bez tohohle rozdělení by
+   ozubené kolo na liště záložek slibovalo, že „Card size" něco udělá i na
+   Dashboardu. */
+.nastaveni .skupina{margin:10px 0 2px;padding-top:8px;border-top:1px solid var(--car);
+  font-size:10.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--sed2)}
+.nastaveni h3 + .skupina{margin-top:0;padding-top:0;border-top:0}
 .nastaveni label{display:flex;align-items:center;justify-content:space-between;
   gap:10px;font-size:13px;padding:5px 0}
 .nastaveni input[type=range]{width:108px}
@@ -157,14 +175,32 @@ aside li.nic{color:var(--sed);font-style:italic;border:0}
    kód ani program; kreslí se potlačeně, ale otevřít ho jde. */
 .uzel.fragment rect{stroke-dasharray:3 3;opacity:.75}
 .uzel.fragment .jmeno{font-weight:400;fill:var(--sed)}
-/* Tachometr na kartě: dráha, naplněná část, ručička. */
+/* Budík náročnosti přepisu: dráha, stupnice po 25 %, naplněná část, ručička.
+   Nenaplněná dráha je ztlumená `--sed2`, ne `--car`: v tmavém režimu je `--car`
+   skoro černá a na tmavé kartě dráha zmizela — budík pak nešlo odečíst, protože
+   nebylo vidět, kde je stupnice konec. Vlastní barvu nedostává schválně,
+   akcent je nastavitelný a dráha s ním nesmí splynout. */
 .tacho{pointer-events:none}
-.tacho .draha{fill:none;stroke:var(--car);stroke-width:3.2;stroke-linecap:round}
+.tacho .draha{fill:none;stroke:var(--sed2);stroke-opacity:.38;stroke-width:3.2;stroke-linecap:round}
 .tacho .naplneno{fill:none;stroke:var(--gui,var(--obrazovka));stroke-width:3.2;stroke-linecap:round}
+.tacho .ryska{stroke:var(--sed2);stroke-width:1;stroke-opacity:.5;stroke-linecap:butt}
 .tacho .rucicka{stroke:var(--ink);stroke-width:1.4;stroke-linecap:round}
 .tacho .cep{fill:var(--ink)}
 .tacho-popis{font-size:8.5px;fill:var(--sed2);font-variant-numeric:tabular-nums;
   paint-order:stroke;stroke:var(--halo);stroke-width:2px}
+/* Velký budík na kartě podsystému: hodnota je hlavní údaj karty hned po jménu,
+   proto plnou barvou textu a výrazně větším písmem než drobnopis pod ním. */
+.tacho.velky .draha,.tacho.velky .naplneno{stroke-width:5}
+.tacho.velky .rucicka{stroke-width:2}
+.tacho.velky .tacho-popis{font-size:14px;font-weight:650;fill:var(--ink);stroke-width:3px}
+.tacho-nadpis{font-size:6.5px;fill:var(--sed2);letter-spacing:.9px;
+  paint-order:stroke;stroke:var(--halo);stroke-width:2px}
+/* Mimo rozsah modernizace: budík zůstane (karta se nemá tvářit jinak), ale
+   nemá ručičku ani výplň — nesmí vypadat jako práce, která se bude dělat. */
+.tacho.mimo .draha{stroke-dasharray:3 3}
+.tacho.mimo .tacho-popis{fill:var(--sed2);font-weight:500}
+/* Program vázaný na Dialog System (L1): přítomnost, ne stupnice. */
+.pruh-gui{fill:var(--gui,var(--obrazovka));opacity:.9}
 .uzel text{text-anchor:middle;pointer-events:none;paint-order:stroke;
   stroke:var(--halo);stroke-width:2.5px}
 .uzel .jmeno{font-size:12px;font-weight:600;fill:var(--ink)}
@@ -239,12 +275,18 @@ body.L2 .patka{display:block;border-top:1px solid var(--car);padding:14px 20px 2
    Dashboard je domovská stránka: co analýza zvládla a za jak dlouho. Čísla
    čte z data/metriky.json, který vzniká MĚŘENÍM (nastroje/metriky.py) — do
    stránky se žádné číslo nepíše rukou. Co je odhad, je tak i označené. */
-.zalozky{display:flex;gap:2px;padding:10px 20px 0;flex:none;background:var(--papir)}
+.zalozky{display:flex;gap:2px;padding:10px 20px 0;flex:none;background:var(--papir);
+  align-items:center}
 .zalozky button{border-radius:8px 8px 0 0;border-bottom-color:transparent;
   padding:7px 16px;font-weight:600;color:var(--sed);background:transparent;border-color:transparent}
 .zalozky button:hover{color:var(--ink)}
 .zalozky button.aktivni{background:var(--platno);border-color:var(--car);
   border-bottom-color:var(--platno);color:var(--ink);margin-bottom:-1px}
+/* Ozubené kolo na úrovni záložek, zarovnané doprava. Není to záložka, takže
+   nesmí vypadat jako záložka — má rámeček a vlastní tvar. */
+.zalozky #nastaveni{margin-left:auto;margin-bottom:6px;border-radius:7px;
+  border-color:var(--car);background:var(--tlacitko);color:var(--sed)}
+.zalozky #nastaveni:hover{color:var(--ink);border-color:var(--sed)}
 body.dash-aktivni header,body.dash-aktivni main,body.dash-aktivni .dlazdice,
 body.dash-aktivni .patka{display:none}
 body.dash-aktivni{overflow:auto}

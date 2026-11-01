@@ -1,0 +1,432 @@
+{
+ "mereno": {
+  "datum": "2026-11-01",
+  "korpus": "../LEGACY/src/LEGACY",
+  "souboru": 707,
+  "souboruMimoMapu": 1,
+  "radkuBezKomentaru": 420130,
+  "porovnanychDvojic": 42111,
+  "sekund": 5.6
+ },
+ "metoda": {
+  "prahShody": 0.85,
+  "oknoVelikosti": 1.36,
+  "minRadku": 5,
+  "popis": "difflib.SequenceMatcher over lines; comments, blank lines and trailing spaces removed; clusters are the transitive closure of pairs over the threshold; \"copy\" lines are the cluster total minus its largest member",
+  "kalibrace": [
+   {
+    "a": "caixa2.cbl",
+    "b": "caixa3.cbl",
+    "shodaProcent": 98.9,
+    "ocekavano": 98.9
+   },
+   {
+    "a": "caixa3.cbl",
+    "b": "caixa4.cbl",
+    "shodaProcent": 99.3,
+    "ocekavano": 99.3
+   },
+   {
+    "a": "itau.cbl",
+    "b": "itau2.cbl",
+    "shodaProcent": 99.6,
+    "ocekavano": 99.6
+   }
+  ]
+ },
+ "souhrn": {
+  "klastru": 40,
+  "souboruVKlastrech": 119,
+  "kopiiSouboru": 79,
+  "kopiiRadku": 79190,
+  "kopiiProcent": 18.8,
+  "obrazovek": 494,
+  "obrazovekNezarazenych": 2
+ },
+ "podsystemy": [
+  {
+   "id": "COP",
+   "programu": 65,
+   "radku": 65027,
+   "radkuBezKomentaru": 57458,
+   "kopiiRadku": 15872,
+   "kopiiSouboru": 10,
+   "obrazovek": 60
+  },
+  {
+   "id": "CRP",
+   "programu": 60,
+   "radku": 63884,
+   "radkuBezKomentaru": 57033,
+   "kopiiRadku": 28221,
+   "kopiiSouboru": 25,
+   "obrazovek": 57
+  },
+  {
+   "id": "GALHO",
+   "programu": 151,
+   "radku": 39923,
+   "radkuBezKomentaru": 32089,
+   "kopiiRadku": 1541,
+   "kopiiSouboru": 8,
+   "obrazovek": 7
+  },
+  {
+   "id": "MTP",
+   "programu": 34,
+   "radku": 35802,
+   "radkuBezKomentaru": 31369,
+   "kopiiRadku": 1752,
+   "kopiiSouboru": 2,
+   "obrazovek": 33
+  },
+  {
+   "id": "CHP",
+   "programu": 27,
+   "radku": 29224,
+   "radkuBezKomentaru": 24975,
+   "kopiiRadku": 5041,
+   "kopiiSouboru": 3,
+   "obrazovek": 21
+  },
+  {
+   "id": "RCP",
+   "programu": 20,
+   "radku": 28087,
+   "radkuBezKomentaru": 23631,
+   "kopiiRadku": 454,
+   "kopiiSouboru": 1,
+   "obrazovek": 21
+  },
+  {
+   "id": "OTHER",
+   "programu": 27,
+   "radku": 26748,
+   "radkuBezKomentaru": 22109,
+   "kopiiRadku": 432,
+   "kopiiSouboru": 1,
+   "obrazovek": 19
+  },
+  {
+   "id": "CPP",
+   "programu": 21,
+   "radku": 22805,
+   "radkuBezKomentaru": 19752,
+   "kopiiRadku": 2661,
+   "kopiiSouboru": 1,
+   "obrazovek": 21
+  },
+  {
+   "id": "ACP",
+   "programu": 27,
+   "radku": 19606,
+   "radkuBezKomentaru": 17031,
+   "kopiiRadku": 3508,
+   "kopiiSouboru": 1,
+   "obrazovek": 11
+  },
+  {
+   "id": "REP",
+   "programu": 32,
+   "radku": 18722,
+   "radkuBezKomentaru": 16624,
+   "kopiiRadku": 441,
+   "kopiiSouboru": 1,
+   "obrazovek": 32
+  },
+  {
+   "id": "BANKS",
+   "programu": 12,
+   "radku": 17818,
+   "radkuBezKomentaru": 15802,
+   "kopiiRadku": 8117,
+   "kopiiSouboru": 6,
+   "obrazovek": 12
+  },
+  {
+   "id": "CXP",
+   "programu": 21,
+   "radku": 17549,
+   "radkuBezKomentaru": 15162,
+   "kopiiRadku": 3370,
+   "kopiiSouboru": 2,
+   "obrazovek": 18
+  },
+  {
+   "id": "LBP",
+   "programu": 42,
+   "radku": 16614,
+   "radkuBezKomentaru": 15127,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 42
+  },
+  {
+   "id": "CCP",
+   "programu": 20,
+   "radku": 14566,
+   "radkuBezKomentaru": 12791,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 20
+  },
+  {
+   "id": "CGP",
+   "programu": 11,
+   "radku": 11606,
+   "radkuBezKomentaru": 10330,
+   "kopiiRadku": 2988,
+   "kopiiSouboru": 1,
+   "obrazovek": 13
+  },
+  {
+   "id": "VIP",
+   "programu": 16,
+   "radku": 8488,
+   "radkuBezKomentaru": 7707,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 16
+  },
+  {
+   "id": "PRP",
+   "programu": 9,
+   "radku": 7868,
+   "radkuBezKomentaru": 6825,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 6
+  },
+  {
+   "id": "OEP",
+   "programu": 9,
+   "radku": 6948,
+   "radkuBezKomentaru": 6308,
+   "kopiiRadku": 1506,
+   "kopiiSouboru": 1,
+   "obrazovek": 9
+  },
+  {
+   "id": "CAP",
+   "programu": 20,
+   "radku": 5892,
+   "radkuBezKomentaru": 5208,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 20
+  },
+  {
+   "id": "CBP",
+   "programu": 14,
+   "radku": 4667,
+   "radkuBezKomentaru": 4120,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 12
+  },
+  {
+   "id": "GR",
+   "programu": 20,
+   "radku": 4023,
+   "radkuBezKomentaru": 3557,
+   "kopiiRadku": 66,
+   "kopiiSouboru": 1,
+   "obrazovek": 0
+  },
+  {
+   "id": "LOG",
+   "programu": 4,
+   "radku": 3131,
+   "radkuBezKomentaru": 2633,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 4
+  },
+  {
+   "id": "ALT",
+   "programu": 15,
+   "radku": 2919,
+   "radkuBezKomentaru": 2447,
+   "kopiiRadku": 780,
+   "kopiiSouboru": 5,
+   "obrazovek": 13
+  },
+  {
+   "id": "CAD",
+   "programu": 4,
+   "radku": 2207,
+   "radkuBezKomentaru": 1954,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 5
+  },
+  {
+   "id": "SIS",
+   "programu": 4,
+   "radku": 2696,
+   "radkuBezKomentaru": 1832,
+   "kopiiRadku": 1348,
+   "kopiiSouboru": 3,
+   "obrazovek": 2
+  },
+  {
+   "id": "CON",
+   "programu": 6,
+   "radku": 1973,
+   "radkuBezKomentaru": 1786,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 5
+  },
+  {
+   "id": "CIE",
+   "programu": 4,
+   "radku": 1758,
+   "radkuBezKomentaru": 1600,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 4
+  },
+  {
+   "id": "ALS",
+   "programu": 7,
+   "radku": 1309,
+   "radkuBezKomentaru": 1092,
+   "kopiiRadku": 1092,
+   "kopiiSouboru": 7,
+   "obrazovek": 7
+  },
+  {
+   "id": "IEP",
+   "programu": 4,
+   "radku": 1008,
+   "radkuBezKomentaru": 914,
+   "kopiiRadku": 0,
+   "kopiiSouboru": 0,
+   "obrazovek": 4
+  }
+ ],
+ "nejvetsiKlastry": [
+  {
+   "souboru": 5,
+   "radku": 11099,
+   "cleni": [
+    "Cópia (2) de cop104.cbl",
+    "Cópia de cop104.cbl",
+    "cop104-2.cbl",
+    "cop104-BACK.cbl",
+    "cop104.cbl"
+   ]
+  },
+  {
+   "souboru": 9,
+   "radku": 9841,
+   "cleni": [
+    "crp9102.CBL",
+    "crp9102A.CBL",
+    "crp9102B.cbl",
+    "crp9102C.cbl",
+    "crp9102D.cbl",
+    "crp9103.cbl",
+    "crp9105.cbl",
+    "crp9109.cbl",
+    "crp9109a.cbl"
+   ]
+  },
+  {
+   "souboru": 11,
+   "radku": 9748,
+   "cleni": [
+    "crp9112.cbl",
+    "crp9112A.cbl",
+    "crp9112B.cbl",
+    "crp9112C.cbl",
+    "crp9112D.cbl",
+    "crp9113.cbl",
+    "crp9114.CBL",
+    "crp9115.cbl",
+    "crp9118.cbl",
+    "crp9119.cbl",
+    "crp9119A.cbl"
+   ]
+  },
+  {
+   "souboru": 2,
+   "radku": 7030,
+   "cleni": [
+    "acp110.CBL",
+    "acp140.cbl"
+   ]
+  },
+  {
+   "souboru": 4,
+   "radku": 6522,
+   "cleni": [
+    "crp9116.cbl",
+    "crp9116a.cbl",
+    "crp9116b.cbl",
+    "crp9117.cbl"
+   ]
+  },
+  {
+   "souboru": 2,
+   "radku": 6404,
+   "cleni": [
+    "cxp100-23102012.cbl",
+    "cxp100.cbl"
+   ]
+  },
+  {
+   "souboru": 4,
+   "radku": 6080,
+   "cleni": [
+    "caixa.cbl",
+    "caixa2.cbl",
+    "caixa3.cbl",
+    "caixa4.cbl"
+   ]
+  },
+  {
+   "souboru": 2,
+   "radku": 5978,
+   "cleni": [
+    "cgp010.cbl",
+    "cgp010a.cbl"
+   ]
+  },
+  {
+   "souboru": 4,
+   "radku": 5697,
+   "cleni": [
+    "crp9106.cbl",
+    "crp9106a.cbl",
+    "crp9106b.cbl",
+    "crp9107.cbl"
+   ]
+  },
+  {
+   "souboru": 2,
+   "radku": 5374,
+   "cleni": [
+    "cpp022.CBL",
+    "cpp022a.cbl"
+   ]
+  },
+  {
+   "souboru": 2,
+   "radku": 5281,
+   "cleni": [
+    "cop998.CBL",
+    "cop999.CBL"
+   ]
+  },
+  {
+   "souboru": 2,
+   "radku": 4729,
+   "cleni": [
+    "chp057b.cbl",
+    "chp057t.CBL"
+   ]
+  }
+ ]
+}
